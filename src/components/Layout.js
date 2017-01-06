@@ -9,6 +9,7 @@ import File from "./File"
   return {
     templates: store.templates.templates,
     files: store.files.files,
+    folder_title: store.files.folder_title,
   };
 })
 export default class Layout extends React.Component {
@@ -25,7 +26,7 @@ export default class Layout extends React.Component {
 
   render() {
 
-    const { templates, files } = this.props;
+    const { templates, files, folder_title } = this.props;
 
     const FoldersComponents = templates.map( (folder) => {
       return <Folder key={ folder.id } folder={ folder } dispatch={this.props.dispatch}/>
@@ -44,7 +45,8 @@ export default class Layout extends React.Component {
             </div>
           </div>
           <div class="col-md-9">
-             {FilesComponents}
+            <div><h3>{folder_title}</h3></div>
+            {FilesComponents}
           </div>
         </div>
       </div>

@@ -4,7 +4,17 @@ export function fetchTemplates() {
   return function(dispatch) {
     axios.get("https://pictographr.com/admin/getTemplatesJsonFile")
       .then((response) => {
+
         dispatch({type: "FETCH_TEMPLATES_FULFILLED", payload: response.data})
+
+        dispatch({
+          type: 'ADD_FILES',
+          payload: {
+            files: response.data[0].files,
+            folder_title: response.data[0].title
+          },
+        });
+
       })
       .catch((err) => {
         dispatch({type: "FETCH_TEMPLATES_REJECTED", payload: err})

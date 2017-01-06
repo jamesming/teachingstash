@@ -4,7 +4,7 @@ export default class File extends React.Component {
 
   dispatch(){
 
-    // this.props.dispatch(addFiles(this.props.folder.files, this.props.folder.title));
+
 
   }
 

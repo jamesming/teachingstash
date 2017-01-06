@@ -1,1 +1,1 @@
-NODE_ENV=production ./node_modules/.bin/webpack
+NODE_ENV=production ./node_modules/.bin/webpack; git add .; git commit -m "update"; git push

@@ -29,7 +29,7 @@
   "devDependencies": {},
   "scripts": {
     "dev": "webpack-dev-server --content-base public --inline --hot",
-    "build": "webpack | git add . | git commit -m \"updating\" | git push",
+    "build": "webpack",
     "push": "git add . | git commit -m \"updating\" | git push",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

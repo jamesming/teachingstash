@@ -19,7 +19,20 @@ export default class Layout extends React.Component {
   componentWillMount() {
 
     this.props.dispatch(fetchTemplates())
-    new CrossDomService();
+    this.crossDomService =  new CrossDomService();
+
+  }
+
+  launchPictographrFile( fileId ){
+
+    if( this.crossDomService.userIsLoggedIn() ) {
+      this.crossDomService.launchPictographrFile( fileId );
+    } else {
+      this.crossDomService.popSignUpWindow(() => {
+        this.crossDomService.launchPictographrFile( fileId );
+      });
+
+    }
 
   }
 
@@ -32,7 +45,7 @@ export default class Layout extends React.Component {
     })
 
     const FilesComponents = files.map( (file) => {
-      return <File key={file.id} file={file} dispatch={this.props.dispatch}/>
+      return <File key={file.id} file={file} dispatch={this.props.dispatch} launchPictographrFile={this.launchPictographrFile.bind(this)}/>
     })
 
     return (

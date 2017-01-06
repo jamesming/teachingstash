@@ -2,10 +2,9 @@ import React from "react"
 
 export default class File extends React.Component {
 
-  dispatch(){
+  launchPictographrFile(){
 
-
-
+    this.props.launchPictographrFile( this.props.file.id  );
   }
 
   render() {
@@ -19,8 +18,7 @@ export default class File extends React.Component {
               <div class="caption">
               <h4>{this.props.file.title}</h4>
               <p>
-            <button class="btn btn-primary btn-sm" target="_top">Launch</button>&nbsp;&nbsp;
-            <button class="btn btn-primary btn-sm" target="_top">Email</button>
+                <button class="btn btn-primary btn-sm" target="_top" onClick={this.launchPictographrFile.bind(this)}>Launch</button>
               </p>
             </div>
           </a>

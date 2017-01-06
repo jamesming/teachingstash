@@ -106,6 +106,7 @@ export default class Layout extends React.Component {
             </div>
           </div>
           <div class="col-md-9">
+            <div><h3>TEST</h3></div>
             <div><h3>{folder_title}</h3></div>
             {FilesComponents}
           </div>

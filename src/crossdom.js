@@ -135,36 +135,42 @@ export default class CrossDomService {
 
 		var that = this;
 
-		tools.crossdom.send({
-			msgFrom: this.nameOfThisFile,
-			purpose: 'createNewPictographrUser',
-			partner_id: 17
-		});
+    let app = new App();
 
-		this.poll3sec = setInterval(
+    app.createNewPictographrUser();
 
-			() => {
+    //createNewPictographrUser
 
-				console.log('poll3sec again');
+		// tools.crossdom.send({
+		// 	msgFrom: this.nameOfThisFile,
+		// 	purpose: 'createNewPictographrUser',
+		// 	partner_id: 17
+		// });
 
-				tools.crossdom.send({
-					msgFrom: that.nameOfThisFile,
-					purpose: 'waitForUserReadyFromPict'
-				})
+		// this.poll3sec = setInterval(
 
-			}, 3000);
+		// 	() => {
 
-		var checkLoggedIn = setInterval(
+		// 		console.log('poll3sec again');
 
-			() => {
+		// 		tools.crossdom.send({
+		// 			msgFrom: that.nameOfThisFile,
+		// 			purpose: 'waitForUserReadyFromPict'
+		// 		})
 
-				console.log('checkLoggedIn again');
+		// 	}, 3000);
 
-				if( this.userIsLoggedIn() ) {
-					clearInterval(checkLoggedIn);
-					callback();
-				}
+		// var checkLoggedIn = setInterval(
 
-			}, 3000);
+		// 	() => {
+
+		// 		console.log('checkLoggedIn again');
+
+		// 		if( this.userIsLoggedIn() ) {
+		// 			clearInterval(checkLoggedIn);
+		// 			callback();
+		// 		}
+
+		// 	}, 3000);
 		}
 }

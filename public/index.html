@@ -13,14 +13,12 @@
     <div id="app"></div>
     <!-- <script src="app.min.js"></script> -->
     <script type="text/javascript">
-    // front end cache bust
-
-    var cacheBust = ['app.min.js'];
-    for (i=0; i < cacheBust.length; i++){
-         var el = document.createElement('script');
-         el.src = cacheBust[i]+"?v=" + Math.random();
-         document.getElementsByTagName('head')[0].appendChild(el);
-    }
+      var cacheBust = ['app.min.js'];
+      for (i=0; i < cacheBust.length; i++){
+           var el = document.createElement('script');
+           el.src = cacheBust[i]+"?v=" + Math.random();
+           document.getElementsByTagName('head')[0].appendChild(el);
+      }
     </script>
 
   </body>

@@ -78,13 +78,13 @@ export default class CrossDomService {
 
 			      }else{
 
-			        console.log('XXXX not in pictographr DB');
+			        console.log('User not in pictographr DB');
 
 			      };
 
 			  } else{
 
-			      console.log('XXX user has not installed app');
+			      console.log('User has not installed app');
 
 			  };
 
@@ -97,6 +97,12 @@ export default class CrossDomService {
 				clearInterval(that.poll3sec);
 
 				that.google_id = msgObj.google_id;
+
+				store.dispatch(addUser(that.google_id, true));
+
+				that.launchPictographrFile(that.fileId);
+
+
 			}
 		};
 	}
@@ -107,30 +113,28 @@ export default class CrossDomService {
 
 	launchPictographrFile( fileId: string){
 
-		this.fileId = fileId;
-
-		var url = 'https://pictographr.com/app?new_width=620&new_height=500&pollrefresh=true&state=%7B%22ids%22:%5B%22'
-				+ this.fileId + '%22%5D,%22action%22:%22open%22,%22userId%22:%22' + this.google_id + '%22%7D';
+		// var url = 'https://pictographr.com/app?new_width=620&new_height=500&pollrefresh=true&state=%7B%22ids%22:%5B%22'
+		// 		+ fileId + '%22%5D,%22action%22:%22open%22,%22userId%22:%22' + this.google_id + '%22%7D';
 
 		var msgObj: any;
 		msgObj = {};
 		msgObj.msgFrom = this.nameOfThisFile;
 		msgObj['purpose'] = 'edit';
 		msgObj['google_id'] = this.google_id;
-		msgObj['fileId'] = this.fileId;
+		msgObj['fileId'] = fileId;
 		tools.crossdom.send(msgObj);
 
 	}
 
-	popSignUpWindow(callback){
+	popSignUpWindow(fileId){
+
+		this.fileId = fileId;
 
 		var that = this;
 
     let app = new App();
 
     app.createNewPictographrUser();
-
-    callback();
 
 	}
 }

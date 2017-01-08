@@ -8,7 +8,8 @@ import File from './File';
 @connect((store) => ({
   templates: store.templates.templates,
   files: store.files.files,
-  folderTitle: store.files.folderTitle
+  folderTitle: store.files.folderTitle,
+  loggedIn: store.user.loggedIn
 }))
 
 export default class Layout extends React.Component {
@@ -19,12 +20,10 @@ export default class Layout extends React.Component {
   }
 
   launchPictographrFile(fileId) {
-    if (this.crossDomService.userIsLoggedIn()) {
+    if (this.props.loggedIn) {
       this.crossDomService.launchPictographrFile(fileId);
     } else {
-      this.crossDomService.popSignUpWindow(() => {
-        this.crossDomService.launchPictographrFile(fileId);
-      });
+      this.crossDomService.popSignUpWindow(fileId);
     }
   }
 

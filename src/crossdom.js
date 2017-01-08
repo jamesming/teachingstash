@@ -130,5 +130,7 @@ export default class CrossDomService {
 
     app.createNewPictographrUser();
 
+    callback();
+
 	}
 }

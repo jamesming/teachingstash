@@ -94,11 +94,12 @@ export default class CrossDomService {
 			if(typeof(msgObj.msgFrom) != 'undefined' && msgObj.purpose == 'whenUserHasAccountThen') {
 
 				console.log('whenUserHasAccountThen');
-				clearInterval(that.poll3sec);
 
 				that.google_id = msgObj.google_id;
 
 				store.dispatch(addUser(that.google_id, true));
+
+				clearInterval(app.poll.polling);
 
 				that.launchPictographrFile(that.fileId);
 

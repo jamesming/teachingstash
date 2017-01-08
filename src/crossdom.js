@@ -78,13 +78,13 @@ export default class CrossDomService {
 
 			      }else{
 
-			        console.log('not in pictographr DB');
+			        console.log('XXXX not in pictographr DB');
 
 			      };
 
 			  } else{
 
-			      console.log('user has not installed app');
+			      console.log('XXX user has not installed app');
 
 			  };
 

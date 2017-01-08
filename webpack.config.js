@@ -1,7 +1,6 @@
 var debug = process.env.NODE_ENV !== "production";
 var webpack = require('webpack');
 var path = require('path');
-var filename = "app.min.js?version=" + Math.random();
 
 module.exports = {
   context: path.join(__dirname, "src"),
@@ -22,7 +21,7 @@ module.exports = {
   },
   output: {
     path: __dirname + "/public/",
-    filename: filename
+    filename: "app.min.js"
   },
   plugins: debug ? [] : [
     new webpack.optimize.DedupePlugin(),

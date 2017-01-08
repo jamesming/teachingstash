@@ -64,82 +64,39 @@ export default class CrossDomService {
 			  //console.log(JSON.stringify(  msgObj   , null, 2 ));
 
 			  if( typeof( msgObj.google_id ) != 'undefined')   {
-
-			  		console.log(msgObj.google_id);}
-
-			  if( msgObj.appInstalled == 'true'){
-
-			      if( msgObj.exist == 'true'){  // user is in database
-
+			  	console.log(msgObj.google_id);}
+				  if(msgObj.appInstalled == 'true'){
+			      if(msgObj.exist == 'true'){  // user is in database
 			        console.log('user is in database');
-			        that.google_id = msgObj.google_id;
-
 							store.dispatch(addUser(that.google_id, true));
-
-			      }else{
-
+			      } else {
 			        console.log('User not in pictographr DB');
-
 			      };
 
-			  } else{
-
-			      console.log('User has not installed app');
-
-			  };
-
+				  } else{
+				     console.log('User has not installed app');
+				  };
 			};
 
-
 			if(typeof(msgObj.msgFrom) != 'undefined' && msgObj.purpose == 'whenUserHasAccountThen') {
-
 				console.log('whenUserHasAccountThen');
-
-				that.google_id = msgObj.google_id;
-
 				store.dispatch(addUser(that.google_id, true));
-
 				clearInterval(that.app.poll.polling);
-
 				that.launchPictographrFile(that.fileId);
-
-
 			}
 		};
 	}
 
-	userIsLoggedIn(){
-		return ( typeof(this.google_id) != 'undefined' );
-	}
-
 	launchPictographrFile( fileId: string){
-
-		var url = 'https://pictographr.com/app?new_width=620&new_height=500&pollrefresh=true&state=%7B%22ids%22:%5B%22'
+		const url = 'https://pictographr.com/app?new_width=620&new_height=500&pollrefresh=true&state=%7B%22ids%22:%5B%22'
 				+ fileId + '%22%5D,%22action%22:%22open%22,%22userId%22:%22' + this.google_id + '%22%7D';
 
 		window.location = url;
-
-		return;
-
-		console.log('Attempting to launch: ', fileId);
-
-		var msgObj: any;
-		msgObj = {};
-		msgObj.msgFrom = this.nameOfThisFile;
-		msgObj['purpose'] = 'edit';
-		msgObj['google_id'] = this.google_id;
-		msgObj['fileId'] = fileId;
-		tools.crossdom.send(msgObj);
-
 	}
 
 	popSignUpWindow(fileId){
-
 		this.fileId = fileId;
-
     this.app = new App();
-
     this.app.createNewPictographrUser();
-
 	}
 }

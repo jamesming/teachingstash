@@ -31,12 +31,18 @@ export default class Layout extends React.Component {
   render() {
     const { templates, files, folderTitle } = this.props;
     const FoldersComponents = templates.map((folder) =>
-      <Folder key={folder.id} folder={folder} dispatch={this.props.dispatch} />);
+      <Folder
+        key={folder.id}
+        folder={folder}
+        dispatch={this.props.dispatch}
+      />);
 
     const FilesComponents = files.map((file) => (
         <File
-        key={file.id} file={file} dispatch={this.props.dispatch}
-        launchPictographrFile={this.launchPictographrFile.bind(this)}
+          key={file.id}
+          file={file}
+          dispatch={this.props.dispatch}
+          launchPictographrFile={this.launchPictographrFile.bind(this)}
         />
       ));
 

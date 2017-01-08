@@ -1,13 +1,13 @@
 export default function reducer(state = {
-    files: [],
-    folder_title: '',
+    google_id: '',
+    loggedIn: false,
   }, action) {
     switch (action.type) {
-      case 'ADD_FILES': {
+      case 'SET_USER': {
         return {
           ...state,
-          files: action.payload.files,
-          folderTitle: action.payload.folderTitle,
+          google_id: action.payload.google_id,
+          loggedIn: action.payload.loggedIn
         };
       }
       default: {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { addFiles } from '../actions/filesActions';
-import Sub_folder from './Sub_folder';
+import SubFolder from './Sub_folder';
 
 export default class Folder extends React.Component {
 
@@ -13,28 +13,20 @@ export default class Folder extends React.Component {
   render() {
     const { folder } = this.props;
 
-    var folderTitle = folder.title,
-        folderId = folder.id,
-        panelref = 'heading-' + folderId,
-        target = '#' + folderId,
-        subcomponentFolder = [],
+    var panelref = 'heading-' + folder.id,
+        target = '#' + folder.id,
         enableCollapse = '',
         subFolderUl = '';
 
     if (folder.sub_folders) {
-      for(let idx in folder.sub_folders) {
-        const subFolder = folder.sub_folders[idx];
-        const sub_folder_title = subFolder.title;
-
-        subcomponentFolder.push(
-          <Sub_folder
-            key={idx}
+      const subcomponentFolder = folder.sub_folders.map((subFolder) => (
+          <SubFolder
+            key={subFolder.id}
             subFolder={subFolder}
-            sub_folder_title={sub_folder_title}
             dispatch={this.props.dispatch}
           />
-       );
-      }
+       ));
+
       enableCollapse = 'collapse';
       subFolderUl = (
         <ul>{subcomponentFolder}</ul>
@@ -42,20 +34,20 @@ export default class Folder extends React.Component {
     }
 
     return (
-        <div key={folderId} className='panel panel-default'>
+        <div key={folder.id} className='panel panel-default'>
           <div className='panel-heading' role='tab' id={panelref}>
             <h4 className='panel-title'>
               <a
                 className='collapsed' onClick={this.dispatch.bind(this)} role='button'
-                data-toggle={enableCollapse} data-parent='#accordion' href={target}
-                aria-expanded='false' aria-controls={folderId}
+                data-toggle={(enableCollapse)} data-parent='#accordion' href={target}
+                aria-expanded='false' aria-controls={folder.id}
               >
-                {folderTitle}
+                {folder.title}
               </a>
             </h4>
           </div>
           <div
-            id={folderId}
+            id={folder.id}
             className='panel-collapse collapse' role='tabpanel' aria-labelledby='{panelref}'
           >
             <div className='list-group'>

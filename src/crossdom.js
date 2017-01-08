@@ -1,16 +1,15 @@
-import {Observable} from 'rxjs/Rx';
+import { Observable } from 'rxjs/Rx';
+import { addUser } from './actions/userActions';
+import store from './store';
 
 export default class CrossDomService {
 
-	constructor(){
-
+	constructor() {
 		this.nameOfThisFile = 'crossdomfile';
-	  this.initiateMessaging();
-
+		this.initiateMessaging();
 	}
 
-	testObserable(){
-
+	testObserable() {
 	  var values: Array<number> = [];
 	  var anyErrors: boolean;
 	  var finished: boolean;
@@ -34,34 +33,29 @@ export default class CrossDomService {
       });
 
       data.subscribe(
-      	function( value ){
-      		console.log( value );
+ 				function(value) {
+      		console.log(value);
       	},
-      	function( error ){
-      		console.log( error );
+      	function(error) {
+      		console.log(error);
       	},
       	function(){
       		console.log('observable completed');
       	}
       );
-
 	}
 
-	initiateMessaging(){
-
-     	tools.crossdom.init('iframe_messaging_conduit', 'https://pictographr.com/partners/iframeSrcPostMsgConduit.html');
-     	this.setReceiver();
-
+	initiateMessaging() {
+		tools.crossdom.init('iframe_messaging_conduit', 'https://pictographr.com/partners/iframeSrcPostMsgConduit.html');
+		this.setReceiver();
 	}
 
-	setReceiver(){
-
+	setReceiver() {
 		var that = this;
-
 
 		tools.crossdom.receive = function(msg) {
 
-			if( typeof( msg.data.split ) != 'function') return;
+			if(typeof(msg.data.split) != 'function') return;
 
 			var msgObj = this.unserialize(msg.data.split(','));
 
@@ -80,6 +74,8 @@ export default class CrossDomService {
 			        console.log('user is in database');
 			        that.google_id = msgObj.google_id;
 
+							store.dispatch(addUser(that.google_id, true));
+
 			      }else{
 
 			        console.log('not in pictographr DB');
@@ -95,16 +91,14 @@ export default class CrossDomService {
 			};
 
 
-			if( typeof( msgObj.msgFrom) != 'undefined' && msgObj.purpose == 'whenUserHasAccountThen' ){
+			if(typeof(msgObj.msgFrom) != 'undefined' && msgObj.purpose == 'whenUserHasAccountThen') {
 
 				console.log('whenUserHasAccountThen');
 				clearInterval(that.poll3sec);
 
 				that.google_id = msgObj.google_id;
-			};
-
+			}
 		};
-
 	}
 
 	userIsLoggedIn(){
@@ -128,7 +122,7 @@ export default class CrossDomService {
 
 	}
 
-	popSignUpWindow( callback ){
+	popSignUpWindow(callback){
 
 		var that = this;
 

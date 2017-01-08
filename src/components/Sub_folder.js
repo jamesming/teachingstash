@@ -4,7 +4,7 @@ import { addFiles } from '../actions/filesActions';
 export default class Subfolder extends React.Component {
 
   dispatch() {
-    this.props.dispatch(addFiles(this.props.sub_folder.files, this.props.sub_folder.title));
+    this.props.dispatch(addFiles(this.props.subFolder.files, this.props.subFolder.title));
   }
 
   render() {
@@ -17,7 +17,7 @@ export default class Subfolder extends React.Component {
         <li
         style={inlineTitle}
         onClick={this.dispatch.bind(this)}
-        >{ this.props.sub_folder_title }</li>
+        >{ this.props.subFolder.title }</li>
     );
   }
 }

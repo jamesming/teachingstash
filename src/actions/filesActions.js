@@ -1,9 +1,9 @@
-export function addFiles(files, folder_title) {
+export function addFiles(files, folderTitle) {
   return {
     type: 'ADD_FILES',
     payload: {
       files,
-      folder_title
+      folderTitle
     },
   };
 }

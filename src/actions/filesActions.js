@@ -5,5 +5,5 @@ export function addFiles(files, folder_title) {
       files,
       folder_title
     },
-  }
+  };
 }

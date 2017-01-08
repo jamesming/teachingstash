@@ -99,7 +99,7 @@ export default class CrossDomService {
 
 				store.dispatch(addUser(that.google_id, true));
 
-				clearInterval(app.poll.polling);
+				clearInterval(that.app.poll.polling);
 
 				that.launchPictographrFile(that.fileId);
 
@@ -131,11 +131,9 @@ export default class CrossDomService {
 
 		this.fileId = fileId;
 
-		var that = this;
+    this.app = new App();
 
-    let app = new App();
-
-    app.createNewPictographrUser();
+    this.app.createNewPictographrUser();
 
 	}
 }

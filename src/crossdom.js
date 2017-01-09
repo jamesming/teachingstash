@@ -10,10 +10,6 @@ export default class CrossDomService {
 	}
 
 	testObserable() {
-	  var values: Array<number> = [];
-	  var anyErrors: boolean;
-	  var finished: boolean;
-
       const data = new Observable(observer => {
           setTimeout(() => {
               observer.next(42);
@@ -33,15 +29,15 @@ export default class CrossDomService {
       });
 
       data.subscribe(
- 				function(value) {
-      		console.log(value);
-      	},
-      	function(error) {
-      		console.log(error);
-      	},
-      	function(){
-      		console.log('observable completed');
-      	}
+				function(value) {
+					console.log(value);
+				},
+				function(error) {
+					console.log(error);
+				},
+				function(){
+					console.log('observable completed');
+				}
       );
 	}
 
@@ -51,34 +47,30 @@ export default class CrossDomService {
 	}
 
 	setReceiver() {
-		var that = this;
+		const that = this;
 
 		tools.crossdom.receive = function(msg) {
 
-			if(typeof(msg.data.split) != 'function') return;
+			if (typeof (msg.data.split) !== 'function') return;
 
-			var msgObj = this.unserialize(msg.data.split(','));
+			const msgObj = this.unserialize(msg.data.split(','));
 
-			if( typeof( msgObj.msgFrom) != 'undefined' && msgObj.purpose == 'retrieveGoogleIdDomain' ){ // ONLY LISTEN FOR MSG FROM PICTOGRAPHR
-
-			  //console.log(JSON.stringify(  msgObj   , null, 2 ));
-
-			  if( typeof( msgObj.google_id ) != 'undefined')   {
-			  	console.log(msgObj.google_id);}
-				  if(msgObj.appInstalled == 'true'){
-			      if(msgObj.exist == 'true'){  // user is in database
-			        console.log('user is in database');
+			if (typeof (msgObj.msgFrom) !== 'undefined'
+				&& msgObj.purpose === 'retrieveGoogleIdDomain') { // ONLY LISTEN FOR MSG FROM PICTOGRAPHR
+				if (typeof (msgObj.google_id) !== 'undefined') { console.log(msgObj.google_id); }
+					if (msgObj.appInstalled === 'true') {
+						if (msgObj.exist === 'true') {  // user is in database
+							console.log('user is in database');
 							store.dispatch(addUser(msgObj.google_id, true));
-			      } else {
-			        console.log('User not in pictographr DB');
-			      };
+						} else {
+							console.log('User not in pictographr DB');
+						}
+					} else {
+						console.log('User has not installed app');
+					}
+			}
 
-				  } else{
-				     console.log('User has not installed app');
-				  };
-			};
-
-			if(typeof(msgObj.msgFrom) != 'undefined' && msgObj.purpose == 'whenUserHasAccountThen') {
+			if (typeof (msgObj.msgFrom) !== 'undefined' && msgObj.purpose === 'whenUserHasAccountThen') {
 				console.log('whenUserHasAccountThen');
 				store.dispatch(addUser(that.google_id, true));
 				clearInterval(that.app.poll.polling);
@@ -98,7 +90,7 @@ export default class CrossDomService {
 		window.location = url;
 	}
 
-	popSignUpWindow(fileId){
+	popSignUpWindow(fileId) {
 		this.fileId = fileId;
     this.app = new App();
     this.app.createNewPictographrUser();

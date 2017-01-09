@@ -4,6 +4,22 @@ import SubFolder from './Sub_folder';
 
 export default class Folder extends React.Component {
 
+  getUnorderedList() {
+    const { folder } = this.props;
+
+    const subcomponentFolder = folder.sub_folders.map((subFolder) => (
+        <SubFolder
+          key={subFolder.id}
+          subFolder={subFolder}
+          dispatch={this.props.dispatch}
+        />
+     ));
+
+    return (
+      <ul>{subcomponentFolder}</ul>
+    );
+  }
+
   dispatch() {
     if (this.props.folder.files) {
       this.props.dispatch(addFiles(this.props.folder.files, this.props.folder.title));
@@ -13,33 +29,19 @@ export default class Folder extends React.Component {
   render() {
     const { folder } = this.props;
 
-    var panelref = 'heading-' + folder.id,
-        target = '#' + folder.id,
-        enableCollapse = '',
-        subFolderUl = '';
-
-    if (folder.sub_folders) {
-      const subcomponentFolder = folder.sub_folders.map((subFolder) => (
-          <SubFolder
-            key={subFolder.id}
-            subFolder={subFolder}
-            dispatch={this.props.dispatch}
-          />
-       ));
-
-      enableCollapse = 'collapse';
-      subFolderUl = (
-        <ul>{subcomponentFolder}</ul>
-     );
-    }
-
     return (
         <div key={folder.id} className='panel panel-default'>
-          <div className='panel-heading' role='tab' id={panelref}>
+          <div className='panel-heading' role='tab' id={`heading-${folder.id}`}>
             <h4 className='panel-title'>
               <a
                 className='collapsed' onClick={this.dispatch.bind(this)} role='button'
-                data-toggle={(enableCollapse)} data-parent='#accordion' href={target}
+                data-toggle={
+                    folder.sub_folders ?
+                    'collapse'
+                    :
+                    ''
+                  }
+                data-parent='#accordion' href={`#${folder.id}`}
                 aria-expanded='false' aria-controls={folder.id}
               >
                 {folder.title}
@@ -51,7 +53,9 @@ export default class Folder extends React.Component {
             className='panel-collapse collapse' role='tabpanel' aria-labelledby='{panelref}'
           >
             <div className='list-group'>
-              {subFolderUl}
+              {
+                folder.sub_folders ? this.getUnorderedList() : ''
+              }
             </div>
           </div>
         </div>

@@ -23,11 +23,11 @@ export default class Layout extends React.Component {
   }
 
   launchPictographrFile() {
-    this.crossDomService.launchPictographrFile(this.props.activeFileId);
+    this.crossDomService.launchPictographrFile();
   }
 
   popGoogleSignIn() {
-    this.crossDomService.popSignUpWindow(this.props.activeFileId);
+    this.crossDomService.popSignUpWindow();
   }
 
   render() {
@@ -52,7 +52,7 @@ export default class Layout extends React.Component {
     return (
       <div>
         <Topfold />
-        <Modal popGoogleSignIn={this.popGoogleSignIn.bind(this)}/>
+        <Modal popGoogleSignIn={this.popGoogleSignIn.bind(this)} />
         <div className='container-fluid '>
           <div className='row'>
             <div className='col-md-3'>

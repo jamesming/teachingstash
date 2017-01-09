@@ -14,7 +14,7 @@ export default function reducer(state = {
       case 'SET_FILE': {
         return {
           ...state,
-          activeFileId: action.payload.fileId,
+          activeFileId: action.payload.activeFileId,
         };
       }
       default: {

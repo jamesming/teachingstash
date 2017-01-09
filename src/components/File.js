@@ -3,6 +3,10 @@ import { setActiveFileId } from '../actions/filesActions';
 
 export default class File extends React.Component {
 
+  setActiveFileId() {
+    this.props.dispatch(setActiveFileId(this.props.file.id));
+  }
+
   launchPictographrFile() {
     this.props.dispatch(setActiveFileId(this.props.file.id));
     this.props.launchPictographrFile();
@@ -34,6 +38,7 @@ export default class File extends React.Component {
                       >Edit</button>
                     :
                       <button
+                        onClick={this.setActiveFileId.bind(this)}
                         data-toggle='modal'
                         data-target='#signupScreen'
                         className='btn btn-primary btn-sm'

@@ -32,7 +32,7 @@ export default class Modal extends React.Component {
             </div>
             <div className="modal-body">
               <img style={imgStyle} alt="" src="http://placehold.it/500x500" />
-              <button onClick={this.props.popGoogleSignIn()} >
+              <button onClick={this.props.popGoogleSignIn} >
                 Sign In with Google
               </button>
             </div>

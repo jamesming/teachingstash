@@ -11,6 +11,7 @@ import File from './File';
   templates: store.templates.templates,
   files: store.files.files,
   folderTitle: store.files.folderTitle,
+  activeFileId: store.files.activeFileId,
   loggedIn: store.user.loggedIn
 }))
 
@@ -21,12 +22,12 @@ export default class Layout extends React.Component {
     this.crossDomService = new CrossDomService();
   }
 
-  launchPictographrFile(fileId) {
-    if (this.props.loggedIn) {
-      this.crossDomService.launchPictographrFile(fileId);
-    } else {
-      this.crossDomService.popSignUpWindow(fileId);
-    }
+  launchPictographrFile() {
+    this.crossDomService.launchPictographrFile(this.props.activeFileId);
+  }
+
+  popGoogleSignIn() {
+    this.crossDomService.popSignUpWindow(this.props.activeFileId);
   }
 
   render() {
@@ -44,13 +45,14 @@ export default class Layout extends React.Component {
           file={file}
           dispatch={this.props.dispatch}
           launchPictographrFile={this.launchPictographrFile.bind(this)}
+          loggedIn={loggedIn}
         />
       ));
 
     return (
       <div>
         <Topfold />
-        <Modal />
+        <Modal popGoogleSignIn={this.popGoogleSignIn.bind(this)}/>
         <div className='container-fluid '>
           <div className='row'>
             <div className='col-md-3'>
@@ -64,14 +66,16 @@ export default class Layout extends React.Component {
               </div>
             </div>
             <div className='col-md-9'>
-              <div><h3>
-                {
-                  loggedIn ?
-                  <p>Logged In</p>
-                  :
-                  <p>Not Logged In</p>
-                }
-              </h3></div>
+              <div>
+                <h3>
+                  {
+                    loggedIn ?
+                    <p>Logged In</p>
+                    :
+                    <p>Not Logged In</p>
+                  }
+                  </h3>
+                </div>
               <div><h3>{folderTitle}</h3></div>
              {FilesComponents}
             </div>

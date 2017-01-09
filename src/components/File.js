@@ -1,13 +1,11 @@
 import React from 'react';
+import { setActiveFileId } from '../actions/filesActions';
 
 export default class File extends React.Component {
 
   launchPictographrFile() {
-    this.props.launchPictographrFile(this.props.file.id);
-  }
-
-  spawnModal() {
-    console.log('James Test');
+    this.props.dispatch(setActiveFileId(this.props.file.id));
+    this.props.launchPictographrFile();
   }
 
   render() {
@@ -21,7 +19,6 @@ export default class File extends React.Component {
       <div className='col-md-3'>
           <a className='thumbnail'>
               <img
-                onClick={this.spawnModal.bind(this)}
                 src={src}
                 alt='ALT NAME'
                 style={inlineImgStyle}
@@ -29,11 +26,19 @@ export default class File extends React.Component {
               <div className='caption'>
               <h4>{this.props.file.title}</h4>
               <p>
-                <button
-                  className='btn btn-primary btn-sm'
-                  target='_top'
-                  onClick={this.launchPictographrFile.bind(this)}
-                >Launch</button>
+                  {
+                    this.props.loggedIn ?
+                      <button
+                        className='btn btn-primary btn-sm'
+                        onClick={this.launchPictographrFile.bind(this)}
+                      >Edit</button>
+                    :
+                      <button
+                        data-toggle='modal'
+                        data-target='#signupScreen'
+                        className='btn btn-primary btn-sm'
+                      >Edit</button>
+                  }
               </p>
             </div>
           </a>

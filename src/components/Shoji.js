@@ -20,6 +20,7 @@ export default class ShojiCompnent extends React.Component {
         const { templates } = this.props;
         const FoldersComponents = templates.map((folder) =>
           <Folder
+            slideFolderMenu={this.slideFolderMenu.bind(this)}
             key={folder.id}
             folder={folder}
             dispatch={this.props.dispatch}
@@ -86,7 +87,7 @@ export default class ShojiCompnent extends React.Component {
                     </nav>
                     <div className="container">
                         <div className="row">
-                            <div className="hidden-xs col-sm-4">
+                            <div className="hidden-xs col-sm-3">
                               <div
                                 className='panel-group'
                                 id='accordion'
@@ -96,7 +97,7 @@ export default class ShojiCompnent extends React.Component {
                               {FoldersComponents}
                               </div>
                             </div>
-                            <div className="col-xs-12 col-sm-8">
+                            <div className="col-xs-12 col-sm-9">
                               <div>
                                 <h3>
                                   {

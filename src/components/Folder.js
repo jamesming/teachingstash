@@ -9,6 +9,7 @@ export default class Folder extends React.Component {
 
     const subcomponentFolder = folder.sub_folders.map((subFolder) => (
         <SubFolder
+          slideFolderMenu={this.props.slideFolderMenu}
           key={subFolder.id}
           subFolder={subFolder}
           dispatch={this.props.dispatch}
@@ -21,6 +22,7 @@ export default class Folder extends React.Component {
   }
 
   dispatch(e) {
+    if (!this.props.folder.sub_folders) this.props.slideFolderMenu();
     if (this.props.folder.files) {
       this.props.dispatch(addFiles(this.props.folder.files, this.props.folder.title));
     }

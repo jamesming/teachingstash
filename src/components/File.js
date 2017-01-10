@@ -1,10 +1,21 @@
 import React from 'react';
 import { setActiveFileId } from '../actions/filesActions';
+import { setModal } from '../actions/modalActions';
 
 export default class File extends React.Component {
 
   setActiveFileId() {
     this.props.dispatch(setActiveFileId(this.props.file.id));
+  }
+
+  setModalSignup() {
+    this.setActiveFileId();
+    this.props.dispatch(setModal('signup'));
+  }
+
+  setModalPreview() {
+    this.setActiveFileId();
+    this.props.dispatch(setModal('preview'));
   }
 
   launchPictographrFile() {
@@ -38,12 +49,18 @@ export default class File extends React.Component {
                       >Edit</button>
                     :
                       <button
-                        onClick={this.setActiveFileId.bind(this)}
+                        onClick={this.setModalSignup.bind(this)}
                         data-toggle='modal'
-                        data-target='#signupScreen'
+                        data-target='#modalScreen'
                         className='btn btn-primary btn-sm'
                       >Edit</button>
                   }
+                  <button
+                    onClick={this.setModalPreview.bind(this)}
+                    data-toggle='modal'
+                    data-target='#modalScreen'
+                    className='btn btn-primary btn-sm'
+                  >Preview</button>
               </p>
             </div>
           </a>

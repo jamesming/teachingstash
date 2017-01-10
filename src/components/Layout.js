@@ -2,16 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchTemplates } from '../actions/templatesActions';
 import CrossDomService from '../crossdom';
-import Modal from './Modal';
+import Modal from './Modal/Modal';
 import Topfold from './Topfold';
 import ShojiComponent from './Shoji';
-import File from './File';
 
 @connect((store) => ({
-  templates: store.templates.templates,
-  files: store.files.files,
   activeFileId: store.files.activeFileId,
-  loggedIn: store.user.loggedIn
+  files: store.files.files,
+  loggedIn: store.user.loggedIn,
+  modalshow: store.modal.show,
+  templates: store.templates.templates,
 }))
 
 export default class Layout extends React.Component {
@@ -39,7 +39,7 @@ export default class Layout extends React.Component {
           launchPictographrFile={this.launchPictographrFile.bind(this)}
           files={this.props.files} loggedIn={this.props.loggedIn}
         />
-        <Modal popGoogleSignIn={this.popGoogleSignIn.bind(this)} />
+        <Modal modalshow={this.props.modalshow} popGoogleSignIn={this.popGoogleSignIn.bind(this)} />
       </div>
     );
   }

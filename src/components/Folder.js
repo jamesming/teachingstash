@@ -4,11 +4,6 @@ import SubFolder from './Sub_folder';
 
 export default class Folder extends React.Component {
 
-  randomWithRange(min, max){
-   const range = (max - min) + 1;
-   return (Math.random() * range) + min;
-  }
-
   getUnorderedList() {
     const { folder } = this.props;
 
@@ -26,7 +21,6 @@ export default class Folder extends React.Component {
   }
 
   dispatch(e) {
-    console.log(e);
     if (this.props.folder.files) {
       this.props.dispatch(addFiles(this.props.folder.files, this.props.folder.title));
     }

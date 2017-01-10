@@ -4,6 +4,18 @@ import Folder from './Folder';
 
 export default class ShojiCompnent extends React.Component {
 
+    componentDidMount() {
+        this.shoji = new Shoji('#shoji');
+    }
+
+    slideFolderMenu() {
+        this.shoji.toggle('right', 130);
+    }
+
+    slideAccountMenu() {
+        this.shoji.toggle('left', 130);
+    }
+
     render() {
         const { templates } = this.props;
         const FoldersComponents = templates.map((folder) =>
@@ -22,9 +34,6 @@ export default class ShojiCompnent extends React.Component {
               loggedIn={this.props.loggedIn}
             />
           ));
-
-        let shoji = new Shoji('#shoji');
-        $('[data-slide]').unbind('click').click(function () { shoji.toggle($(this).data('slide'), 130); });
 
         return (
           <div className="shoji" id="shoji">
@@ -54,10 +63,10 @@ export default class ShojiCompnent extends React.Component {
                             <a href="" className="navbar-brand">Brand</a>
                         </div>
                         <div className="navbar-header">
-                            <button type="button" className="navbar-toggle navbar-toggle-left" data-slide="right">
+                            <button onClick={this.slideFolderMenu.bind(this)} type="button" className="navbar-toggle navbar-toggle-left" data-slide="right">
                                 <i className="glyphicon glyphicon-th-large" />
                             </button>
-                            <button type="button" className="navbar-toggle navbar-toggle-right" data-slide="left">
+                            <button onClick={this.slideAccountMenu.bind(this)} type="button" className="navbar-toggle navbar-toggle-right" data-slide="left">
                                 <i className="glyphicon glyphicon-cog" />
                             </button>
                         </div>

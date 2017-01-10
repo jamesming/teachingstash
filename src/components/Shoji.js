@@ -5,16 +5,32 @@ import Folder from './Folder';
 export default class ShojiCompnent extends React.Component {
 
     componentDidMount() {
+
+        var resizeId = null;
+        const doneResizing = () => {
+              if ($('.shoji-panel-left').is(':visible')) this.slideFolderMenu();
+            };
+
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeId);
+            resizeId = setTimeout(doneResizing, 500);
+        });
+
         this.shoji = new Shoji('#shoji');
     }
 
+    componentWillUnmount() {
+        window.removeEventListener('resize');
+    }
+
     slideFolderMenu() {
-        this.shoji.toggle('right', 130);
+        if (window.innerWidth < 768) this.shoji.toggle('right', 130);
     }
 
     slideAccountMenu() {
         this.shoji.toggle('left', 130);
     }
+
 
     render() {
         const { templates } = this.props;

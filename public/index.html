@@ -3,9 +3,11 @@
   <head>
   <meta charset="utf-8">
   <title>React Tutorials</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="js/shoji/shoji.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="js/shoji/shoji.js"></script>
   <script src="http://pictographr.com/partners/plugin.js"></script>
   </head>
   <body>
@@ -21,7 +23,7 @@
     <!-- <script src="app.min.js"></script> -->
     <script type="text/javascript">
       var cacheBust = ['app.min.js'];
-      for (i=0; i < cacheBust.length; i++){
+      for (var i=0; i < cacheBust.length; i++){
            var el = document.createElement('script');
            el.src = cacheBust[i]+"?v=" + Math.random();
            document.getElementsByTagName('head')[0].appendChild(el);

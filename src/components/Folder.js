@@ -4,6 +4,11 @@ import SubFolder from './Sub_folder';
 
 export default class Folder extends React.Component {
 
+  randomWithRange(min, max){
+   const range = (max - min) + 1;
+   return (Math.random() * range) + min;
+  }
+
   getUnorderedList() {
     const { folder } = this.props;
 
@@ -20,10 +25,14 @@ export default class Folder extends React.Component {
     );
   }
 
-  dispatch() {
+  dispatch(e) {
+    console.log(e);
     if (this.props.folder.files) {
       this.props.dispatch(addFiles(this.props.folder.files, this.props.folder.title));
     }
+    e.stopPropagation();
+    e.nativeEvent.stopImmediatePropagation();
+    e.preventDefault();
   }
 
   render() {
@@ -41,7 +50,7 @@ export default class Folder extends React.Component {
                     :
                     ''
                   }
-                data-parent='#accordion' href={`#${folder.id}`}
+                data-parent='#accordion' href={`.${folder.id}`}
                 aria-expanded='false' aria-controls={folder.id}
               >
                 {folder.title}
@@ -49,8 +58,8 @@ export default class Folder extends React.Component {
             </h4>
           </div>
           <div
-            id={folder.id}
-            className='panel-collapse collapse' role='tabpanel' aria-labelledby='{panelref}'
+              className={`${folder.id} panel-collapse collapse`}
+              role='tabpanel' aria-labelledby='panelref'
           >
             <div className='list-group'>
               {

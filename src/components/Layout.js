@@ -29,10 +29,9 @@ export default class Layout extends React.Component {
     this.crossDomService.popSignUpWindow();
   }
 
-  render() {
+  render() { // <Topfold />
     return (
       <div>
-        <Topfold />
         <ShojiComponent
           dispatch={this.props.dispatch}
           templates={this.props.templates}

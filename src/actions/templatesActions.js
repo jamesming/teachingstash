@@ -1,11 +1,10 @@
-import axios from "axios";
+import axios from 'axios';
 
 export function fetchTemplates() {
-  return function(dispatch) {
-    axios.get("https://pictographr.com/admin/getTemplatesJsonFile")
+  return function (dispatch) {
+    axios.get('https://staging.pictographr.com/feed/teachingstash/json/menu.json')
       .then((response) => {
-
-        dispatch({type: "FETCH_TEMPLATES_FULFILLED", payload: response.data})
+        dispatch({ type: 'FETCH_TEMPLATES_FULFILLED', payload: response.data });
 
         dispatch({
           type: 'ADD_FILES',
@@ -14,12 +13,11 @@ export function fetchTemplates() {
             folder_title: response.data[0].title
           },
         });
-
       })
       .catch((err) => {
-        dispatch({type: "FETCH_TEMPLATES_REJECTED", payload: err})
-      })
-  }
+        dispatch({ type: 'FETCH_TEMPLATES_REJECTED', payload: err });
+      });
+  };
 }
 
 export function addTemplate(id, text) {
@@ -29,7 +27,7 @@ export function addTemplate(id, text) {
       id,
       text,
     },
-  }
+  };
 }
 
 export function updateTemplate(id, text) {
@@ -39,9 +37,9 @@ export function updateTemplate(id, text) {
       id,
       text,
     },
-  }
+  };
 }
 
 export function deleteTemplate(id) {
-  return { type: 'DELETE_TEMPLATE', payload: id}
+  return { type: 'DELETE_TEMPLATE', payload: id };
 }

@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 export function fetchTemplates() {
-  return function (dispatch) {
-    axios.get('https://staging.pictographr.com/feed/teachingstash/json/menu.json')
+  return function (dispatch) { // 'http://staging.pictographr.com/feed/getAssetsjson'
+    axios.get('http://staging.pictographr.com/feed/getMenujson')
       .then((response) => {
         dispatch({ type: 'FETCH_TEMPLATES_FULFILLED', payload: response.data });
 

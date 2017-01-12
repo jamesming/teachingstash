@@ -8,11 +8,11 @@ import ShojiComponent from './Shoji';
 
 @connect((store) => ({
   activeFileId: store.files.activeFileId,
+  assets: store.templates.assets,
   files: store.files.files,
   loggedIn: store.user.loggedIn,
   modalshow: store.modal.show,
   templates: store.templates.templates,
-  assets: store.templates.assets
 }))
 
 export default class Layout extends React.Component {

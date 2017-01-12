@@ -1,5 +1,5 @@
 export default function reducer(state = {
-    show: 'preview',
+    show: 'signup',
   }, action) {
     switch (action.type) {
       case 'SET_SHOW': {

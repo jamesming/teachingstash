@@ -20,6 +20,31 @@ export function fetchTemplates() {
   };
 }
 
+export function fetchAssets() {
+  return function (dispatch) {
+    axios.get('http://staging.pictographr.com/feed/getAssetsjson')
+      .then((response) => {
+        dispatch({ type: 'FETCH_ASSETS_FULFILLED', payload: response.data });
+      })
+      .catch((err) => {
+        dispatch({ type: 'FETCH_ASSETS_REJECTED', payload: err });
+      });
+  };
+}
+
+export function renderPNGandPullAssetsJson(activeFileId, callback) {
+  return function (dispatch) {
+    axios.get(`http://staging.pictographr.com/feed/createPng?fileId=${activeFileId}`)
+      .then((response) => {
+        dispatch({ type: 'FETCH_ASSETS_FULFILLED', payload: response.data });
+        callback();
+      })
+      .catch((err) => {
+        dispatch({ type: 'FETCH_ASSETS_REJECTED', payload: err });
+      });
+  };
+}
+
 export function addTemplate(id, text) {
   return {
     type: 'ADD_TEMPLATE',

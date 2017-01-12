@@ -6,7 +6,6 @@ import Preview from './Preview';
 export default class Modal extends React.Component {
 
   render() {
-    console.log(JSON.stringify( this.props, null, 2));
     return (
       <div
         id='modalScreen'
@@ -24,7 +23,9 @@ export default class Modal extends React.Component {
                 this.props.modalshow === 'signup' ?
                   <Signup />
                 :
-                  <Preview />
+                  <Preview
+                    activeFileId={this.props.activeFileId}
+                  />
               }
             </div>
           </div>

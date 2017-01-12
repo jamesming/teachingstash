@@ -10,7 +10,10 @@ export default class Preview extends React.Component {
 
     return (
       <div>
-        <img style={imgStyle} alt='' src='http://placehold.it/300x250' />
+        <img
+          className="img-responsive" style={imgStyle} alt=''
+          src={`${window.feedersite}/pngs/${this.props.activeFileId}.png`}
+        />
       </div>
     );
   }

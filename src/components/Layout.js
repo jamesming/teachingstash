@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchTemplates } from '../actions/templatesActions';
+import { fetchTemplates, fetchAssets } from '../actions/templatesActions';
 import CrossDomService from '../crossdom';
 import Modal from './Modal/Modal';
 import Topfold from './Topfold';
@@ -12,12 +12,14 @@ import ShojiComponent from './Shoji';
   loggedIn: store.user.loggedIn,
   modalshow: store.modal.show,
   templates: store.templates.templates,
+  assets: store.templates.assets
 }))
 
 export default class Layout extends React.Component {
 
   componentWillMount() {
     this.props.dispatch(fetchTemplates());
+    this.props.dispatch(fetchAssets());
     this.crossDomService = new CrossDomService();
   }
 
@@ -33,12 +35,18 @@ export default class Layout extends React.Component {
     return (
       <div>
         <ShojiComponent
+          assets={this.props.assets}
           dispatch={this.props.dispatch}
-          templates={this.props.templates}
+          files={this.props.files}
           launchPictographrFile={this.launchPictographrFile.bind(this)}
-          files={this.props.files} loggedIn={this.props.loggedIn}
+          loggedIn={this.props.loggedIn}
+          templates={this.props.templates}
         />
-        <Modal modalshow={this.props.modalshow} popGoogleSignIn={this.popGoogleSignIn.bind(this)} />
+        <Modal
+          activeFileId={this.props.activeFileId}
+          modalshow={this.props.modalshow}
+          popGoogleSignIn={this.popGoogleSignIn.bind(this)}
+        />
       </div>
     );
   }

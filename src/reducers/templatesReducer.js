@@ -45,5 +45,19 @@ export default function reducer(state = {
       default: {
         return state;
       }
+      case 'FETCH_ASSETS': {
+        return { ...state, fetching: true };
+      }
+      case 'FETCH_ASSETS_REJECTED': {
+        return { ...state, fetching: false, error: action.payload };
+      }
+      case 'FETCH_ASSETS_FULFILLED': {
+        return {
+          ...state,
+          fetching: false,
+          fetched: true,
+          assets: action.payload,
+        };
+      }
     }
 }

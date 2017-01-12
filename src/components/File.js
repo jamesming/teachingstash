@@ -1,5 +1,6 @@
 import React from 'react';
 import { setActiveFileId } from '../actions/filesActions';
+import { renderPNGandPullAssetsJson } from '../actions/templatesActions';
 import { setModal } from '../actions/modalActions';
 
 export default class File extends React.Component {
@@ -14,8 +15,20 @@ export default class File extends React.Component {
   }
 
   setModalPreview() {
-    this.setActiveFileId();
-    this.props.dispatch(setModal('preview'));
+    if (this.props.assets[this.props.file.id] &&
+        this.props.assets[this.props.file.id].png) {
+      this.setActiveFileId();
+      this.props.dispatch(setModal('preview'));
+      $('#modalScreen').modal('show');
+    } else {
+      this.setActiveFileId();
+      this.props.dispatch(renderPNGandPullAssetsJson(this.props.file.id, () => {
+        this.setActiveFileId();
+        this.props.dispatch(setModal('preview'));
+        $('#modalScreen').modal('show');
+        console.log('rendered');
+      }));
+    }
   }
 
   launchPictographrFile() {
@@ -28,7 +41,7 @@ export default class File extends React.Component {
       cursor: 'zoom-in'
     };
 
-    const src = `https://pictographr.com/temp/templates/${this.props.file.id}.png`;
+    const src = `${window.feedersite}thumbs/${this.props.file.id}.png`;
 
     return (
       <div className='col-md-3'>
@@ -57,8 +70,8 @@ export default class File extends React.Component {
                   }
                   <button
                     onClick={this.setModalPreview.bind(this)}
-                    data-toggle='modal'
-                    data-target='#modalScreen'
+                    // data-toggle='modal'
+                    // data-target='#modalScreen'
                     className='btn btn-primary btn-sm'
                   >Preview</button>
               </p>

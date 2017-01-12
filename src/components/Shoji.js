@@ -44,6 +44,7 @@ export default class ShojiCompnent extends React.Component {
 
         const FilesComponents = this.props.files.map((file) => (
             <File
+              assets={this.props.assets}
               key={file.id}
               file={file}
               dispatch={this.props.dispatch}

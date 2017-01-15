@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export function fetchTemplates() {
   return function (dispatch) { // 'http://staging.pictographr.com/feed/getAssetsjson'
-    axios.get('http://staging.pictographr.com/feed/getMenujson')
+    axios.get(`${host}feed/getMenujson`)
       .then((response) => {
         dispatch({ type: 'FETCH_TEMPLATES_FULFILLED', payload: response.data });
 
@@ -22,7 +22,7 @@ export function fetchTemplates() {
 
 export function fetchAssets() {
   return function (dispatch) {
-    axios.get('http://staging.pictographr.com/feed/getAssetsjson')
+    axios.get(`${host}feed/getAssetsjson`)
       .then((response) => {
         dispatch({ type: 'FETCH_ASSETS_FULFILLED', payload: response.data });
       })
@@ -34,9 +34,9 @@ export function fetchAssets() {
 
 export function renderPNGandPullAssetsJson(activeFileId, callback) {
   return function (dispatch) {
-    axios.get(`http://staging.pictographr.com/feed/createPng?fileId=${activeFileId}`)
+    axios.get(`https://pictographr.com/feed/createPng?fileId=${activeFileId}`)
       .then((response) => {
-        dispatch({ type: 'FETCH_ASSETS_FULFILLED', payload: response.data });
+        //dispatch({ type: 'FETCH_ASSETS_FULFILLED', payload: response.data });
         callback();
       })
       .catch((err) => {

@@ -36,10 +36,8 @@ export function renderPNGandPullAssetsJson(activeFileId, callback) {
   return function (dispatch) {
     axios.get(`${window.host}feed/createPng?fileId=${activeFileId}`)
       .then((response) => {
-        console.log(JSON.stringify(response.data, null, 2));
-
-        // dispatch({ type: 'FETCH_ASSETS_FULFILLED', payload: response.data });
-        // callback();
+        dispatch({ type: 'FETCH_ASSETS_FULFILLED', payload: response.data });
+        callback();
       })
       .catch((err) => {
         dispatch({ type: 'FETCH_ASSETS_REJECTED', payload: err });

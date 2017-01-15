@@ -34,6 +34,11 @@ export default class Layout extends React.Component {
   render() { // <Topfold />
     return (
       <div>
+        <Modal
+          activeFileId={this.props.activeFileId}
+          modalshow={this.props.modalshow}
+          popGoogleSignIn={this.popGoogleSignIn.bind(this)}
+        />
         <ShojiComponent
           assets={this.props.assets}
           dispatch={this.props.dispatch}
@@ -41,11 +46,6 @@ export default class Layout extends React.Component {
           launchPictographrFile={this.launchPictographrFile.bind(this)}
           loggedIn={this.props.loggedIn}
           templates={this.props.templates}
-        />
-        <Modal
-          activeFileId={this.props.activeFileId}
-          modalshow={this.props.modalshow}
-          popGoogleSignIn={this.popGoogleSignIn.bind(this)}
         />
       </div>
     );

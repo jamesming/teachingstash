@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchTemplates, fetchAssets } from '../actions/templatesActions';
 import CrossDomService from '../crossdom';
 import Modal from './Modal/Modal';
-import ShojiComponent from './Shoji';
+import ShojiComponent from './Shoji/Shoji';
 
 @connect((store) => ({
   activeFileId: store.files.activeFileId,

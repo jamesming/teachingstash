@@ -1,7 +1,7 @@
 import React from 'react';
-import { setActiveFileId } from '../actions/filesActions';
-import { renderPNGandPullAssetsJson } from '../actions/templatesActions';
-import { setModalShow } from '../actions/appActions';
+import { setActiveFileId } from '../../../actions/filesActions';
+import { renderPNGandPullAssetsJson } from '../../../actions/templatesActions';
+import { setModalShow } from '../../../actions/appActions';
 
 export default class File extends React.Component {
 

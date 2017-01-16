@@ -1,9 +1,9 @@
 import React from 'react';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import Topfold from './components/Topfold';
-import Files from './components/Files';
-import { Router, Route, IndexRoute, hashHistory } from "react-router";
+import Topfold from './components/pages/Topfold/Topfold';
+import Files from './components/pages/Files/Files';
 
 import Layout from './components/Layout';
 import store from './store';

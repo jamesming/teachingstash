@@ -19,6 +19,13 @@
     position: relative;
 }
 
+#navbar-fixed{
+    position: fixed;
+    width: 100%;
+    border-radius: 0 !important;
+    z-index: 1;
+}
+
 .navbar-toggle-left,
 .navbar-toggle-right {
     margin: 5px;
@@ -38,13 +45,6 @@
 .navbar-banner > .navbar-brand {
     float: none !important;
     line-height: 50px;
-}
-
-.square {
-    position: fixed;
-    width: 100%;
-    border-radius: 0 !important;
-    z-index: 1;
 }
 
 .navbar-header{

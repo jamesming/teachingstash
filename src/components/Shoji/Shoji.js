@@ -1,10 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router';
+import Logo from './Logo';
 import Folder from './Folder';
 
 export default class ShojiCompnent extends React.Component {
 
     componentDidMount() {
+      this.resizeWindow();
+      this.shoji = new Shoji('#shoji');
+    }
+
+    componentWillUnmount() {
+      window.removeEventListener('resize');
+    }
+
+    resizeWindow(){
       var resizeId = null;
       const doneResizing = () => {
         if ($('.shoji-panel-left').is(':visible')) this.slideFolderMenu();
@@ -13,11 +23,6 @@ export default class ShojiCompnent extends React.Component {
         clearTimeout(resizeId);
         resizeId = setTimeout(doneResizing, 500);
       });
-      this.shoji = new Shoji('#shoji');
-    }
-
-    componentWillUnmount() {
-      window.removeEventListener('resize');
     }
 
     slideFolderMenu() {
@@ -74,14 +79,8 @@ export default class ShojiCompnent extends React.Component {
           </div>
           <div className="shoji-door">
               <div className="content">
-                  <nav className="navbar navbar-default square" role="navigation" id="navbar">
-                      <div className="navbar-banner">
-                          <a
-                            className="navbar-brand"
-                          >
-                            <img alt="" src="http://placehold.it/150x50" />
-                          </a>
-                      </div>
+                  <nav id="navbar-fixed" className="navbar navbar-default" role="navigation">
+                      <Logo />
                       <div className="navbar-header">
                           {
                             this.props.children.type.name === 'Files' ?

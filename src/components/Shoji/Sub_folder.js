@@ -1,5 +1,5 @@
 import React from 'react';
-import { addFiles } from '../actions/filesActions';
+import { addFiles } from '../../actions/filesActions';
 
 export default class Subfolder extends React.Component {
 

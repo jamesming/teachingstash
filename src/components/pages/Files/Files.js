@@ -1,6 +1,6 @@
 import React from 'react';
 import File from './File';
-import Folder from './Folder';
+import Folder from '../../Shoji/Folder';
 
 export default class Files extends React.Component {
   slideFolderMenu() {

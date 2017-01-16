@@ -4,29 +4,28 @@ import Folder from './Folder';
 export default class ShojiCompnent extends React.Component {
 
     componentDidMount() {
-        var resizeId = null;
-        const doneResizing = () => {
-          if ($('.shoji-panel-left').is(':visible')) this.slideFolderMenu();
-        };
-        window.addEventListener('resize', () => {
-          clearTimeout(resizeId);
-          resizeId = setTimeout(doneResizing, 500);
-        });
-        this.shoji = new Shoji('#shoji');
+      var resizeId = null;
+      const doneResizing = () => {
+        if ($('.shoji-panel-left').is(':visible')) this.slideFolderMenu();
+      };
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeId);
+        resizeId = setTimeout(doneResizing, 500);
+      });
+      this.shoji = new Shoji('#shoji');
     }
 
     componentWillUnmount() {
-        window.removeEventListener('resize');
+      window.removeEventListener('resize');
     }
 
     slideFolderMenu() {
-        if (window.innerWidth < 768) this.shoji.toggle('right', 130);
+      if (window.innerWidth < 768) this.shoji.toggle('right', 130);
     }
 
     slideAccountMenu() {
-        this.shoji.toggle('left', 130);
+      this.shoji.toggle('left', 130);
     }
-
 
     render() {
       const children = React.Children.map(this.props.children, (child) =>
@@ -56,8 +55,21 @@ export default class ShojiCompnent extends React.Component {
               </div>
               <div className="shoji-panel shoji-panel-right">
                   <ul className="nav nav-pills nav-stacked">
-                      <li><a href="#/">Templates</a></li>
-                      <li><a href="#/topfold/James">Topfold</a></li>
+                     <li><a
+                        href="#/"
+                        onClick={this.slideAccountMenu.bind(this)}
+                        >
+                          Templates
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                        href="#/topfold/James"
+                        onClick={this.slideAccountMenu.bind(this)}
+                        >
+                          Topfold
+                        </a>
+                      </li>
                       <li><a href="">Log off</a></li>
                   </ul>
               </div>
@@ -107,8 +119,19 @@ export default class ShojiCompnent extends React.Component {
                                     Welcome, User <b className="caret" />
                                   </a>
                                   <ul className="dropdown-menu">
-                                      <li><a href="#/">Templates</a></li>
-                                      <li><a href="#/topfold/James">Topfold</a></li>
+                                      <li><a
+                                        href="#/"
+                                        >
+                                          Templates
+                                        </a>
+                                      </li>
+                                      <li>
+                                        <a
+                                        href="#/topfold/James"
+                                        >
+                                          Topfold
+                                        </a>
+                                      </li>
                                       <li className="divider" />
                                       <li><a href="">Log off</a></li>
                                   </ul>

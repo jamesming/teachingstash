@@ -68,9 +68,6 @@ export default class ShojiCompnent extends React.Component {
                           onClick={this.slideAccountMenu.bind(this)}
                         >Topfold</Link>
                       </li>
-                      <li>
-
-                      </li>
                       <li><a href="">Log off</a></li>
                   </ul>
               </div>
@@ -80,7 +77,6 @@ export default class ShojiCompnent extends React.Component {
                   <nav className="navbar navbar-default square" role="navigation" id="navbar">
                       <div className="navbar-banner">
                           <a
-                            href=""
                             className="navbar-brand"
                           >
                             <img alt="" src="http://placehold.it/150x50" />
@@ -128,7 +124,7 @@ export default class ShojiCompnent extends React.Component {
                                       </li>
                                       <li>
                                         <a
-                                        href="#/topfold/James"
+                                        href="#/topfold"
                                         >
                                           Topfold
                                         </a>
@@ -140,7 +136,9 @@ export default class ShojiCompnent extends React.Component {
                           </ul>
                       </div>
                   </nav>
-                  {children}
+                  <div id="route-section">
+                    {children}
+                  </div>
               </div>
           </div>
       </div>

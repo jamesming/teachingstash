@@ -15,7 +15,9 @@
 
 .shoji > .shoji-rail > .shoji-panel.shoji-panel-right { float: right !important; }
 
-.shoji > .shoji-door { position: relative; }
+.shoji > .shoji-door {
+    position: relative;
+}
 
 .navbar-toggle-left,
 .navbar-toggle-right {
@@ -27,9 +29,10 @@
 .navbar-toggle-right { float: right !important; }
 
 .navbar-banner {
-    position: absolute;
     width: 100%;
     text-align: center;
+    background: white;
+    position: absolute;
 }
 
 .navbar-banner > .navbar-brand {
@@ -37,7 +40,22 @@
     line-height: 50px;
 }
 
-.square { border-radius: 0 !important; }
+.square {
+    position: fixed;
+    width: 100%;
+    border-radius: 0 !important;
+    z-index: 1;
+}
+
+.navbar-header{
+    width: 100%;
+}
+
+#route-section{
+    position: relative;
+    padding-top: 60px;
+    z-index: 0;
+}
 
 
 @media screen and (min-width: 768px) {

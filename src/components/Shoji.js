@@ -56,9 +56,9 @@ export default class ShojiCompnent extends React.Component {
               </div>
               <div className="shoji-panel shoji-panel-right">
                   <ul className="nav nav-pills nav-stacked">
+                      <li><a href="#/">Templates</a></li>
+                      <li><a href="#/topfold/James">Topfold</a></li>
                       <li><a href="">Log off</a></li>
-                      <li><a href="">About</a></li>
-                      <li><a href="">Contact</a></li>
                   </ul>
               </div>
           </div>
@@ -100,16 +100,17 @@ export default class ShojiCompnent extends React.Component {
                       <div className="navbar-collapse collapse">
                           <ul className="nav navbar-nav navbar-right">
                               <li className="dropdown">
-                                  <a href="" className="dropdown-toggle"
+                                  <a
+                                    href="" className="dropdown-toggle"
                                     data-toggle="dropdown"
                                   >
                                     Welcome, User <b className="caret" />
                                   </a>
                                   <ul className="dropdown-menu">
-                                      <li><a href="">Log off</a></li>
+                                      <li><a href="#/">Templates</a></li>
+                                      <li><a href="#/topfold/James">Topfold</a></li>
                                       <li className="divider" />
-                                      <li><a href="">About</a></li>
-                                      <li><a href="">Contact</a></li>
+                                      <li><a href="">Log off</a></li>
                                   </ul>
                               </li>
                           </ul>

@@ -32,6 +32,7 @@ export default class Layout extends React.Component {
   }
 
   render() {
+    console.log(this.props.location);
     this.props.dispatch(setRoute(this.props.children.type.name));
     return (
       <div>

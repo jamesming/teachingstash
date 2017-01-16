@@ -16,7 +16,7 @@ ReactDOM.render(<Provider store={store}>
 	<Router history={hashHistory}>
 		<Route path="/" component={Layout} >
 			<IndexRoute component={Files} />
-			<Route path="topfold" name="topfold" component={Topfold} />
+			<Route path="topfold/:name" name="topfold" component={Topfold} />
 		</Route>
 	</Router>
 </Provider>, app);

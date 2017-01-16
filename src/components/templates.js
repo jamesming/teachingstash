@@ -15,7 +15,7 @@ import ShojiComponent from './Shoji';
   templates: store.templates.templates,
 }))
 
-export default class Layout extends React.Component {
+export default class Templates extends React.Component {
 
   componentWillMount() {
     this.props.dispatch(fetchTemplates());

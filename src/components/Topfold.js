@@ -3,7 +3,7 @@ import React from 'react';
 export default class Topfold extends React.Component {
 
   render() {
-    console.log(this.props.params.name);
+    //console.log(this.props.params.name);
     const inlineStyle = {
        width: '400px'
     };

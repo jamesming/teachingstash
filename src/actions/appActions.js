@@ -6,11 +6,3 @@ export function setModalShow(which) {
     },
   };
 }
-export function setRoute(which) {
-  return {
-    type: 'SET_ROUTE',
-    payload: {
-      which
-    },
-  };
-}

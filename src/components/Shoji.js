@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import Folder from './Folder';
 
 export default class ShojiCompnent extends React.Component {
@@ -55,20 +56,20 @@ export default class ShojiCompnent extends React.Component {
               </div>
               <div className="shoji-panel shoji-panel-right">
                   <ul className="nav nav-pills nav-stacked">
-                     <li><a
-                        href="#/"
-                        onClick={this.slideAccountMenu.bind(this)}
+                      <li>
+                        <a
+                          href="/#/"
+                          onClick={this.slideAccountMenu.bind(this)}
                         >
                           Templates
                         </a>
+                        <Link
+                          to="topfold"
+                          onClick={this.slideAccountMenu.bind(this)}
+                        >Topfold</Link>
                       </li>
                       <li>
-                        <a
-                        href="#/topfold/James"
-                        onClick={this.slideAccountMenu.bind(this)}
-                        >
-                          Topfold
-                        </a>
+
                       </li>
                       <li><a href="">Log off</a></li>
                   </ul>
@@ -87,7 +88,7 @@ export default class ShojiCompnent extends React.Component {
                       </div>
                       <div className="navbar-header">
                           {
-                            this.props.route === 'Files' ?
+                            this.props.children.type.name === 'Files' ?
                                 <button
                                   id="showFolderMenuButton"
                                   onClick={this.slideFolderMenu.bind(this)}

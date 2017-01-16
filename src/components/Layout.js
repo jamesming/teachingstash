@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchTemplates, fetchAssets } from '../actions/templatesActions';
-import { setRoute } from '../actions/appActions';
 import CrossDomService from '../crossdom';
 import Modal from './Modal/Modal';
 import ShojiComponent from './Shoji';
@@ -32,8 +31,6 @@ export default class Layout extends React.Component {
   }
 
   render() {
-    console.log(this.props.location);
-    this.props.dispatch(setRoute(this.props.children.type.name));
     return (
       <div>
         <Modal

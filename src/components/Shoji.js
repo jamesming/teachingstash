@@ -78,7 +78,7 @@ export default class ShojiCompnent extends React.Component {
                 <div className="content">
                     <nav className="navbar navbar-default square" role="navigation" id="navbar">
                         <div className="navbar-banner">
-                            <a href="" className="navbar-brand">Brand</a>
+                            <a href="" className="navbar-brand"><img src="http://placehold.it/150x50" /></a>
                         </div>
                         <div className="navbar-header">
                             <button onClick={this.slideFolderMenu.bind(this)} type="button" className="navbar-toggle navbar-toggle-left" data-slide="right">
@@ -91,7 +91,11 @@ export default class ShojiCompnent extends React.Component {
                         <div className="navbar-collapse collapse">
                             <ul className="nav navbar-nav navbar-right">
                                 <li className="dropdown">
-                                    <a href="" className="dropdown-toggle" data-toggle="dropdown">Welcome, User <b className="caret"></b></a>
+                                    <a href="" className="dropdown-toggle"
+                                      data-toggle="dropdown"
+                                    >
+                                      Welcome, User <b className="caret" />
+                                    </a>
                                     <ul className="dropdown-menu">
                                         <li><a href="">Log off</a></li>
                                         <li className="divider" />
@@ -102,6 +106,9 @@ export default class ShojiCompnent extends React.Component {
                             </ul>
                         </div>
                     </nav>
+                    <div>
+                      Carousel
+                    </div>
                     <div className="container">
                         <div className="row">
                             <div className="hidden-xs col-sm-3">

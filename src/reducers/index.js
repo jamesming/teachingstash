@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux';
 
-import user from './userReducer';
+import app from './appReducer';
 import files from './filesReducer';
-import modal from './modalReducer';
 import templates from './templatesReducer';
+import user from './userReducer';
 
 export default combineReducers({
-  user,
+  app,
   files,
-  modal,
   templates,
+  user,
 });

@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchTemplates, fetchAssets } from '../actions/templatesActions';
+import { setRoute } from '../actions/appActions';
 import CrossDomService from '../crossdom';
 import Modal from './Modal/Modal';
-import Topfold from './Topfold';
 import ShojiComponent from './Shoji';
 
 @connect((store) => ({
@@ -11,7 +11,8 @@ import ShojiComponent from './Shoji';
   assets: store.templates.assets,
   files: store.files.files,
   loggedIn: store.user.loggedIn,
-  modalshow: store.modal.show,
+  modalshow: store.app.modalshow,
+  route: store.app.route,
   templates: store.templates.templates,
 }))
 
@@ -30,7 +31,8 @@ export default class Layout extends React.Component {
     this.crossDomService.popSignUpWindow();
   }
 
-  render() { // <Topfold />
+  render() {
+    this.props.dispatch(setRoute(this.props.children.type.name));
     return (
       <div>
         <Modal
@@ -40,12 +42,13 @@ export default class Layout extends React.Component {
         />
         <ShojiComponent
           assets={this.props.assets}
+          children={this.props.children}
           dispatch={this.props.dispatch}
           files={this.props.files}
           launchPictographrFile={this.launchPictographrFile.bind(this)}
           loggedIn={this.props.loggedIn}
+          route={this.props.route}
           templates={this.props.templates}
-          children={this.props.children}
         />
       </div>
     );

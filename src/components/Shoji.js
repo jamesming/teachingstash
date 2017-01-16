@@ -29,28 +29,17 @@ export default class ShojiCompnent extends React.Component {
 
 
     render() {
-      const { templates, files, dispatch, loggedIn } = this.props;
-
       const children = React.Children.map(this.props.children, (child) =>
-        React.cloneElement(child, {
-          templates,
-          files,
-          dispatch,
-          loggedIn,
-        })
+        React.cloneElement(child, this.props)
       );
 
-      const FoldersComponents = templates.map((folder) =>
+      const FoldersComponents = this.props.templates.map((folder) =>
         <Folder
           slideFolderMenu={this.slideFolderMenu.bind(this)}
           key={folder.id}
           folder={folder}
           dispatch={this.props.dispatch}
         />);
-
-      //if (this.props.children.type.name !== 'Files') $('#showFolderMenuButton').hide();
-
-      console.log(this.props.children.type.name);
 
       return (
         <div className="shoji" id="shoji">
@@ -85,15 +74,20 @@ export default class ShojiCompnent extends React.Component {
                           </a>
                       </div>
                       <div className="navbar-header">
-                          <button
-                            id="showFolderMenuButton"
-                            onClick={this.slideFolderMenu.bind(this)}
-                            type="button"
-                            className="navbar-toggle navbar-toggle-left"
-                            data-slide="right"
-                          >
-                              <i className="glyphicon glyphicon-th-large" />
-                          </button>
+                          {
+                            this.props.route === 'Files' ?
+                                <button
+                                  id="showFolderMenuButton"
+                                  onClick={this.slideFolderMenu.bind(this)}
+                                  type="button"
+                                  className="navbar-toggle navbar-toggle-left"
+                                  data-slide="right"
+                                >
+                                    <i className="glyphicon glyphicon-th-large" />
+                                </button>
+                            :
+                              ''
+                          }
                           <button
                             onClick={this.slideAccountMenu.bind(this)}
                             type="button"

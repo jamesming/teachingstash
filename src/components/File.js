@@ -1,7 +1,7 @@
 import React from 'react';
 import { setActiveFileId } from '../actions/filesActions';
 import { renderPNGandPullAssetsJson } from '../actions/templatesActions';
-import { setModal } from '../actions/modalActions';
+import { setModalShow } from '../actions/appActions';
 
 export default class File extends React.Component {
 
@@ -11,21 +11,20 @@ export default class File extends React.Component {
 
   setModalSignup() {
     this.setActiveFileId();
-    this.props.dispatch(setModal('signup'));
+    this.props.dispatch(setModalShow('signup'));
   }
 
   setModalPreview() {
-    console.log(JSON.stringify( this.props, null, 2));
     if (this.props.assets[this.props.file.id] &&
         this.props.assets[this.props.file.id].png) {
       this.setActiveFileId();
-      this.props.dispatch(setModal('preview'));
+      this.props.dispatch(setModalShow('preview'));
       $('#modalScreen').modal('show');
     } else {
       this.setActiveFileId();
       this.props.dispatch(renderPNGandPullAssetsJson(this.props.file.id, () => {
         this.setActiveFileId();
-        this.props.dispatch(setModal('preview'));
+        this.props.dispatch(setModalShow('preview'));
         $('#modalScreen').modal('show');
         console.log('rendered');
       }));

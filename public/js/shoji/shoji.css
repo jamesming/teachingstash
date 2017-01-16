@@ -4,6 +4,7 @@
     height: 0;
     position: absolute;
     width: 100%;
+    padding-top: 60px;
 }
 
 .shoji > .shoji-rail > .shoji-panel {

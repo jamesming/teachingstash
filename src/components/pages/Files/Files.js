@@ -14,6 +14,11 @@ export default class Files extends React.Component {
     const topPadding = 280;
     const carouselHeight = 320;
     window.addEventListener('scroll', () => {
+      if ($(window).scrollTop() > 1) {
+        $('#navbar-fixed').addClass('shadowed');
+      } else {
+        $('#navbar-fixed').removeClass('shadowed');
+      }
       if ($(window).scrollTop() > this.props.sidemenutop + carouselHeight) {
         $('#sidemenu').stop().animate({
           'margin-top': $(window).scrollTop() - (this.props.sidemenutop + topPadding)

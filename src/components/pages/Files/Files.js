@@ -27,40 +27,47 @@ export default class Files extends React.Component {
         loggedIn={this.props.loggedIn}
       />
     ));
-    return (
-      <div>
-        <div>
-          Carousel
-        </div>
-        <div className="container">
-            <div className="row">
-                <div className="hidden-xs col-sm-3">
-                  <div
-                    className='panel-group'
-                    id='accordion'
-                    role='tablist'
-                    aria-multiselectable='true'
-                  >
-                  {FoldersComponents}
-                  </div>
-                </div>
-                <div className="col-xs-12 col-sm-9">
-                  <div>
-                    <h3>
-                      {
-                        this.props.loggedIn ?
-                        <p>Logged In</p>
-                        :
-                        <p>Not Logged In</p>
-                      }
-                      </h3>
-                    </div>
-                  <div><h3>{this.props.files.folderTitle}</h3></div>
-                  {FilesComponents}
-                </div>
-            </div>
-        </div>
+
+  const imgInline = {
+    'padding': '50px 0px'
+  };
+
+  return (
+    <div>
+      <div style={imgInline} >
+        <center>
+          <img alt="" className="img-responsive" src="http://placehold.it/550x350" />
+        </center>
       </div>
+      <div className="container">
+          <div className="row">
+              <div className="hidden-xs col-sm-3">
+                <div
+                  className='panel-group'
+                  id='accordion'
+                  role='tablist'
+                  aria-multiselectable='true'
+                >
+                {FoldersComponents}
+                </div>
+              </div>
+              <div className="col-xs-12 col-sm-9">
+                <div>
+                  <h3>
+                    {
+                      this.props.loggedIn ?
+                      <p>Logged In</p>
+                      :
+                      <p>Not Logged In</p>
+                    }
+                    </h3>
+                  </div>
+                <div><h3>{this.props.files.folderTitle}</h3></div>
+                {FilesComponents}
+              </div>
+          </div>
+      </div>
+    </div>
 
     );
   }

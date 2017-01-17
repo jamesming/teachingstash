@@ -4,14 +4,10 @@ export default class Topfold extends React.Component {
 
   render() {
     //console.log(this.props.params.name);
-    const inlineStyle = {
-       width: '400px'
-    };
-
     return (
       <div>
         <div className="container">
-          <img alt="" src="img/logo.png" style={inlineStyle} />
+          <img className="img-responsive" alt="" src="img/logo.png"  />
         </div>
         <div className="container">
           <div className="jumbotron">

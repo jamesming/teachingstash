@@ -21,9 +21,10 @@
 }
 
 #navbar-fixed{
+    border: 1px;
+    border-radius: 0 !important;
     position: fixed;
     width: 100%;
-    border-radius: 0 !important;
     z-index: 1;
 }
 

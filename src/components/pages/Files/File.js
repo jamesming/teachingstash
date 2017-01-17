@@ -15,6 +15,7 @@ export default class File extends React.Component {
   }
 
   setModalPreview() {
+    this.props.slideFolderMenu();
     if (this.props.assets[this.props.file.id] &&
         this.props.assets[this.props.file.id].png) {
       this.setActiveFileId();

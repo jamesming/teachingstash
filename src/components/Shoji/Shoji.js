@@ -35,7 +35,10 @@ export default class ShojiCompnent extends React.Component {
 
     render() {
       const children = React.Children.map(this.props.children, (child) =>
-        React.cloneElement(child, this.props)
+        React.cloneElement(child, {
+          ...this.props,
+          shoji: this.shoji,
+        })
       );
 
       const FoldersComponents = this.props.templates.map((folder) =>

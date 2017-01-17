@@ -4,7 +4,7 @@ import Folder from '../../Shoji/Folder';
 
 export default class Files extends React.Component {
   slideFolderMenu() {
-      if (window.innerWidth < 768) this.shoji.toggle('right', 130);
+      if ($('.shoji-panel-left').is(':visible')) this.props.shoji.toggle('right', 130);
   }
   render() {
   const { templates } = this.props;
@@ -18,6 +18,7 @@ export default class Files extends React.Component {
 
   const FilesComponents = this.props.files.map((file) => (
       <File
+        slideFolderMenu={this.slideFolderMenu.bind(this)}
         assets={this.props.assets}
         key={file.id}
         file={file}

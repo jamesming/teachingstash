@@ -1,5 +1,6 @@
 import React from 'react';
 import File from './File';
+import Carousel from './Carousel';
 import Folder from '../../Shoji/Folder';
 
 export default class Files extends React.Component {
@@ -65,7 +66,7 @@ export default class Files extends React.Component {
     <div>
       <div className="container" style={imgInline} >
         <center>
-          <img alt="" className="img-responsive" src="http://placehold.it/550x350" />
+          <Carousel />
         </center>
       </div>
       <div className="container">

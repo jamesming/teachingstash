@@ -33,7 +33,6 @@ export default class Folder extends React.Component {
 
   render() {
     const { folder } = this.props;
-
     return (
         <div key={folder.id} className='panel panel-default'>
           <div className='panel-heading' role='tab' id={`heading-${folder.id}`}>

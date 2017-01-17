@@ -27,8 +27,9 @@ export default class ShojiCompnent extends React.Component {
     slideFolderMenu() {
       if (window.innerWidth < 768) {
        this.shoji.toggle('right', 130);
-             setTimeout(() => {
-        $(window).scrollTop($('#files-column').offset().top); }, 1000);
+        setTimeout(() => {
+          $(window).scrollTop($('#files-column').offset().top);
+        }, 1000);
       }
     }
 

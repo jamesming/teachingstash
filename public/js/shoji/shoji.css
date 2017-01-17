@@ -38,10 +38,10 @@
 .navbar-toggle-right { float: right !important; }
 
 .navbar-banner {
-    width: 100%;
-    text-align: center;
     background: white;
     position: absolute;
+    text-align: center;
+    width: 100%;
 }
 
 .navbar-banner > .navbar-brand {
@@ -54,8 +54,9 @@
 }
 
 #route-section{
-    position: relative;
+    padding-bottom: 400px;
     padding-top: 60px;
+    position: relative;
     z-index: 0;
 }
 

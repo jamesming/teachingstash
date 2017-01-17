@@ -1,6 +1,6 @@
 export default function reducer(state = {
     files: [],
-    folder_title: '',
+    folderTitle: '',
     activeFileId: '',
   }, action) {
     switch (action.type) {

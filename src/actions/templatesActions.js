@@ -10,7 +10,7 @@ export function fetchTemplates() {
           type: 'ADD_FILES',
           payload: {
             files: response.data[0].files,
-            folder_title: response.data[0].title
+            folderTitle: response.data[0].title
           },
         });
       })

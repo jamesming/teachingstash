@@ -88,7 +88,7 @@ export default class Files extends React.Component {
                     }
                     </h3>
                   </div>
-                <div><h3>{this.props.files.folderTitle}</h3></div>
+                <div><h3>{this.props.folderTitle}</h3></div>
                 {FilesComponents}
               </div>
           </div>

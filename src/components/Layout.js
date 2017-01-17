@@ -9,6 +9,7 @@ import ShojiComponent from './Shoji/Shoji';
   activeFileId: store.files.activeFileId,
   assets: store.templates.assets,
   files: store.files.files,
+  folderTitle: store.files.folderTitle,
   loggedIn: store.user.loggedIn,
   modalshow: store.app.modalshow,
   route: store.app.route,
@@ -43,6 +44,7 @@ export default class Layout extends React.Component {
           children={this.props.children}
           dispatch={this.props.dispatch}
           files={this.props.files}
+          folderTitle={this.props.folderTitle}
           launchPictographrFile={this.launchPictographrFile.bind(this)}
           loggedIn={this.props.loggedIn}
           route={this.props.route}

@@ -86,7 +86,10 @@ export default class ShojiCompnent extends React.Component {
           </div>
           <div className="shoji-door">
               <div className="content">
-                  <nav id="navbar-fixed" className="navbar navbar-default container" role="navigation">
+                  <nav
+                    id="navbar-fixed"
+                    className="navbar navbar-default" role="navigation"
+                  >
                       <Logo />
                       <div className="navbar-header">
                           {

@@ -7,29 +7,27 @@ export default class Files extends React.Component {
     this.onScroll();
   }
 
-  componentWillUnmount() {
-    window.removeEventListener('scroll');
-  }
-
-  slideFolderMenu() {
-    if ($('.shoji-panel-left').is(':visible')) this.props.shoji.toggle('right', 130);
-  }
-
   onScroll() {
+    const handler = null;
+    window.removeEventListener('scroll', handler, false);
+
     const topPadding = 280;
     const carouselHeight = 320;
-    const offset = $('#sidemenu').offset();
-    $(window).scroll(() => {
-      if ($(window).scrollTop() > offset.top + carouselHeight) {
+    window.addEventListener('scroll', () => {
+      if ($(window).scrollTop() > this.props.sidemenutop + carouselHeight) {
         $('#sidemenu').stop().animate({
-          'margin-top': $(window).scrollTop() - (offset.top + topPadding)
+          'margin-top': $(window).scrollTop() - (this.props.sidemenutop + topPadding)
         });
       } else {
         $('#sidemenu').stop().animate({
             marginTop: 0
         });
       }
-    });
+    }, false);
+  }
+
+  slideFolderMenu() {
+    if ($('.shoji-panel-left').is(':visible')) this.props.shoji.toggle('right', 130);
   }
 
   render() {

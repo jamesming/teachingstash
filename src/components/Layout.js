@@ -12,7 +12,7 @@ import ShojiComponent from './Shoji/Shoji';
   folderTitle: store.files.folderTitle,
   loggedIn: store.user.loggedIn,
   modalshow: store.app.modalshow,
-  route: store.app.route,
+  sidemenutop: store.app.sidemenutop,
   templates: store.templates.templates,
 }))
 
@@ -47,7 +47,7 @@ export default class Layout extends React.Component {
           folderTitle={this.props.folderTitle}
           launchPictographrFile={this.launchPictographrFile.bind(this)}
           loggedIn={this.props.loggedIn}
-          route={this.props.route}
+          sidemenutop={this.props.sidemenutop}
           templates={this.props.templates}
         />
       </div>

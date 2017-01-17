@@ -42,9 +42,9 @@ export default class Folder extends React.Component {
                 className='collapsed' onClick={this.dispatch.bind(this)} role='button'
                 data-toggle={
                     folder.sub_folders ?
-                    'collapse'
+                      'collapse'
                     :
-                    ''
+                      ''
                   }
                 data-parent='#accordion' href={`.${folder.id}`}
                 aria-expanded='false' aria-controls={folder.id}

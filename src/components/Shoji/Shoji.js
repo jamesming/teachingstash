@@ -4,7 +4,6 @@ import Logo from './Logo';
 import Folder from './Folder';
 
 export default class ShojiCompnent extends React.Component {
-
     componentDidMount() {
       this.resizeWindow();
       this.shoji = new Shoji('#shoji');
@@ -26,7 +25,11 @@ export default class ShojiCompnent extends React.Component {
     }
 
     slideFolderMenu() {
-      if (window.innerWidth < 768) this.shoji.toggle('right', 130);
+      if (window.innerWidth < 768) {
+       this.shoji.toggle('right', 130);
+             setTimeout(() => {
+        $(window).scrollTop($('#files-column').offset().top); }, 1000);
+      }
     }
 
     slideAccountMenu() {

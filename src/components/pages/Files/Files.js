@@ -3,9 +3,35 @@ import File from './File';
 import Folder from '../../Shoji/Folder';
 
 export default class Files extends React.Component {
-  slideFolderMenu() {
-      if ($('.shoji-panel-left').is(':visible')) this.props.shoji.toggle('right', 130);
+  componentDidMount() {
+    this.onScroll();
   }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll');
+  }
+
+  slideFolderMenu() {
+    if ($('.shoji-panel-left').is(':visible')) this.props.shoji.toggle('right', 130);
+  }
+
+  onScroll() {
+    const topPadding = 280;
+    const carouselHeight = 320;
+    const offset = $('#sidemenu').offset();
+    $(window).scroll(() => {
+      if ($(window).scrollTop() > offset.top + carouselHeight) {
+        $('#sidemenu').stop().animate({
+          'margin-top': $(window).scrollTop() - (offset.top + topPadding)
+        });
+      } else {
+        $('#sidemenu').stop().animate({
+            marginTop: 0
+        });
+      }
+    });
+  }
+
   render() {
   const { templates } = this.props;
   const FoldersComponents = templates.map((folder) =>
@@ -29,7 +55,7 @@ export default class Files extends React.Component {
     ));
 
   const imgInline = {
-    'padding': '50px 0px'
+    padding: '50px 0px'
   };
 
   return (
@@ -41,7 +67,7 @@ export default class Files extends React.Component {
       </div>
       <div className="container">
           <div className="row">
-              <div className="hidden-xs col-sm-3">
+              <div id="sidemenu" className="hidden-xs col-sm-3">
                 <div
                   className='panel-group'
                   id='accordion'
@@ -51,7 +77,7 @@ export default class Files extends React.Component {
                 {FoldersComponents}
                 </div>
               </div>
-              <div className="col-xs-12 col-sm-9">
+              <div id="files-column" className="col-xs-12 col-sm-9">
                 <div>
                   <h3>
                     {

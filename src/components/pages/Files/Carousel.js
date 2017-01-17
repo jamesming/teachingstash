@@ -3,8 +3,11 @@ import React from 'react';
 export default class Carousel extends React.Component {
 
   render() {
+    const inlineStyle = {
+      'max-width': '550px'
+    };
     return (
-      <div id="carousel-example-generic" className="carousel slide" data-ride="carousel">
+      <div id="carousel-example-generic" className="carousel slide" data-ride="carousel" style={inlineStyle}>
         <ol className="carousel-indicators">
           <li data-target="#carousel-example-generic" data-slide-to="0" className="active"></li>
           <li data-target="#carousel-example-generic" data-slide-to="1"></li>
@@ -12,13 +15,13 @@ export default class Carousel extends React.Component {
         </ol>
         <div className="carousel-inner" role="listbox">
           <div className="item active">
-            <img alt="" className="img-responsive" src="http://placehold.it/550x350" />
+            <img alt="" src="http://placehold.it/550x350" />
             <div className="carousel-caption">
               carousel-caption
             </div>
           </div>
           <div className="item">
-            <img alt="" className="img-responsive" src="http://placehold.it/550x350" />
+            <img alt="" src="http://placehold.it/550x350" />
             <div className="carousel-caption">
               carousel-caption
             </div>

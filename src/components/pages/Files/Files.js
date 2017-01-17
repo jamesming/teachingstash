@@ -60,7 +60,7 @@ export default class Files extends React.Component {
 
   return (
     <div>
-      <div style={imgInline} >
+      <div className="container" style={imgInline} >
         <center>
           <img alt="" className="img-responsive" src="http://placehold.it/550x350" />
         </center>

@@ -1,31 +1,45 @@
 import React from 'react';
+import Indicator from './Indicators';
+import Slide from './Slide';
 
 export default class Carousel extends React.Component {
 
   render() {
     const inlineStyle = {
-      'max-width': '550px'
+      maxWidth: '550px'
     };
+    const Slides = this.props.slides.map((slide) =>
+      <Slide
+        key={slide.id}
+        fileId={slide.id}
+        slides={this.props.slides}
+      />
+    );
+    var theIndicators = [];
+    this.props.slides.forEach((slide, index) => {
+      theIndicators.push(
+        <Indicator
+          idx={index}
+          key={slide.fileId}
+          fileId={slide.fileId}
+          slides={this.props.slides}
+        />
+      );
+    });
+    const Indicators = this.props.slides.map((slide) =>
+      <Indicator
+        key={slide.id}
+        fileId={slide.id}
+        slides={this.props.slides}
+      />
+    );
     return (
       <div id="carousel-example-generic" className="carousel slide" data-ride="carousel" style={inlineStyle}>
         <ol className="carousel-indicators">
-          <li data-target="#carousel-example-generic" data-slide-to="0" className="active"></li>
-          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+          {theIndicators}
         </ol>
         <div className="carousel-inner" role="listbox">
-          <div className="item active">
-            <img alt="" src="http://placehold.it/550x350" />
-            <div className="carousel-caption">
-              carousel-caption
-            </div>
-          </div>
-          <div className="item">
-            <img alt="" src="http://placehold.it/550x350" />
-            <div className="carousel-caption">
-              carousel-caption
-            </div>
-          </div>
+          {Slides}
         </div>
         <a
           className="left carousel-control"

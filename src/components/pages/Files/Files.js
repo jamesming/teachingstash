@@ -1,6 +1,6 @@
 import React from 'react';
 import File from './File';
-import Carousel from './Carousel';
+import Carousel from './Carousel/Carousel';
 import Folder from '../../Shoji/Folder';
 
 export default class Files extends React.Component {
@@ -37,8 +37,7 @@ export default class Files extends React.Component {
   }
 
   render() {
-  const { templates } = this.props;
-  const FoldersComponents = templates.map((folder) =>
+  const FoldersComponents = this.props.templates.map((folder) =>
     <Folder
       slideFolderMenu={this.slideFolderMenu.bind(this)}
       key={folder.id}
@@ -61,12 +60,11 @@ export default class Files extends React.Component {
   const imgInline = {
     padding: '50px 0px'
   };
-
   return (
     <div>
       <div className="container" style={imgInline} >
         <center>
-          <Carousel />
+          <Carousel slides={this.props.slides}/>
         </center>
       </div>
       <div className="container">

@@ -42,9 +42,6 @@ export default function reducer(state = {
           templates: state.templates.filter(template => template.id !== action.payload),
         };
       }
-      default: {
-        return state;
-      }
       case 'FETCH_ASSETS': {
         return { ...state, fetching: true };
       }
@@ -58,6 +55,9 @@ export default function reducer(state = {
           fetched: true,
           assets: action.payload,
         };
+      }
+      default: {
+        return state;
       }
     }
 }

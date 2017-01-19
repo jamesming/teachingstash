@@ -13,7 +13,7 @@ export default class ShojiCompnent extends React.Component {
       window.removeEventListener('resize');
     }
 
-    resizeWindow(){
+    resizeWindow() {
       var resizeId = null;
       const doneResizing = () => {
         if ($('.shoji-panel-left').is(':visible')) this.slideFolderMenu();

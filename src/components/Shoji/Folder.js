@@ -25,10 +25,16 @@ export default class Folder extends React.Component {
     if (!this.props.folder.sub_folders) this.props.slideFolderMenu();
     if (this.props.folder.files) {
       this.props.dispatch(addFiles(this.props.folder.files, this.props.folder.title));
+      this.scrollToSidemenuTop();
     }
     e.stopPropagation();
     e.nativeEvent.stopImmediatePropagation();
     e.preventDefault();
+  }
+
+  scrollToSidemenuTop() {
+      const sideMenuTop = $('#files-column').offset().top;
+      $('html, body').stop().animate({ scrollTop: sideMenuTop }, 500);
   }
 
   render() {

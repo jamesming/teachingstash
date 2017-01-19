@@ -15,28 +15,23 @@ export default class Carousel extends React.Component {
         slides={this.props.slides}
       />
     );
-    var theIndicators = [];
+    const Indicators = [];
     this.props.slides.forEach((slide, index) => {
-      theIndicators.push(
+      Indicators.push(
         <Indicator
+          key={index}
           idx={index}
-          key={slide.fileId}
           fileId={slide.fileId}
-          slides={this.props.slides}
         />
       );
     });
-    const Indicators = this.props.slides.map((slide) =>
-      <Indicator
-        key={slide.id}
-        fileId={slide.id}
-        slides={this.props.slides}
-      />
-    );
     return (
-      <div id="carousel-example-generic" className="carousel slide" data-ride="carousel" style={inlineStyle}>
+      <div
+        id="carousel-example-generic"
+        className="carousel slide" data-ride="carousel" style={inlineStyle}
+      >
         <ol className="carousel-indicators">
-          {theIndicators}
+          {Indicators}
         </ol>
         <div className="carousel-inner" role="listbox">
           {Slides}

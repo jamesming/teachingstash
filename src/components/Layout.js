@@ -43,16 +43,7 @@ export default class Layout extends React.Component {
           popGoogleSignIn={this.popGoogleSignIn.bind(this)}
         />
         <ShojiComponent
-          assets={this.props.assets}
-          children={this.props.children}
-          dispatch={this.props.dispatch}
-          files={this.props.files}
-          folderTitle={this.props.folderTitle}
-          launchPictographrFile={this.launchPictographrFile.bind(this)}
-          loggedIn={this.props.loggedIn}
-          slides={this.props.slides}
-          sidemenutop={this.props.sidemenutop}
-          templates={this.props.templates}
+          {...this.props}
         />
       </div>
     );

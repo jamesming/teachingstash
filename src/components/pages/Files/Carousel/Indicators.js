@@ -7,7 +7,7 @@ export default class Indicators extends React.Component {
       <li
         data-target="#carousel-example-generic"
         data-slide-to={this.props.idx} className="active"
-        className={this.props.slides[0].id === this.props.fileId ? 'active' : ''}
+        className={this.props.idx === 0 ? 'active' : ''}
       />
     );
   }

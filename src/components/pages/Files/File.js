@@ -21,14 +21,11 @@ export default class File extends React.Component {
       this.setActiveFileId();
       this.props.dispatch(setModalShow('preview'));
       $('#modalScreen').modal('show');
-      console.log('this image exist: ', this.props.file.id);
     } else {
-      console.log('this image needs rendering:', this.props.file.id);
       var selectorIs = `#${this.props.file.id}_preview_button`;
       $(selectorIs).addClass('waiting').html(`
         <img alt='' src='https://pictographr.com/img/smallloading.gif'/>
       `);
-      // this.setActiveFileId();
       this.props.dispatch(renderPNGandPullAssetsJson(this.props.file.id, () => {
         const img = new Image();
         this.setActiveFileId();
@@ -46,6 +43,13 @@ export default class File extends React.Component {
     }
   }
 
+  printPDF() {
+      var selectorIs = `#${this.props.file.id}_print_button`;
+      $(selectorIs).addClass('waiting').html(`
+        <img alt='' src='https://pictographr.com/img/smallloading.gif'/>
+      `);
+  }
+
   launchPictographrFile() {
     this.props.dispatch(setActiveFileId(this.props.file.id));
     this.props.launchPictographrFile();
@@ -59,7 +63,7 @@ export default class File extends React.Component {
     const src = `${window.feedersite}thumbs/${this.props.file.id}.png`;
 
     return (
-      <div className='col-md-3'>
+      <div className='col-md-4'>
           <a className='thumbnail'>
               <img
                 src={src}
@@ -68,29 +72,40 @@ export default class File extends React.Component {
               />
               <div className='caption'>
               <h4>{this.props.file.title}</h4>
-              <p>
-                  {
-                    this.props.loggedIn ?
-                      <button
-                        className='btn btn-primary btn-sm'
-                        onClick={this.launchPictographrFile.bind(this)}
-                      >Edit</button>
-                    :
-                      <button
-                        onClick={this.setModalSignup.bind(this)}
-                        data-toggle='modal'
-                        data-target='#modalScreen'
-                        className='btn btn-primary btn-sm'
-                      >Edit</button>
-                  }
-                  <button
-                    id={`${this.props.file.id}_preview_button`}
-                    onClick={this.setModalPreview.bind(this)}
-                    // data-toggle='modal'
-                    // data-target='#modalScreen'
-                    className='btn btn-primary btn-sm'
-                  >Preview</button>
-              </p>
+              <div>
+                <center>
+                  <p>
+                        {
+                          this.props.loggedIn ?
+                            <button
+                              className='btn btn-primary btn-sm'
+                              onClick={this.launchPictographrFile.bind(this)}
+                            >Edit</button>
+                          :
+                            <button
+                              onClick={this.setModalSignup.bind(this)}
+                              data-toggle='modal'
+                              data-target='#modalScreen'
+                              className='btn btn-primary btn-sm'
+                            >Edit</button>
+                        }
+                        <button
+                          id={`${this.props.file.id}_preview_button`}
+                          onClick={this.setModalPreview.bind(this)}
+                          className='btn btn-primary btn-sm'
+                        >
+                          Preview
+                        </button>
+                        <button
+                          id={`${this.props.file.id}_print_button`}
+                          onClick={this.printPDF.bind(this)}
+                          className='btn btn-primary btn-sm'
+                        >
+                          Print
+                        </button>
+                    </p>
+                </center>
+              </div>
             </div>
           </a>
       </div>

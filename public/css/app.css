@@ -1,3 +1,12 @@
 button.waiting{
     background-color: white !important;
 }
+
+.thumbnail button{
+	margin-right: 2px;
+	min-width: 51px;
+}
+
+.thumbnail button img{
+	width: 20px;
+}

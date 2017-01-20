@@ -10,7 +10,7 @@ export default class Signup extends React.Component {
 
     return (
       <div>
-        <img className="img-responsive" style={imgStyle} alt='' src='http://placehold.it/500x500' />
+        <img id="signupImg" className="img-responsive" style={imgStyle} alt='' src='http://placehold.it/500x500' />
         <button onClick={this.props.popGoogleSignIn} >
           Sign In with Google
         </button>

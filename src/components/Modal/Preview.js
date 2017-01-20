@@ -11,6 +11,7 @@ export default class Preview extends React.Component {
     return (
       <div>
         <img
+          id="previewImg"
           className="img-responsive" style={imgStyle} alt=''
           src={`${window.feedersite}pngs/${this.props.activeFileId}.png`}
         />

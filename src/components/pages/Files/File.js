@@ -21,13 +21,27 @@ export default class File extends React.Component {
       this.setActiveFileId();
       this.props.dispatch(setModalShow('preview'));
       $('#modalScreen').modal('show');
+      console.log('this image exist: ', this.props.file.id);
     } else {
-      this.setActiveFileId();
+      console.log('this image needs rendering:', this.props.file.id);
+      var selectorIs = `#${this.props.file.id}_preview_button`;
+      $(selectorIs).addClass('waiting').html(`
+        <img alt='' src='https://pictographr.com/img/smallloading.gif'/>
+      `);
+      // this.setActiveFileId();
       this.props.dispatch(renderPNGandPullAssetsJson(this.props.file.id, () => {
+        const img = new Image();
         this.setActiveFileId();
-        this.props.dispatch(setModalShow('preview'));
-        $('#modalScreen').modal('show');
-        console.log('rendered');
+
+        img.onload = () => {
+          this.props.dispatch(setModalShow('preview'));
+          $('#modalScreen').modal('show');
+          $(selectorIs).removeClass('waiting').text(`
+            Preview
+          `);
+        };
+
+        img.src = `${window.feedersite}pngs/${this.props.file.id}.png`;
       }));
     }
   }
@@ -70,6 +84,7 @@ export default class File extends React.Component {
                       >Edit</button>
                   }
                   <button
+                    id={`${this.props.file.id}_preview_button`}
                     onClick={this.setModalPreview.bind(this)}
                     // data-toggle='modal'
                     // data-target='#modalScreen'

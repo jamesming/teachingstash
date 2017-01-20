@@ -8,23 +8,20 @@ export default class Carousel extends React.Component {
     const inlineStyle = {
       maxWidth: '550px'
     };
-    const Slides = this.props.slides.map((slide) =>
+    const Slides = this.props.slides.map((slide, idx) =>
       <Slide
-        key={slide.id}
+        key={idx}
+        idx={idx}
         fileId={slide.id}
-        slides={this.props.slides}
       />
     );
-    const Indicators = [];
-    this.props.slides.forEach((slide, index) => {
-      Indicators.push(
+    const Indicators = this.props.slides.map((slide, idx) =>
         <Indicator
-          key={index}
-          idx={index}
+          key={idx}
+          idx={idx}
           fileId={slide.fileId}
         />
-      );
-    });
+    );
     return (
       <div
         id="carousel-example-generic"

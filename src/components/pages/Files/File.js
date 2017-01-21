@@ -74,6 +74,7 @@ export default class File extends React.Component {
         this.props.assets[this.props.file.id].pdf) {
       const url = `${window.feedersite}pdfs/${this.props.file.id}.pdf`;
       console.log(url);
+      this.download(url, 'something.pdf');
     } else {
     var selectorIs = `#${this.props.file.id}_print_button`;
       $(selectorIs).addClass('waiting').html(`
@@ -81,6 +82,8 @@ export default class File extends React.Component {
       `);
 
       this.props.dispatch(renderPDFandPullAssetsJson(this.props.file.id, () => {
+        const url = `${window.feedersite}pdfs/${this.props.file.id}.pdf`;
+        this.download(url, 'something.pdf');
         $(selectorIs).removeClass('waiting').text(`
           Print
         `);

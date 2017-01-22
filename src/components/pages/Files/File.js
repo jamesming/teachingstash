@@ -23,7 +23,10 @@ export default class File extends React.Component {
         this.props.assets[this.props.file.id].png) {
       this.setActiveFileId();
       this.props.dispatch(setModalShow('preview'));
-      $('#modalScreen').modal('show');
+      //$('#modalScreen').modal('show');
+      this.toast('Please click edit now.');
+      const $selector = $(`#edit-button-${this.props.file.id}`);
+      this.animateElement($selector);
     } else {
       var selectorIs = `#${this.props.file.id}_preview_button`;
       $(selectorIs).addClass('waiting').html(`
@@ -44,6 +47,13 @@ export default class File extends React.Component {
         img.src = `${window.feedersite}pngs/${this.props.file.id}.png`;
       }));
     }
+  }
+
+  animateElement($selector) {
+    $selector.addClass('animated bounce');
+    setTimeout( () => {
+      $selector.removeClass('animated bounce');
+    }, 15000);
   }
 
   download(blobUrl, filename) {
@@ -91,6 +101,18 @@ export default class File extends React.Component {
     }
   }
 
+  toast(message) {
+    $.toast().reset('all');
+    const options = {};
+    options.text = message;
+    options.stack = 12;
+    options.loaderBg = '#4285F4';
+    options.icon = 'success';
+    options.heading = 'Note';
+    options.hideAfter = 10000;
+    $.toast(options);
+  }
+
   launchPictographrFile() {
     this.props.dispatch(setActiveFileId(this.props.file.id));
     this.props.launchPictographrFile();
@@ -121,11 +143,13 @@ export default class File extends React.Component {
                         {
                           this.props.loggedIn ?
                             <button
+                              id={`edit-button-${this.props.file.id}`}
                               className='btn btn-primary btn-sm'
                               onClick={this.launchPictographrFile.bind(this)}
                             >Edit</button>
                           :
                             <button
+                              id={`edit-button-${this.props.file.id}`}
                               onClick={this.setModalSignup.bind(this)}
                               data-toggle='modal'
                               data-target='#modalScreen'

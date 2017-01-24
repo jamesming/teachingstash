@@ -13,7 +13,7 @@ export default class Signup extends React.Component {
       cursor: 'pointer',
       display: 'block',
       margin: '40px auto',
-      width: '200px'
+      width: '245px'
     };
 
     return (

@@ -134,7 +134,7 @@ export default class File extends React.Component {
       const $selector = $(`#edit-button-${this.props.activeFileId}`);
       this.animateElement($selector);
       $('#modalScreen').modal('hide');
-      setTimeout( () => {
+      setTimeout(() => {
         this.props.dispatch(setSession('established'));
       }, 1000);
     }

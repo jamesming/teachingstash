@@ -26,7 +26,7 @@ button.waiting{
   -o-animation-iteration-count: infinite;
 }
 
-.edit-buttons {
+.edit-buttons, .print-buttons {
   display: none;
 }
 
@@ -34,7 +34,7 @@ button.waiting{
     .navbar-banner {
         text-align: left;
     }
-    .edit-buttons {
+    .edit-buttons, .print-buttons {
       display: initial;
     }
 }

@@ -179,7 +179,7 @@ export default class File extends React.Component {
                         <button
                           id={`${this.props.file.id}_print_button`}
                           onClick={this.printPDF.bind(this)}
-                          className='btn btn-primary btn-sm'
+                          className='print-buttons btn btn-primary btn-sm'
                         >
                           Print
                         </button>

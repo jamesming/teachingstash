@@ -1,5 +1,6 @@
 import React from 'react';
 import { setActiveFileId } from '../../../actions/filesActions';
+import { setSession } from '../../../actions/userActions';
 import {
     renderPNGandPullAssetsJson,
     renderPDFandPullAssetsJson
@@ -23,10 +24,10 @@ export default class File extends React.Component {
         this.props.assets[this.props.file.id].png) {
       this.setActiveFileId();
       this.props.dispatch(setModalShow('preview'));
-      //$('#modalScreen').modal('show');
-      this.toast('Please click edit now.');
-      const $selector = $(`#edit-button-${this.props.file.id}`);
-      this.animateElement($selector);
+      $('#modalScreen').modal('show');
+      // this.toast('Please click edit now.');
+      // const $selector = $(`#edit-button-${this.props.file.id}`);
+      // this.animateElement($selector);
     } else {
       var selectorIs = `#${this.props.file.id}_preview_button`;
       $(selectorIs).addClass('waiting').html(`
@@ -50,9 +51,9 @@ export default class File extends React.Component {
   }
 
   animateElement($selector) {
-    $selector.addClass('animated bounce');
+    $selector.addClass('animated rotateIn');
     setTimeout( () => {
-      $selector.removeClass('animated bounce');
+      $selector.removeClass('animated rotateIn');
     }, 15000);
   }
 
@@ -108,7 +109,7 @@ export default class File extends React.Component {
     options.stack = 12;
     options.loaderBg = '#4285F4';
     options.icon = 'success';
-    options.heading = 'Note';
+    options.heading = 'Success';
     options.hideAfter = 10000;
     $.toast(options);
   }
@@ -127,6 +128,17 @@ export default class File extends React.Component {
     const inlineButtonStyle = {
       minWidth: '65px'
     }
+
+    if (this.props.user.session === 'initiated') {
+      this.toast('Please now click Edit.');
+      const $selector = $(`#edit-button-${this.props.activeFileId}`);
+      this.animateElement($selector);
+      $('#modalScreen').modal('hide');
+      setTimeout( () => {
+        this.props.dispatch(setSession('established'));
+      }, 1000);
+    }
+
     return (
       <div className='col-md-4'>
           <a className='thumbnail'>
@@ -141,7 +153,7 @@ export default class File extends React.Component {
                 <center>
                   <p>
                         {
-                          this.props.loggedIn ?
+                          this.props.user.loggedIn ?
                             <button
                               id={`edit-button-${this.props.file.id}`}
                               className='btn btn-primary btn-sm'
@@ -171,7 +183,7 @@ export default class File extends React.Component {
                         >
                           Print
                         </button>
-                    </p>
+                  </p>
                 </center>
               </div>
             </div>

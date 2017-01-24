@@ -47,13 +47,14 @@ export default class Files extends React.Component {
 
   const FilesComponents = this.props.files.map((file) => (
       <File
-        slideFolderMenu={this.slideFolderMenu.bind(this)}
+        activeFileId={this.props.activeFileId}
         assets={this.props.assets}
-        key={file.id}
-        file={file}
         dispatch={this.props.dispatch}
+        file={file}
         launchPictographrFile={this.props.launchPictographrFile}
-        loggedIn={this.props.loggedIn}
+        key={file.id}
+        slideFolderMenu={this.slideFolderMenu.bind(this)}
+        user={this.props.user}
       />
     ));
 
@@ -83,7 +84,7 @@ export default class Files extends React.Component {
                 <div>
                   <h3>
                     {
-                      this.props.loggedIn ?
+                      this.props.user.loggedIn ?
                       <p>Logged In</p>
                       :
                       <p>Not Logged In</p>

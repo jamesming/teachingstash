@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs/Rx';
-import { addUser } from './actions/userActions';
+import { setUser, setSession } from './actions/userActions';
 import store from './store';
 
 export default class CrossDomService {
@@ -61,7 +61,8 @@ export default class CrossDomService {
 					if (msgObj.appInstalled === 'true') {
 						if (msgObj.exist === 'true') {  // user is in database
 							console.log('user is in database');
-							store.dispatch(addUser(msgObj.google_id, true));
+							store.dispatch(setUser(msgObj.google_id, true));
+							store.dispatch(setSession('established'));
 						} else {
 							console.log('User not in pictographr DB');
 						}
@@ -72,9 +73,10 @@ export default class CrossDomService {
 
 			if (typeof (msgObj.msgFrom) !== 'undefined' && msgObj.purpose === 'whenUserHasAccountThen') {
 				console.log('whenUserHasAccountThen');
-				store.dispatch(addUser(that.google_id, true));
+				store.dispatch(setUser(msgObj.google_id, true));
+				store.dispatch(setSession('initiated'));
 				clearInterval(that.app.poll.polling);
-				that.launchPictographrFile(that.fileId);
+				//that.launchPictographrFile(that.fileId);
 			}
 		};
 	}
@@ -86,8 +88,9 @@ export default class CrossDomService {
 		console.log(google_id);
 
 		const url =	`https://pictographr.com/app?new_width=620&new_height=500&pollrefresh=true&state=%7B%22ids%22:%5B%22${fileId}%22%5D,%22action%22:%22open%22,%22userId%22:%22${google_id}%22%7D`;
-
-		window.location = url;
+		const win = window.open(url, '_blank');
+		win.focus();
+		//window.location = url;
 	}
 
 	popSignUpWindow(fileId) {

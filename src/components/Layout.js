@@ -11,7 +11,7 @@ import ShojiComponent from './Shoji/Shoji';
   assets: store.templates.assets,
   files: store.files.files,
   folderTitle: store.files.folderTitle,
-  loggedIn: store.user.loggedIn,
+  user: store.user,
   modalshow: store.app.modalshow,
   slides: store.carousel.slides,
   sidemenutop: store.app.sidemenutop,
@@ -44,6 +44,7 @@ export default class Layout extends React.Component {
         />
         <ShojiComponent
           {...this.props}
+          launchPictographrFile={this.launchPictographrFile.bind(this)}
         />
       </div>
     );

@@ -21,7 +21,7 @@ export default class Modal extends React.Component {
             <div className='modal-body'>
               {
                 this.props.modalshow === 'signup' ?
-                  <Signup />
+                  <Signup {...this.props}/>
                 :
                   <Preview
                     activeFileId={this.props.activeFileId}

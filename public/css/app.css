@@ -25,3 +25,16 @@ button.waiting{
   -o-animation-delay: 2s;
   -o-animation-iteration-count: infinite;
 }
+
+.edit-buttons {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+    .navbar-banner {
+        text-align: left;
+    }
+    .edit-buttons {
+      display: initial;
+    }
+}

@@ -156,7 +156,7 @@ export default class File extends React.Component {
                           this.props.user.loggedIn ?
                             <button
                               id={`edit-button-${this.props.file.id}`}
-                              className='btn btn-primary btn-sm'
+                              className='edit-buttons btn btn-primary btn-sm'
                               onClick={this.launchPictographrFile.bind(this)}
                             >Edit</button>
                           :
@@ -165,7 +165,7 @@ export default class File extends React.Component {
                               onClick={this.setModalSignup.bind(this)}
                               data-toggle='modal'
                               data-target='#modalScreen'
-                              className='btn btn-primary btn-sm'
+                              className='edit-buttons btn btn-primary btn-sm'
                             >Edit</button>
                         }
                         <button

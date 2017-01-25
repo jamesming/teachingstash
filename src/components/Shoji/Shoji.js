@@ -51,7 +51,7 @@ export default class ShojiCompnent extends React.Component {
         />);
 
       return (
-        <div className="shoji container" id="shoji">
+        <div className="shoji" id="shoji">
           <div className="shoji-rail">
               <div className="shoji-panel shoji-panel-left">
                 <div
@@ -87,6 +87,8 @@ export default class ShojiCompnent extends React.Component {
                     id="navbar-fixed"
                     className="navbar navbar-default" role="navigation"
                   >
+                    <div className="container">
+
                       <Logo />
                       <div className="navbar-header">
                           {
@@ -141,6 +143,7 @@ export default class ShojiCompnent extends React.Component {
                               </li>
                           </ul>
                       </div>
+                    </div>
                   </nav>
                   <div id="route-section">
                     {children}

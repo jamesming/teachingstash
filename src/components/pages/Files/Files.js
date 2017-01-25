@@ -65,7 +65,7 @@ export default class Files extends React.Component {
     <div>
       <div className="container" style={imgInline} >
         <center>
-          <Carousel slides={this.props.slides}/>
+          <Carousel slides={this.props.slides} />
         </center>
       </div>
       <div className="container">

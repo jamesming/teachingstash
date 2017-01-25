@@ -6,11 +6,14 @@ export function fetchTemplates() {
       .then((response) => {
         dispatch({ type: 'FETCH_TEMPLATES_FULFILLED', payload: response.data });
 
+        const files = (response.data[0].files ?
+              response.data[0].files : response.data[0].sub_folders[0].files);
+
         dispatch({
           type: 'ADD_FILES',
           payload: {
-            files: response.data[0].files,
-            folderTitle: response.data[0].title
+            files,
+            folderTitle: files.title
           },
         });
       })

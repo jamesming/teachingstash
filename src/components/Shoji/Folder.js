@@ -39,14 +39,10 @@ export default class Folder extends React.Component {
 
   render() {
     const { folder } = this.props;
-    const styleFolder = {
-      border: '0px',
-      backgroundColor: '#FFFFFF'
-    };
 
     return (
-        <div style={styleFolder} key={folder.id} className='panel panel-default'>
-          <div  style={styleFolder} className='panel-heading' role='tab' id={`heading-${folder.id}`}>
+        <div key={folder.id} className='panel panel-default'>
+          <div className='panel-heading' role='tab' id={`heading-${folder.id}`}>
             <h4 className='panel-title'>
               <a
                 className='collapsed' onClick={this.dispatch.bind(this)} role='button'
@@ -60,6 +56,12 @@ export default class Folder extends React.Component {
                 aria-expanded='false' aria-controls={folder.id}
               >
                 {folder.title}
+                {
+                    folder.sub_folders ?
+                      ' ...'
+                    :
+                      ''
+                  }
               </a>
             </h4>
           </div>

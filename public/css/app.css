@@ -30,6 +30,32 @@ button.waiting{
   display: none;
 }
 
+#sidemenu .panel, #sidemenu .panel-heading,
+.shoji-panel-left .panel, .shoji-panel-left .panel-heading{
+  border: 0px !important;
+  background-color: white !important;
+  box-shadow: 0 0px 0px rgba(0,0,0,0);
+}
+
+#sidemenu .panel, #sidemenu .panel-heading{
+  padding-left: 0px;
+}
+
+#sidemenu .panel-title, #sidemenu .panel li,
+.shoji-panel-left .panel-title, .shoji-panel-left .panel li{
+  font-weight: bold;
+  color:gray;
+}
+
+#sidemenu .panel ul{
+  padding-left: 10px;
+}
+
+.shoji-panel-left .panel ul{
+  padding-left: 25px;
+}
+
+
 @media screen and (min-width: 768px) {
     .navbar-banner {
         text-align: left;

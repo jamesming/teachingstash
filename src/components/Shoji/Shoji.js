@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router';
+import Desktopmenu from './Settings/Desktopmenu';
+import Mobilemenu from './Settings/Mobilemenu';
 import Logo from './Logo';
 import Folder from './Folder';
 
@@ -63,23 +64,9 @@ export default class ShojiCompnent extends React.Component {
                 {FoldersComponents}
                 </div>
               </div>
-              <div className="shoji-panel shoji-panel-right">
-                  <ul className="nav nav-pills nav-stacked">
-                      <li>
-                        <a
-                          href="/#/"
-                          onClick={this.slideAccountMenu.bind(this)}
-                        >
-                          Templates
-                        </a>
-                        <Link
-                          to="topfold"
-                          onClick={this.slideAccountMenu.bind(this)}
-                        >Topfold</Link>
-                      </li>
-                      <li><a href="">Log off</a></li>
-                  </ul>
-              </div>
+              <Mobilemenu
+                shoji={this.shoji}
+              />
           </div>
           <div className="shoji-door">
               <div className="content">
@@ -114,35 +101,7 @@ export default class ShojiCompnent extends React.Component {
                               <i className="glyphicon glyphicon-cog" />
                           </button>
                       </div>
-                      <div className="navbar-collapse collapse">
-                          <ul className="nav navbar-nav navbar-right">
-                              <li className="dropdown">
-                                  <a
-                                    href="" className="dropdown-toggle"
-                                    data-toggle="dropdown"
-                                  >
-                                    Welcome, User <b className="caret" />
-                                  </a>
-                                  <ul className="dropdown-menu">
-                                      <li><a
-                                        href="#/"
-                                        >
-                                          Templates
-                                        </a>
-                                      </li>
-                                      <li>
-                                        <a
-                                        href="#/topfold"
-                                        >
-                                          Topfold
-                                        </a>
-                                      </li>
-                                      <li className="divider" />
-                                      <li><a href="">Log off</a></li>
-                                  </ul>
-                              </li>
-                          </ul>
-                      </div>
+                      <Desktopmenu user={this.props.user} />
                     </div>
                   </nav>
                   <div id="route-section">

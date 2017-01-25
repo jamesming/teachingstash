@@ -81,16 +81,6 @@ export default class Files extends React.Component {
                 </div>
               </div>
               <div id="files-column" className="col-xs-12 col-sm-9">
-                <div>
-                  <h3>
-                    {
-                      this.props.user.loggedIn ?
-                      <p>Logged In</p>
-                      :
-                      <p>Not Logged In</p>
-                    }
-                    </h3>
-                  </div>
                 <div><h3>{this.props.folderTitle}</h3></div>
                 {FilesComponents}
               </div>

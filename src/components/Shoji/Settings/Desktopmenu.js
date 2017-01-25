@@ -1,6 +1,11 @@
 import React from 'react';
+import { setModalShow } from '../../../actions/appActions';
 
 export default class Desktopmenu extends React.Component {
+  setModalSignup() {
+    this.props.dispatch(setModalShow('signup'));
+  }
+
   render() {
     const signupButtonStyle = {
       width: '180px',
@@ -43,8 +48,11 @@ export default class Desktopmenu extends React.Component {
             <img
               alt=''
               className="signupButton img-responsive"
-              style={signupButtonStyle}
+              data-toggle='modal'
+              data-target='#modalScreen'
+              onClick={this.setModalSignup.bind(this)}
               src='https://pictographr.com/img/loginGoogle.png'
+              style={signupButtonStyle}
             />
         }
       </div>

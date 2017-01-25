@@ -101,7 +101,9 @@ export default class ShojiCompnent extends React.Component {
                               <i className="glyphicon glyphicon-cog" />
                           </button>
                       </div>
-                      <Desktopmenu user={this.props.user} />
+                      <Desktopmenu
+                        {...this.props}
+                      />
                     </div>
                   </nav>
                   <div id="route-section">

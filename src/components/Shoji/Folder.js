@@ -13,6 +13,7 @@ export default class Folder extends React.Component {
           key={subFolder.id}
           subFolder={subFolder}
           dispatch={this.props.dispatch}
+          scrollToSidemenuTop={this.scrollToSidemenuTop.bind(this)}
         />
      ));
 

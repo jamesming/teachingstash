@@ -14,7 +14,7 @@ export default class File extends React.Component {
   }
 
   setModalSignup() {
-    this.setActiveFileId();
+    //this.setActiveFileId();
     this.props.dispatch(setModalShow('signup'));
   }
 

@@ -61,9 +61,20 @@ button.waiting{
 
 #sidemenu .panel-title, #sidemenu .panel li,
 .shoji-panel-left .panel-title, .shoji-panel-left .panel li{
-  font-size: inherit;
-  font-weight: bold;
+  font-size: 20px;
   color:gray;
+}
+
+#sidemenu .panel a:focus,
+.shoji-panel-left .panel a:focus{
+  text-decoration: none;
+}
+
+#sidemenu .panel a:hover,
+#sidemenu .panel li:hover,
+.shoji-panel-left .panel li:hover,
+.shoji-panel-left .panel a:hover{
+  text-decoration: underline;
 }
 
 #sidemenu .panel li,

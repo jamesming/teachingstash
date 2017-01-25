@@ -51,7 +51,7 @@ export default class ShojiCompnent extends React.Component {
         />);
 
       return (
-        <div className="shoji" id="shoji">
+        <div className="shoji container" id="shoji">
           <div className="shoji-rail">
               <div className="shoji-panel shoji-panel-left">
                 <div

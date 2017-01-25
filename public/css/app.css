@@ -40,19 +40,35 @@ button.waiting{
 
 #sidemenu .panel, #sidemenu .panel-heading,
 .shoji-panel-left .panel, .shoji-panel-left .panel-heading{
-  border: 0px !important;
   background-color: white !important;
+  border: 0px !important;
   box-shadow: 0 0px 0px rgba(0,0,0,0);
+  margin-top: 0px !important;
 }
 
 #sidemenu .panel, #sidemenu .panel-heading{
   padding-left: 0px;
+  padding-top: 0px;
+}
+
+#sidemenu .list-group, .shoji-panel-left .list-group, .shoji-panel-left ul{
+  margin-bottom: 0px;
+}
+
+#sidemenu ul{
+  margin-bottom: 10px;
 }
 
 #sidemenu .panel-title, #sidemenu .panel li,
 .shoji-panel-left .panel-title, .shoji-panel-left .panel li{
+  font-size: inherit;
   font-weight: bold;
   color:gray;
+}
+
+#sidemenu .panel li,
+.shoji-panel-left .panel li{
+  margin-bottom: 5px;
 }
 
 #sidemenu .panel ul{

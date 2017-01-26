@@ -14,7 +14,7 @@ export default class Topfold extends React.Component {
         </div>
         <div className="container">
           <div className="jumbotron">
-            <input ref="sharedfolder" value="test" />
+            <input ref="sharedfolder" value="sharedfolderValue" />
           </div>
         </div>
       </div>

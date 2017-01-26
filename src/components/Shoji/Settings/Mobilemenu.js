@@ -2,13 +2,6 @@ import React from 'react';
 import { Link } from 'react-router';
 
 export default class Mobilemenu extends React.Component {
-  slideFolderMenu() {
-    if (window.innerWidth < 768) {
-      this.props.shoji.toggle('right', 130);
-    }
-    setTimeout(() => { this.props.scrollToSidemenuTop(); }, 1000);
-  }
-
   slideAccountMenu() {
     this.props.shoji.toggle('left', 130);
   }
@@ -20,7 +13,13 @@ export default class Mobilemenu extends React.Component {
               <li>
                 <a
                   href="/#/"
-                  onClick={this.slideFolderMenu.bind(this)}
+                  onClick={() => {
+                      this.slideAccountMenu();
+                      setTimeout(() => {
+                        this.props.scrollToSidemenuTop();
+                      }, 1000);
+                    }
+                  }
                 >
                   Templates
                 </a>

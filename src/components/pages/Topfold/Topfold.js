@@ -2,17 +2,19 @@ import React from 'react';
 
 export default class Topfold extends React.Component {
 
+  componentDidMount() {
+    console.log(this.refs.sharedfolder.value);
+  }
+
   render() {
-    //console.log(this.props.params.name);
     return (
       <div>
         <div className="container">
-          <img className="img-responsive" alt="" src="img/logo.png"  />
+          <img className="img-responsive" alt="" src="img/logo.png" />
         </div>
         <div className="container">
           <div className="jumbotron">
-            <h1>Enlarge Image Modal</h1>
-            <h2>TEST</h2>
+            <input ref="sharedfolder" value="test" />
           </div>
         </div>
       </div>

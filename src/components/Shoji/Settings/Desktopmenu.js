@@ -36,11 +36,11 @@ export default class Desktopmenu extends React.Component {
                           <a
                           href="#/topfold"
                           >
-                            Topfold
+                            Set Folder
                           </a>
                         </li>
                         <li className="divider" />
-                        <li><a href="">Log off XX</a></li>
+                        <li><a href="">Log off</a></li>
                     </ul>
                 </li>
             </ul>

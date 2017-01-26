@@ -13,7 +13,6 @@ export default class Mobilemenu extends React.Component {
   }
 
   render() {
-    console.log(this.props.shoji);
     return (
       <div className="shoji-panel shoji-panel-right">
           <ul className="nav nav-pills nav-stacked">
@@ -27,7 +26,7 @@ export default class Mobilemenu extends React.Component {
                 <Link
                   to="topfold"
                   onClick={this.slideAccountMenu.bind(this)}
-                >Topfold</Link>
+                >Set Folder</Link>
               </li>
               <li><a href="">Log off</a></li>
           </ul>

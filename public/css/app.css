@@ -18,6 +18,10 @@ button.waiting{
   width: 245px;
 }
 
+.dropdown-menu{
+  min-width: 108px;
+}
+
 .animated{
 	-webkit-animation-duration: 3s;
   -webkit-animation-delay: 2s;
@@ -43,6 +47,10 @@ button.waiting{
 
 #navbar-fixed {
   background-color: white;
+}
+
+.navbar-banner {
+  height: 0px;
 }
 
 #navbar-fixed > div{

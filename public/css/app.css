@@ -72,6 +72,7 @@ button.waiting{
 
 #sidemenu .list-group, .shoji-panel-left .list-group, .shoji-panel-left ul{
   margin-bottom: 0px;
+  border-top: 0px !important;
 }
 
 #sidemenu ul{
@@ -114,6 +115,10 @@ button.waiting{
 }
 
 .edit-buttons, .print-buttons {
+  display: none;
+}
+
+#settings-mobile-button{
   display: none;
 }
 

@@ -88,10 +88,10 @@ export default class ShojiCompnent extends React.Component {
 
                       <Logo />
                       <div className="navbar-header">
-                          {
+                          { // Only show button when route is Files
                             this.props.children.type.name === 'Files' ?
                                 <button
-                                  id="showFolderMenuButton"
+                                  id="folders-mobile-button"
                                   onClick={this.slideFolderMenu.bind(this)}
                                   type="button"
                                   className="navbar-toggle navbar-toggle-left"
@@ -102,7 +102,8 @@ export default class ShojiCompnent extends React.Component {
                             :
                               ''
                           }
-                          <button
+                          <button // Mobile settings button hidden... for use later
+                            id="settings-mobile-button"
                             onClick={this.slideAccountMenu.bind(this)}
                             type="button"
                             className="navbar-toggle navbar-toggle-right"

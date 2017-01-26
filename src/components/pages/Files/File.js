@@ -148,7 +148,7 @@ export default class File extends React.Component {
                 style={inlineImgStyle}
               />
               <div className='caption'>
-              <h4>{this.props.file.title}</h4>
+              <h5><center>{this.props.file.title}</center></h5>
               <div>
                 <center>
                   <p>
@@ -162,10 +162,10 @@ export default class File extends React.Component {
                           :
                             <button
                               id={`edit-button-${this.props.file.id}`}
-                              onClick={this.setModalSignup.bind(this)}
-                              data-toggle='modal'
-                              data-target='#modalScreen'
                               className='edit-buttons btn btn-primary btn-sm'
+                              data-target='#modalScreen'
+                              data-toggle='modal'
+                              onClick={this.setModalSignup.bind(this)}
                             >Edit</button>
                         }
                         <button

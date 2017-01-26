@@ -39,10 +39,11 @@ export default class Files extends React.Component {
   render() {
   const FoldersComponents = this.props.templates.map((folder) =>
     <Folder
-      slideFolderMenu={this.slideFolderMenu.bind(this)}
-      key={folder.id}
-      folder={folder}
       dispatch={this.props.dispatch}
+      folder={folder}
+      key={folder.id}
+      scrollToSidemenuTop={this.props.scrollToSidemenuTop}
+      slideFolderMenu={this.slideFolderMenu.bind(this)}
     />);
 
   const FilesComponents = this.props.files.map((file) => (

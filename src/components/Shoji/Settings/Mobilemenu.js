@@ -6,6 +6,7 @@ export default class Mobilemenu extends React.Component {
     if (window.innerWidth < 768) {
       this.props.shoji.toggle('right', 130);
     }
+    setTimeout(() => { this.props.scrollToSidemenuTop(); }, 1000);
   }
 
   slideAccountMenu() {
@@ -19,7 +20,7 @@ export default class Mobilemenu extends React.Component {
               <li>
                 <a
                   href="/#/"
-                  onClick={this.slideAccountMenu.bind(this)}
+                  onClick={this.slideFolderMenu.bind(this)}
                 >
                   Templates
                 </a>

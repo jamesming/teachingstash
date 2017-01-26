@@ -9,11 +9,11 @@ export default class Folder extends React.Component {
 
     const subcomponentFolder = folder.sub_folders.map((subFolder) => (
         <SubFolder
-          slideFolderMenu={this.props.slideFolderMenu}
-          key={subFolder.id}
-          subFolder={subFolder}
           dispatch={this.props.dispatch}
-          scrollToSidemenuTop={this.scrollToSidemenuTop.bind(this)}
+          key={subFolder.id}
+          scrollToSidemenuTop={this.props.scrollToSidemenuTop}
+          slideFolderMenu={this.props.slideFolderMenu}
+          subFolder={subFolder}
         />
      ));
 
@@ -26,17 +26,13 @@ export default class Folder extends React.Component {
     if (!this.props.folder.sub_folders) this.props.slideFolderMenu();
     if (this.props.folder.files) {
       this.props.dispatch(addFiles(this.props.folder.files, this.props.folder.title));
-      this.scrollToSidemenuTop();
+      this.props.scrollToSidemenuTop();
     }
     e.stopPropagation();
     e.nativeEvent.stopImmediatePropagation();
     e.preventDefault();
   }
 
-  scrollToSidemenuTop() {
-      const sideMenuTop = $('#files-column').offset().top - 50;
-      $('html, body').stop().animate({ scrollTop: sideMenuTop }, 500);
-  }
 
   render() {
     const { folder } = this.props;

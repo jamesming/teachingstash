@@ -35,17 +35,24 @@ export default class ShojiCompnent extends React.Component {
       this.shoji.toggle('left', 130);
     }
 
+    scrollToSidemenuTop() {
+      const sideMenuTop = $('#files-column').offset().top - 40;
+      $('html, body').stop().animate({ scrollTop: sideMenuTop }, 500);
+    }
+
     render() {
       const children = React.Children.map(this.props.children, (child) =>
         React.cloneElement(child, {
           ...this.props,
           shoji: this.shoji,
+          scrollToSidemenuTop: this.scrollToSidemenuTop
         })
       );
 
       const FoldersComponents = this.props.templates.map((folder) =>
-        <Folder
+        <Folder // other folders component in Files.js line 41
           slideFolderMenu={this.slideFolderMenu.bind(this)}
+          scrollToSidemenuTop={this.scrollToSidemenuTop.bind(this)}
           key={folder.id}
           folder={folder}
           dispatch={this.props.dispatch}
@@ -61,11 +68,14 @@ export default class ShojiCompnent extends React.Component {
                   role='tablist'
                   aria-multiselectable='true'
                 >
-                {FoldersComponents}
+                {
+                  FoldersComponents
+                }
                 </div>
               </div>
               <Mobilemenu
                 shoji={this.shoji}
+                scrollToSidemenuTop={this.scrollToSidemenuTop.bind(this)}
               />
           </div>
           <div className="shoji-door">
@@ -103,6 +113,7 @@ export default class ShojiCompnent extends React.Component {
                       </div>
                       <Desktopmenu
                         {...this.props}
+                        scrollToSidemenuTop={this.scrollToSidemenuTop.bind(this)}
                       />
                     </div>
                   </nav>

@@ -13,7 +13,8 @@ export function fetchTemplates() {
           type: 'ADD_FILES',
           payload: {
             files,
-            folderTitle: files.title
+            folderTitle: (response.data[0].files ?
+                files.title : response.data[0].sub_folders[0].title)
           },
         });
       })

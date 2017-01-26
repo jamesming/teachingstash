@@ -26,15 +26,21 @@ export default class Desktopmenu extends React.Component {
                       Welcome, User <b className="caret" />
                     </a>
                     <ul className="dropdown-menu">
-                        <li><a
-                          href="#/"
+                        <li>
+                          <a
+                            href="#/"
+                            onClick={() => {
+                              setTimeout(() => {
+                                this.props.scrollToSidemenuTop();
+                              }, 1000);
+                            }}
                           >
                             Templates
                           </a>
                         </li>
                         <li>
                           <a
-                          href="#/topfold"
+                            href="#/topfold"
                           >
                             Set Folder
                           </a>

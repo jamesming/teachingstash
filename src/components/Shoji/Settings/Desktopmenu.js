@@ -8,7 +8,7 @@ export default class Desktopmenu extends React.Component {
 
   render() {
     const signupButtonStyle = {
-      width: '180px',
+      width: '236px',
       margin: '0',
       position: 'relative',
       float: 'right',

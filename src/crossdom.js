@@ -62,7 +62,8 @@ export default class CrossDomService {
 					if (msgObj.appInstalled === 'true') {
 						if (msgObj.exist === 'true') {  // user is in database
 							console.log('user is in database');
-							store.dispatch(setUser(msgObj.google_id, true));
+							console.log(msgObj);
+							store.dispatch(setUser(msgObj.google_id, true, msgObj.name));
 							store.dispatch(setSession('established'));
 						} else {
 							console.log('User not in pictographr DB');
@@ -74,7 +75,7 @@ export default class CrossDomService {
 
 			if (typeof (msgObj.msgFrom) !== 'undefined' && msgObj.purpose === 'whenUserHasAccountThen') {
 				console.log('whenUserHasAccountThen');
-				store.dispatch(setUser(msgObj.google_id, true));
+				store.dispatch(setUser(msgObj.google_id, true, msgObj.name));
 				store.dispatch(setSession('initiated'));
 				clearInterval(that.app.poll.polling);
 				//that.launchPictographrFile(that.fileId);

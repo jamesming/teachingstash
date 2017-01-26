@@ -34,7 +34,7 @@ export default class Folder extends React.Component {
   }
 
   scrollToSidemenuTop() {
-      const sideMenuTop = $('#files-column').offset().top;
+      const sideMenuTop = $('#files-column').offset().top - 50;
       $('html, body').stop().animate({ scrollTop: sideMenuTop }, 500);
   }
 

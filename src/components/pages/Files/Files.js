@@ -26,7 +26,7 @@ export default class Files extends React.Component {
         });
       } else {
         $('#sidemenu').stop().animate({
-            marginTop: 0
+            marginTop: 25
         });
       }
     }, false);

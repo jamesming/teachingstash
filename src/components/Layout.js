@@ -11,11 +11,12 @@ import ShojiComponent from './Shoji/Shoji';
   assets: store.templates.assets,
   files: store.files.files,
   folderTitle: store.files.folderTitle,
-  user: store.user,
   modalshow: store.app.modalshow,
+  parentFolderId: store.templates.parentFolderId,
   slides: store.carousel.slides,
   sidemenutop: store.app.sidemenutop,
   templates: store.templates.templates,
+  user: store.user,
 }))
 
 export default class Layout extends React.Component {

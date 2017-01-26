@@ -24,11 +24,13 @@ export function fetchTemplates() {
   };
 }
 
-export function buildTemplates(parentFolderId) { //https://pictographr.com/feed/createMenu?parentFolderId=0B1nKK3UKG5hjbk5Ba2dLNE9zUW8
-  return function (dispatch) { // 'http://staging.pictographr.com/feed/getAssetsjson'
+export function generateTemplates(parentFolderId, callback) {
+  return function (dispatch) { //https://pictographr.com/feed/createMenu?parentFolderId=0B1nKK3UKG5hjbk5Ba2dLNE9zUW8
     axios.get(`${window.host}feed/createMenu?parentFolderId=${parentFolderId}`)
       .then((response) => {
         dispatch({ type: 'FETCH_TEMPLATES_FULFILLED', payload: response.data });
+
+        dispatch({ type: 'SET_PARENTFOLDERID', payload: parentFolderId });
 
         const files = (response.data[0].files ?
               response.data[0].files : response.data[0].sub_folders[0].files);
@@ -41,6 +43,7 @@ export function buildTemplates(parentFolderId) { //https://pictographr.com/feed/
                 files.title : response.data[0].sub_folders[0].title)
           },
         });
+        callback();
       })
       .catch((err) => {
         dispatch({ type: 'FETCH_TEMPLATES_REJECTED', payload: err });

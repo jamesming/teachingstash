@@ -1,4 +1,5 @@
 export default function reducer(state = {
+    parentFolderId: '0B1nKK3UKG5hjbk5Ba2dLNE9zUW8',
     templates: [],
     fetching: false,
     fetched: false,
@@ -23,6 +24,12 @@ export default function reducer(state = {
         return {
           ...state,
           templates: [...state.templates, action.payload],
+        };
+      }
+      case 'SET_PARENTFOLDERID': {
+        return {
+          ...state,
+          parentFolderId: action.payload,
         };
       }
       case 'UPDATE_TEMPLATES': {

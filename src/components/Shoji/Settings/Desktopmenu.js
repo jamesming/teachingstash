@@ -6,6 +6,10 @@ export default class Desktopmenu extends React.Component {
     this.props.dispatch(setModalShow('signup'));
   }
 
+  logout() {
+    this.props.crossDomService.logout();
+  }
+
   render() {
     const signupButtonStyle = {
       width: '236px',
@@ -46,7 +50,12 @@ export default class Desktopmenu extends React.Component {
                           </a>
                         </li>
                         <li className="divider" />
-                        <li><a href="">Log off</a></li>
+                        <li>
+                            <a
+                              onClick={this.logout.bind(this)}
+                            >Log off
+                            </a>
+                        </li>
                     </ul>
                 </li>
             </ul>

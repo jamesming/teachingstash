@@ -46,6 +46,7 @@ export default class Layout extends React.Component {
         <ShojiComponent
           {...this.props}
           launchPictographrFile={this.launchPictographrFile.bind(this)}
+          crossDomService={this.crossDomService}
         />
       </div>
     );

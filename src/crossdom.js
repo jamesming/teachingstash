@@ -47,6 +47,17 @@ export default class CrossDomService {
 		this.setReceiver();
 	}
 
+	logout() {
+		const src = 'https://accounts.google.com/Logout';
+
+		$('#iframe_logout').attr('src', 'https://accounts.google.com/Logout').load(() => {
+			$('#iframe_logout').attr('src', 'https://pictographr.com/auth/destroySessionP').unbind('load').load(() => {
+				store.dispatch(setSession('none'));
+				store.dispatch(setUser('', false, ''));
+			});
+		});
+	}
+
 	setReceiver() {
 		const that = this;
 

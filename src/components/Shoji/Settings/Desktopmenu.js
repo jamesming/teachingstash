@@ -23,7 +23,7 @@ export default class Desktopmenu extends React.Component {
                       href="" className="dropdown-toggle"
                       data-toggle="dropdown"
                     >
-                      Welcome, User <b className="caret" />
+                      Welcome {this.props.user.name} <b className="caret" />
                     </a>
                     <ul className="dropdown-menu">
                         <li>

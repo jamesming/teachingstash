@@ -7,6 +7,7 @@ export default class CrossDomService {
 	constructor() {
 		this.nameOfThisFile = 'crossdomfile';
 		this.initiateMessaging();
+		this.hasPopped = false;
 	}
 
 	testObserable() {
@@ -94,8 +95,11 @@ export default class CrossDomService {
 	}
 
 	popSignUpWindow(fileId) {
-		this.fileId = fileId;
-    this.app = new App();
-    this.app.createNewPictographrUser();
+		if (!this.hasPopped) {
+			this.hasPopped = true;
+			this.fileId = fileId;
+			this.app = new App();
+			this.app.createNewPictographrUser();
+		}
 	}
 }

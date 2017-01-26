@@ -24,6 +24,30 @@ export function fetchTemplates() {
   };
 }
 
+export function buildTemplates(parentFolderId) { //https://pictographr.com/feed/createMenu?parentFolderId=0B1nKK3UKG5hjbk5Ba2dLNE9zUW8
+  return function (dispatch) { // 'http://staging.pictographr.com/feed/getAssetsjson'
+    axios.get(`${window.host}feed/createMenu?parentFolderId=${parentFolderId}`)
+      .then((response) => {
+        dispatch({ type: 'FETCH_TEMPLATES_FULFILLED', payload: response.data });
+
+        const files = (response.data[0].files ?
+              response.data[0].files : response.data[0].sub_folders[0].files);
+
+        dispatch({
+          type: 'ADD_FILES',
+          payload: {
+            files,
+            folderTitle: (response.data[0].files ?
+                files.title : response.data[0].sub_folders[0].title)
+          },
+        });
+      })
+      .catch((err) => {
+        dispatch({ type: 'FETCH_TEMPLATES_REJECTED', payload: err });
+      });
+  };
+}
+
 export function fetchAssets() {
   return function (dispatch) {
     axios.get(`${window.host}feed/getAssetsjson`)

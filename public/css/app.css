@@ -37,20 +37,20 @@ button.waiting{
   -o-animation-iteration-count: infinite;
 }
 
-.edit-buttons, .print-buttons {
-  display: none;
-}
-
 #shoji .navbar-header{
   margin: 0px;
 }
 
-#navbar-fixed {
+#shoji #navbar-fixed {
   background-color: white;
 }
 
-.navbar-banner {
+#shoji .navbar-banner {
   height: 0px;
+}
+
+#shoji .navbar-brand>img {
+    display: inherit;
 }
 
 #navbar-fixed > div{
@@ -113,9 +113,12 @@ button.waiting{
   padding-left: 25px;
 }
 
+.edit-buttons, .print-buttons {
+  display: none;
+}
 
 @media screen and (min-width: 768px) {
-    .navbar-banner {
+    #shoji .navbar-banner {
         text-align: left;
     }
     .edit-buttons, .print-buttons {

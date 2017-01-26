@@ -97,7 +97,7 @@ export default class ShojiCompnent extends React.Component {
                                   className="navbar-toggle navbar-toggle-left"
                                   data-slide="right"
                                 >
-                                    <i className="glyphicon glyphicon-th-large" />
+                                    <i className="glyphicon glyphicon-menu-hamburger" />
                                 </button>
                             :
                               ''

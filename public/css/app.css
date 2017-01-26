@@ -45,6 +45,9 @@ button.waiting{
 #shoji .navbar-header{
   margin: 0px;
 }
+#shoji .navbar{
+  height: 50px;
+}
 
 #shoji #navbar-fixed {
   background-color: white;

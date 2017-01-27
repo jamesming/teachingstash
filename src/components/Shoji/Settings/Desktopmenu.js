@@ -19,7 +19,7 @@ export default class Desktopmenu extends React.Component {
       position: 'relative',
       float: 'right',
       marginTop: '6.5px',
-      width: '167px',
+      width: '200px',
     };
     const buttonStyle = {
       float: 'right',

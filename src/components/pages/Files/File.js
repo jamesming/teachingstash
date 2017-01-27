@@ -120,10 +120,6 @@ export default class File extends React.Component {
   }
 
   render() {
-    const inlineImgStyle = {
-      cursor: 'zoom-in'
-    };
-
     const src = `${window.feedersite}thumbs/${this.props.file.id}.png`;
     const inlineButtonStyle = {
       minWidth: '65px'
@@ -145,7 +141,6 @@ export default class File extends React.Component {
               <img
                 src={src}
                 alt='ALT NAME'
-                style={inlineImgStyle}
               />
               <div className='caption'>
               <h5><center>{this.props.file.title}</center></h5>
@@ -172,14 +167,14 @@ export default class File extends React.Component {
                           style={inlineButtonStyle}
                           id={`${this.props.file.id}_preview_button`}
                           onClick={this.setModalPreview.bind(this)}
-                          className='btn btn-primary btn-sm'
+                          className='btn btn-sm'
                         >
                           Preview
                         </button>
                         <button
                           id={`${this.props.file.id}_print_button`}
                           onClick={this.printPDF.bind(this)}
-                          className='print-buttons btn btn-primary btn-sm'
+                          className='print-buttons btn btn-sm'
                         >
                           Print
                         </button>

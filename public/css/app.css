@@ -126,6 +126,10 @@ button.waiting{
   display: none;
 }
 
+#files-column a:hover{
+  text-decoration: none;
+}
+
 #settings-mobile-button{
   display: none;
 }

@@ -43,7 +43,7 @@
     <div id="app"></div>
     <script type="text/javascript">
     //var host = 'http://staging.pictographr.com/';
-      var feedsite = '<?php echo getenv('HTTP_HOST'); ?>';
+      var feedsite = '<?php echo explode(getenv('HTTP_HOST'), '.')[0]; ?>';
       var host = 'https://pictographr.com/';
       var feedersite = host + 'feed/' + feedsite + '/';
     </script>

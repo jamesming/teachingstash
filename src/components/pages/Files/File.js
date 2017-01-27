@@ -128,7 +128,7 @@ export default class File extends React.Component {
     if (this.props.user.session === 'initiated') {
       this.toast('You can now click any Edit button to customize.');
       const $selector = $(`#edit-button-${this.props.activeFileId}`);
-      this.animateElement($selector);
+      // this.animateElement($selector);
       $('#modalScreen').modal('hide');
       setTimeout(() => {
         this.props.dispatch(setSession('established'));

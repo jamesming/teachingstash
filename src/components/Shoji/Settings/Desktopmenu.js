@@ -58,6 +58,9 @@ export default class Desktopmenu extends React.Component {
                           <li className="divider" />
                           <li>
                               <a
+                                style={{
+                                  cursor: 'pointer'
+                                }}
                                 onClick={this.logout.bind(this)}
                               >Log off
                               </a>

@@ -73,7 +73,6 @@ export default class CrossDomService {
 					if (msgObj.appInstalled === 'true') {
 						if (msgObj.exist === 'true') {  // user is in database
 							console.log('user is in database');
-							console.log(msgObj);
 							store.dispatch(setUser(msgObj.google_id, true, msgObj.name));
 							store.dispatch(setSession('established'));
 						} else {

@@ -43,7 +43,7 @@
     <div id="app"></div>
     <script type="text/javascript">
     //var host = 'http://staging.pictographr.com/';
-      var feedsite = 'teachingstash';
+      var feedsite = '<? echo HTTP_HOST; ?>';
       var host = 'https://pictographr.com/';
       var feedersite = host + 'feed/' + feedsite + '/';
     </script>

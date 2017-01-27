@@ -157,7 +157,7 @@ export default class File extends React.Component {
                           :
                             <button
                               id={`edit-button-${this.props.file.id}`}
-                              className='edit-buttons btn btn-primary btn-sm'
+                              className='edit-buttons btn btn-primary btn-sm disabled'
                               data-target='#modalScreen'
                               data-toggle='modal'
                               onClick={this.setModalSignup.bind(this)}

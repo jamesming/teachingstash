@@ -94,14 +94,17 @@ export default class CrossDomService {
 		};
 	}
 
-	launchPictographrFile() {
+	launchPictographrFile(createNew) {
+		console.log(createNew);
 		const fileId = store.getState().files.activeFileId;
 		const google_id = store.getState().user.google_id;
 
-		console.log(google_id);
-
-		const url =	`https://pictographr.com/app?new_width=620&new_height=500&pollrefresh=true&state=%7B%22ids%22:%5B%22${fileId}%22%5D,%22action%22:%22open%22,%22userId%22:%22${google_id}%22%7D`;
-		const win = window.open(url, '_blank');
+		const pictographr = 'https://pictographr.com/app?';
+		const templateFileUrl =	`${pictographr}state=%7B%22ids%22:%5B%22${fileId}
+															%22%5D,%22action%22:%22open%22,%22userId%22:%22${google_id}%22%7D`;
+		const newFileUrl = `${pictographr}state=%7B%22newSerial%22:%20%22${Math.random()}
+															%22,%20%22action%22:%22create%22,%22userId%22:%22${google_id}%22%7D`;
+		const win = window.open((createNew === true ? newFileUrl : templateFileUrl), '_blank');
 		win.focus();
 		//window.location = url;
 	}

@@ -27,8 +27,8 @@ export default class Layout extends React.Component {
     this.crossDomService = new CrossDomService();
   }
 
-  launchPictographrFile() {
-    this.crossDomService.launchPictographrFile();
+  launchPictographrFile(createNew) {
+    this.crossDomService.launchPictographrFile(createNew);
   }
 
   popGoogleSignIn() {

@@ -116,7 +116,7 @@ export default class File extends React.Component {
 
   launchPictographrFile() {
     this.props.dispatch(setActiveFileId(this.props.file.id));
-    this.props.launchPictographrFile();
+    this.props.launchPictographrFile(false);
   }
 
   render() {

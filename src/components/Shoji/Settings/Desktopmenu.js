@@ -6,6 +6,10 @@ export default class Desktopmenu extends React.Component {
     this.props.dispatch(setModalShow('signup'));
   }
 
+  launchNewPictographr() {
+    this.props.launchPictographrFile(true);
+  }
+
   logout() {
     this.props.crossDomService.logout();
   }
@@ -82,6 +86,7 @@ export default class Desktopmenu extends React.Component {
           <button
             id="new-design-button"
             className='btn btn-primary btn-sm'
+            onClick={this.launchNewPictographr.bind(this)}
             style={buttonStyle}
           >
           New Design

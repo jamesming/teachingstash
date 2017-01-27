@@ -9,7 +9,7 @@ export default class Logo extends React.Component {
           <a
             className="navbar-brand"
           >
-            <img id="logo" alt="" src="http://placehold.it/150x50" />
+            <img id="logo" alt="" src="img/templatesforteachers.png" />
           </a>
         </div>
       </div>

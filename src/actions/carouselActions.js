@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export function fetchCarousel() {
   return function (dispatch) {
-    axios.get(`${window.host}feed/getCarouseljson`)
+    axios.get(`${window.host}feed/getCarouseljson?feedsite=${feedsite}&`)
       .then((response) => {
         dispatch({ type: 'FETCH_CAROUSEL_FULFILLED', payload: response.data });
       })

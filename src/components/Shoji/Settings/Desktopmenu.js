@@ -84,7 +84,9 @@ export default class Desktopmenu extends React.Component {
               />
           }
           { // Only show button when route is Files
-            this.props.children.type.name === 'Files' ?
+            this.props.children.type.name === 'Files' &&
+            this.props.user.loggedIn === true
+            ?
               <button
                 id="new-design-button"
                 className='btn btn-primary btn-sm'

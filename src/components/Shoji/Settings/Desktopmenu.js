@@ -83,14 +83,19 @@ export default class Desktopmenu extends React.Component {
                 style={signupButtonStyle}
               />
           }
-          <button
-            id="new-design-button"
-            className='btn btn-primary btn-sm'
-            onClick={this.launchNewPictographr.bind(this)}
-            style={buttonStyle}
-          >
-          New Design
-          </button>
+          { // Only show button when route is Files
+            this.props.children.type.name === 'Files' ?
+              <button
+                id="new-design-button"
+                className='btn btn-primary btn-sm'
+                onClick={this.launchNewPictographr.bind(this)}
+                style={buttonStyle}
+              >
+              New Design
+              </button>
+            :
+              ''
+          }
         </div>
       </div>
     );

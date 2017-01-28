@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export function fetchTemplates() {
   return function (dispatch) { // 'http://staging.pictographr.com/feed/getAssetsjson'
-    axios.get(`${window.host}feed/getMenujson?feedsite=${feedsite}`)
+    axios.get(`${window.host}feed/getMenujson?feed=${feed}`)
       .then((response) => {
         dispatch({ type: 'FETCH_TEMPLATES_FULFILLED', payload: response.data });
 
@@ -26,7 +26,7 @@ export function fetchTemplates() {
 
 export function generateTemplates(parentFolderId, callback) {
   return function (dispatch) { //https://pictographr.com/feed/createMenu?parentFolderId=0B1nKK3UKG5hjbk5Ba2dLNE9zUW8
-    axios.get(`${window.host}feed/createMenu?feedsite=${feedsite}&parentFolderId=${parentFolderId}`)
+    axios.get(`${window.host}feed/createMenu?feed=${feed}&parentFolderId=${parentFolderId}`)
       .then((response) => {
         dispatch({ type: 'FETCH_TEMPLATES_FULFILLED', payload: response.data });
 
@@ -53,7 +53,7 @@ export function generateTemplates(parentFolderId, callback) {
 
 export function fetchAssets() {
   return function (dispatch) {
-    axios.get(`${window.host}feed/getAssetsjson?feedsite=${feedsite}&`)
+    axios.get(`${window.host}feed/getAssetsjson?feed=${feed}&`)
       .then((response) => {
         dispatch({ type: 'FETCH_ASSETS_FULFILLED', payload: response.data });
       })
@@ -65,7 +65,7 @@ export function fetchAssets() {
 
 export function renderPNGandPullAssetsJson(activeFileId, callback) {
   return function (dispatch) {
-    axios.get(`${window.host}feed/createAssets?feedsite=${feedsite}&format=png&fileId=${activeFileId}`)
+    axios.get(`${window.host}feed/createAssets?feed=${feed}&format=png&fileId=${activeFileId}`)
       .then((response) => {
         dispatch({ type: 'FETCH_ASSETS_FULFILLED', payload: response.data });
         callback();
@@ -78,7 +78,7 @@ export function renderPNGandPullAssetsJson(activeFileId, callback) {
 
 export function renderPDFandPullAssetsJson(activeFileId, callback) {
   return function (dispatch) {
-    axios.get(`${window.host}feed/createAssets?feedsite=${feedsite}&format=pdf&fileId=${activeFileId}`)
+    axios.get(`${window.host}feed/createAssets?feed=${feed}&format=pdf&fileId=${activeFileId}`)
       .then((response) => {
         dispatch({ type: 'FETCH_ASSETS_FULFILLED', payload: response.data });
         callback();

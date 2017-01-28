@@ -44,7 +44,7 @@
     <script type="text/javascript">
     	var test = '<?php
     		$domain = $_SERVER['SERVER_NAME'];
-    		$feed = explode($domain)[0];
+    		$feed = explode('.', $domain)[0];
     		echo $feed;
     	?>';
     	console.log(test);

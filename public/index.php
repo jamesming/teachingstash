@@ -46,7 +46,7 @@
     	console.log(test);
       var feed = (window.location.hostname.split('.')[0] === 'localhost' ?
           'teachingstash' : window.location.hostname.split('.')[0]);
-      if(feed === 'www') feed = window.location.hostname.split('.')[1])
+      if(feed === 'www') feed = window.location.hostname.split('.')[1];
       var host = 'https://pictographr.com/';
       var feedersite = host
           + 'feed/'

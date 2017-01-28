@@ -1,4 +1,4 @@
 RewriteEngine on
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-RewriteRule ^((?!index\.php).+)$ /index.php
-RewriteRule ^(.*)$ http://%1%{REQUEST_URI} [R=301,QSA,NC,L]
+RewriteRule ^(.*)$ http://%1%{REQUEST_URI} [R=301,QSA,NC]
+RewriteRule ^((?!index\.php).+)$ /index.php [QSA,NC,L]

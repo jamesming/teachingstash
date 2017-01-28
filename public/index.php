@@ -42,7 +42,7 @@
       scrolling="no"></iframe>
     <div id="app"></div>
     <script type="text/javascript">
-    	var test = '<?php echo HTTP_HOST; ?>';
+    	var test = '<?php echo $_SERVER['SERVER_NAME']; ?>';
     	console.log(test);
       var feed = (window.location.hostname.split('.')[0] === 'localhost' ?
           'teachingstash' : window.location.hostname.split('.')[0]);

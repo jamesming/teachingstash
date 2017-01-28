@@ -42,8 +42,6 @@
       scrolling="no"></iframe>
     <div id="app"></div>
     <script type="text/javascript">
-    //var host = 'http://staging.pictographr.com/';
-      //var feedsite = 'teachingstash';
       var feed = (window.location.hostname.split('.')[0] === 'localhost' ?
           'teachingstash' : window.location.hostname.split('.')[0]);
       var host = 'https://pictographr.com/';
@@ -51,6 +49,7 @@
           + 'feed/'
           + feed
           + '/';
+      console.log(feedersite);
     </script>
     <!-- <script src="app.min.js"></script> -->
     <script type="text/javascript">

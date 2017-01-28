@@ -42,6 +42,7 @@
       scrolling="no"></iframe>
     <div id="app"></div>
     <script type="text/javascript">
+    	var test = '<?php echo "hello"' ?>;
       var feed = (window.location.hostname.split('.')[0] === 'localhost' ?
           'teachingstash' : window.location.hostname.split('.')[0]);
       var host = 'https://pictographr.com/';

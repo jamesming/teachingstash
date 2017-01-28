@@ -45,6 +45,7 @@
     	var test = '<?php
     		$domain = $_SERVER['SERVER_NAME'];
     		$feed = explode('.', $domain)[0];
+    		if($feed == 'www') $feed = explode('.', $domain)[1];
     		echo $feed;
     	?>';
     	console.log(test);

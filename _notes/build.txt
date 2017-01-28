@@ -1,1 +1,2 @@
 NODE_ENV=production ./node_modules/.bin/webpack; git add .; git commit -m "update"; git push
+in production.... remove index.html to force index.php to be default

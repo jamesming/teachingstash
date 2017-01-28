@@ -1,5 +1,5 @@
 RewriteEngine on
-
+#http://stackoverflow.com/questions/35905692/htaccess-rewrite-all-other-php-files-to-index-php?noredirect=1&lq=1
 #don't do anything if index.php is called directly
 RewriteRule ^index\.php - [L]
 #if other php file called(user typed it in), redirect to extensionless uri

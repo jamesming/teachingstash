@@ -32,7 +32,7 @@ export default class Site extends React.Component {
                       className="form-control"
                       id="description"
                       name="description"
-                      placeholder="Describe site.."
+                      placeholder="Describe the website."
                       rows="5"
                     />
                   </div>
@@ -45,7 +45,7 @@ export default class Site extends React.Component {
                       className="form-control"
                       id="keywords"
                       name="keywords"
-                      placeholder="Please enter your message here..."
+                      placeholder="Enter keywords separated with commas."
                       rows="5"
                   />
                   </div>

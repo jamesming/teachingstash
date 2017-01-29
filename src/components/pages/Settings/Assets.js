@@ -6,7 +6,7 @@ export default class Assets extends React.Component {
     $('#generateTemplatesJson-button').addClass('waiting').html(`
       <img alt='' src='https://pictographr.com/img/smallloading.gif'/>
     `);
-    this.props.dispatch(generateTemplates(this.refs.sharedfolder.value, () => {
+    this.props.dispatch(generateTemplates(this.refs['shared-templates'].value, () => {
       $('#generateTemplatesJson-button').removeClass('waiting').text(`
         Preview
       `);
@@ -25,7 +25,7 @@ export default class Assets extends React.Component {
                 <label
                   className="col-md-3 control-label"
                   htmlFor="name"
-                >Shared Templates Folder URL</label>
+                >Templates Folder URL</label>
                 <div className="col-md-7">
                 <input
                   id="shared-templates"
@@ -35,10 +35,30 @@ export default class Assets extends React.Component {
 
                   }}
                   placeholder="Templates Folder URL"
-                  ref="sharedfolder"
                   ref="shared-templates"
                   type="text"
                   value={this.props.parentFolderId}
+                />
+                </div>
+              </div>
+              <div className="form-group">
+                <label
+                  className="col-md-3 control-label"
+                  htmlFor="name"
+                >Carousel Folder URL</label>
+                <div className="col-md-7">
+                <input
+                  id="carousel-templates"
+                  className="form-control"
+                  name="carousel-templates"
+                  onChange={() => {
+
+                  }}
+                  placeholder="Carousel Folder URL"
+                  ref="carouselfolder"
+                  ref="carousel-templates"
+                  type="text"
+                  value=''
                 />
                 </div>
               </div>
@@ -48,7 +68,7 @@ export default class Assets extends React.Component {
                     id="generateTemplatesJson-button"
                     className=" btn btn-primary btn-sm"
                     onClick={this.generateTemplatesJson.bind(this)}
-                    type="submit"
+                    type="button"
                   >
                     Submit
                   </button>

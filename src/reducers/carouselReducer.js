@@ -1,4 +1,5 @@
 export default function reducer(state = {
+    parentFolderId: '0B1nKK3UKG5hjYXRZbXhsbDliVWM',
     slides: [],
     fetching: false,
     fetched: false,
@@ -17,6 +18,12 @@ export default function reducer(state = {
           fetching: false,
           fetched: true,
           slides: action.payload,
+        };
+      }
+      case 'SET_CAROUSEL_PARENTFOLDERID': {
+        return {
+          ...state,
+          parentFolderId: action.payload,
         };
       }
       default: {

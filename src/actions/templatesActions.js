@@ -26,11 +26,11 @@ export function fetchTemplates() {
 
 export function generateTemplates(parentFolderId, callback) {
   return function (dispatch) { //https://pictographr.com/feed/createMenu?parentFolderId=0B1nKK3UKG5hjbk5Ba2dLNE9zUW8
-    axios.get(`${window.host}feed/createMenu?feed=${feed}&parentFolderId=${parentFolderId}`)
+    axios.get(`${window.host}feed/generateMenu?feed=${feed}&parentFolderId=${parentFolderId}`)
       .then((response) => {
         dispatch({ type: 'FETCH_TEMPLATES_FULFILLED', payload: response.data });
 
-        dispatch({ type: 'SET_PARENTFOLDERID', payload: parentFolderId });
+        dispatch({ type: 'SET_TEMPLATES_PARENTFOLDERID', payload: parentFolderId });
 
         const files = (response.data[0].files ?
               response.data[0].files : response.data[0].sub_folders[0].files);
@@ -43,6 +43,7 @@ export function generateTemplates(parentFolderId, callback) {
                 files.title : response.data[0].sub_folders[0].title)
           },
         });
+
         callback();
       })
       .catch((err) => {

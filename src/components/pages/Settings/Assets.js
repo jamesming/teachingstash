@@ -1,16 +1,31 @@
 import React from 'react';
 import { generateTemplates } from '../../../actions/templatesActions';
+import { generateCarousel } from '../../../actions/carouselActions';
 
 export default class Assets extends React.Component {
-  generateTemplatesJson() {
-    $('#generateTemplatesJson-button').addClass('waiting').html(`
+  generateAssets() {
+    $('#submit-assets-button').addClass('waiting').html(`
       <img alt='' src='https://pictographr.com/img/smallloading.gif'/>
     `);
-    this.props.dispatch(generateTemplates(this.refs['shared-templates'].value, () => {
-      $('#generateTemplatesJson-button').removeClass('waiting').text(`
-        Preview
+
+    let templatesPromise = new Promise((resolve, reject) => {
+      this.props.dispatch(generateTemplates(this.refs['shared-templates'].value, () => {
+        resolve('promise1');
+      }));
+    });
+
+    let carouselPromise = new Promise((resolve, reject) => {
+      this.props.dispatch(generateCarousel(this.refs['carousel-images'].value, () => {
+        resolve('promise2');
+      }));
+    });
+
+    Promise.all([templatesPromise, carouselPromise]).then((data) => {
+      $('#submit-assets-button').removeClass('waiting').text(`
+        Submit
       `);
-    }));
+    });
+
   }
 
   render() {
@@ -37,7 +52,7 @@ export default class Assets extends React.Component {
                   placeholder="Templates Folder URL"
                   ref="shared-templates"
                   type="text"
-                  value={this.props.parentFolderId}
+                  value={this.props.templatesParentFolderId}
                 />
                 </div>
               </div>
@@ -48,26 +63,25 @@ export default class Assets extends React.Component {
                 >Carousel Folder URL</label>
                 <div className="col-md-7">
                 <input
-                  id="carousel-templates"
+                  id="carousel-images"
                   className="form-control"
-                  name="carousel-templates"
+                  name="carousel-images"
                   onChange={() => {
 
                   }}
                   placeholder="Carousel Folder URL"
-                  ref="carouselfolder"
-                  ref="carousel-templates"
+                  ref="carousel-images"
                   type="text"
-                  value=''
+                  value={this.props.carouselParentFolderId}
                 />
                 </div>
               </div>
               <div className="form-group">
                 <div className="col-md-12 text-right">
                   <button
-                    id="generateTemplatesJson-button"
+                    id="submit-assets-button"
                     className=" btn btn-primary btn-sm"
-                    onClick={this.generateTemplatesJson.bind(this)}
+                    onClick={this.generateAssets.bind(this)}
                     type="button"
                   >
                     Submit

@@ -55,6 +55,11 @@ export default class Desktopmenu extends React.Component {
                           <li>
                             <a
                               href="#/Settings"
+                              onClick={() => {
+                                setTimeout(() => {
+                                  $('html, body').stop().animate({ scrollTop: 0 }, 500);
+                                }, 500);
+                              }}
                             >
                               Settings
                             </a>

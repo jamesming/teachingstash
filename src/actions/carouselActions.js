@@ -11,3 +11,17 @@ export function fetchCarousel() {
       });
   };
 }
+
+export function generateCarousel(parentFolderId, callback) {
+  return function (dispatch) {
+    axios.get(`${window.host}feed/generateCarousel?feed=${feed}&parentFolderId=${parentFolderId}`)
+      .then((response) => {
+        dispatch({ type: 'SET_CAROUSEL_PARENTFOLDERID', payload: parentFolderId });
+        dispatch({ type: 'FETCH_CAROUSEL_FULFILLED', payload: response.data });
+        callback();
+      })
+      .catch((err) => {
+        dispatch({ type: 'FETCH_CAROUSEL_REJECTED', payload: err });
+      });
+  };
+}

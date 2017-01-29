@@ -26,7 +26,7 @@ export default function reducer(state = {
           templates: [...state.templates, action.payload],
         };
       }
-      case 'SET_PARENTFOLDERID': {
+      case 'SET_TEMPLATES_PARENTFOLDERID': {
         return {
           ...state,
           parentFolderId: action.payload,

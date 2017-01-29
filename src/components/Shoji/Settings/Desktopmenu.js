@@ -54,9 +54,9 @@ export default class Desktopmenu extends React.Component {
                           </li>
                           <li>
                             <a
-                              href="#/topfold"
+                              href="#/Settings"
                             >
-                              Set Folder
+                              Settings
                             </a>
                           </li>
                           <li className="divider" />

@@ -24,9 +24,9 @@ export default class Mobilemenu extends React.Component {
                   Templates
                 </a>
                 <Link
-                  to="topfold"
+                  to="settings"
                   onClick={this.slideAccountMenu.bind(this)}
-                >Set Folder</Link>
+                >Settings</Link>
               </li>
               <li><a href="">Log off</a></li>
           </ul>

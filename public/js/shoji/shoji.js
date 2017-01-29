@@ -6,7 +6,6 @@ Shoji = function (element) {
     var door = shoji.find('.shoji-door');
     this.getDoor = function() { return door; };
     var leftPanel = shoji.find('.shoji-panel-left');
-    console.log(leftPanel);
     this.getLeftPanel = function() { return leftPanel; };
     var rightPanel = shoji.find('.shoji-panel-right');
     this.getRightPanel = function() { return rightPanel; };

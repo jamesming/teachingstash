@@ -3,6 +3,10 @@
   height: 50px;
 }
 
+legend{
+  border-bottom: 1px;
+}
+
 button.waiting{
     background-color: white !important;
 }

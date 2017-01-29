@@ -2,7 +2,7 @@ import React from 'react';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import Topfold from './components/pages/Topfold/Topfold';
+import Settings from './components/pages/Settings/Settings';
 import Files from './components/pages/Files/Files';
 
 import Layout from './components/Layout';
@@ -16,7 +16,7 @@ ReactDOM.render(<Provider store={store}>
 	<Router history={hashHistory}>
 		<Route path="/" component={Layout} >
 			<IndexRoute component={Files} />
-			<Route path="topfold" name="topfold" component={Topfold} />
+			<Route path="settings" name="settings" component={Settings} />
 		</Route>
 	</Router>
 </Provider>, app);

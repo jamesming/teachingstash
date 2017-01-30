@@ -29,7 +29,7 @@ export default class Site extends React.Component {
             <div className="well well-sm">
               <form className="form-horizontal" action="" method="post">
               <fieldset>
-                <legend className="text-center">Site Configuration</legend>
+                <legend className="text-center">Set Site Detail</legend>
                 <div className="form-group">
                   <label className="col-md-3 control-label" htmlFor="name">Title</label>
                   <div className="col-md-7">

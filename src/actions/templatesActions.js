@@ -52,6 +52,24 @@ export function generateTemplates(parentFolderId, callback) {
   };
 }
 
+export function setModalShow(which) {
+  return {
+    type: 'SET_MODALSHOW',
+    payload: {
+      which
+    },
+  };
+}
+
+export function setTemplateFolderId(parentFolderId) {
+  return {
+    type: 'SET_TEMPLATES_PARENTFOLDERID',
+    payload: {
+      parentFolderId
+    },
+  };
+}
+
 export function fetchAssets() {
   return function (dispatch) {
     axios.get(`${window.host}feed/getAssetsjson?feed=${feed}&`)
@@ -88,28 +106,4 @@ export function renderPDFandPullAssetsJson(activeFileId, callback) {
         dispatch({ type: 'FETCH_ASSETS_REJECTED', payload: err });
       });
   };
-}
-
-export function addTemplate(id, text) {
-  return {
-    type: 'ADD_TEMPLATE',
-    payload: {
-      id,
-      text,
-    },
-  };
-}
-
-export function updateTemplate(id, text) {
-  return {
-    type: 'UPDATE_TEMPLATE',
-    payload: {
-      id,
-      text,
-    },
-  };
-}
-
-export function deleteTemplate(id) {
-  return { type: 'DELETE_TEMPLATE', payload: id };
 }

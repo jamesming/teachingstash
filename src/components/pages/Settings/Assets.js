@@ -1,5 +1,5 @@
 import React from 'react';
-import { generateTemplates } from '../../../actions/templatesActions';
+import { generateTemplates, setTemplateFolderId } from '../../../actions/templatesActions';
 import { generateCarousel } from '../../../actions/carouselActions';
 
 export default class Assets extends React.Component {
@@ -28,7 +28,12 @@ export default class Assets extends React.Component {
 
   }
 
+  setTemplateFolderId(e) {
+    this.props.dispatch(setTemplateFolderId(e.target.value));
+  }
+
   render() {
+    console.log(this.props);
     return (
       <div className="container">
         <div className="row">
@@ -46,9 +51,7 @@ export default class Assets extends React.Component {
                   id="shared-templates"
                   className="form-control"
                   name="shared-templates"
-                  onChange={() => {
-
-                  }}
+                  onChange={this.setTemplateFolderId.bind(this)}
                   placeholder="Templates Folder URL"
                   ref="shared-templates"
                   type="text"

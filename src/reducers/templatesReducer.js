@@ -29,24 +29,7 @@ export default function reducer(state = {
       case 'SET_TEMPLATES_PARENTFOLDERID': {
         return {
           ...state,
-          parentFolderId: action.payload,
-        };
-      }
-      case 'UPDATE_TEMPLATES': {
-        const { id } = action.payload;
-        const newTemplates = [...state.templates];
-        const templateToUpdate = newTemplates.findIndex(template => template.id === id);
-        newTemplates[templateToUpdate] = action.payload;
-
-        return {
-          ...state,
-          templates: newTemplates,
-        };
-      }
-      case 'DELETE_TEMPLATES': {
-        return {
-          ...state,
-          templates: state.templates.filter(template => template.id !== action.payload),
+          parentFolderId: action.payload.parentFolderId,
         };
       }
       case 'FETCH_ASSETS': {

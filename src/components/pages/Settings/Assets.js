@@ -43,41 +43,41 @@ export default class Assets extends React.Component {
           <div className="well well-sm">
             <form className="form-horizontal" action="" method="post">
             <fieldset>
-              <legend className="text-center">Assets</legend>
-              <div className="form-group">
-                <label
-                  className="col-md-3 control-label"
-                  htmlFor="name"
-                >Templates Folder URL</label>
-                <div className="col-md-7">
-                <input
-                  id="shared-templates"
-                  className="form-control"
-                  name="shared-templates"
-                  onChange={this.setTemplateFolderId.bind(this)}
-                  placeholder="Templates Folder URL"
-                  ref="shared-templates"
-                  type="text"
-                  value={this.props.templatesParentFolderId}
-                />
-                </div>
-              </div>
+              <legend className="text-center">Set Shared Folders</legend>
               <div className="form-group">
                 <label
                   className="col-md-3 control-label"
                   htmlFor="name"
                 >Carousel Folder URL</label>
                 <div className="col-md-7">
-                <input
-                  id="carousel-images"
-                  className="form-control"
-                  name="carousel-images"
-                  onChange={this.setCarouselFolderId.bind(this)}
-                  placeholder="Carousel Folder URL"
-                  ref="carousel-images"
-                  type="text"
-                  value={this.props.carouselParentFolderId}
-                />
+                  <input
+                    id="carousel-images"
+                    className="form-control"
+                    name="carousel-images"
+                    onChange={this.setCarouselFolderId.bind(this)}
+                    placeholder="Carousel Folder URL"
+                    ref="carousel-images"
+                    type="text"
+                    value={this.props.carouselParentFolderId}
+                  />
+                </div>
+              </div>
+              <div className="form-group">
+                <label
+                  className="col-md-3 control-label"
+                  htmlFor="name"
+                >Templates Folder URL</label>
+                <div className="col-md-7">
+                  <input
+                    id="shared-templates"
+                    className="form-control"
+                    name="shared-templates"
+                    onChange={this.setTemplateFolderId.bind(this)}
+                    placeholder="Templates Folder URL"
+                    ref="shared-templates"
+                    type="text"
+                    value={this.props.templatesParentFolderId}
+                  />
                 </div>
               </div>
               <div className="form-group">

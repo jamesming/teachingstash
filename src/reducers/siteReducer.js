@@ -12,6 +12,18 @@ export default function reducer(state = {
           title: action.payload.title,
         };
       }
+      case 'SET_DESCRIPTION': {
+        return {
+          ...state,
+          description: action.payload,
+        };
+      }
+      case 'SET_TITLE': {
+        return {
+          ...state,
+          title: action.payload,
+        };
+      }
       default: {
         return state;
       }

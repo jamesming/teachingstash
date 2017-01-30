@@ -12,13 +12,10 @@ export function fetchCarousel() {
   };
 }
 
-
 export function setCarouselFolderId(parentFolderId) {
   return {
     type: 'SET_CAROUSEL_PARENTFOLDERID',
-    payload: {
-      parentFolderId
-    },
+    payload:  parentFolderId,
   };
 }
 

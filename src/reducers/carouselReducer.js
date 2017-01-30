@@ -23,7 +23,7 @@ export default function reducer(state = {
       case 'SET_CAROUSEL_PARENTFOLDERID': {
         return {
           ...state,
-          parentFolderId: action.payload.parentFolderId,
+          parentFolderId: action.payload,
         };
       }
       default: {

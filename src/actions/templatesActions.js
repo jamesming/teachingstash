@@ -64,9 +64,7 @@ export function setModalShow(which) {
 export function setTemplateFolderId(parentFolderId) {
   return {
     type: 'SET_TEMPLATES_PARENTFOLDERID',
-    payload: {
-      parentFolderId
-    },
+    payload: parentFolderId,
   };
 }
 

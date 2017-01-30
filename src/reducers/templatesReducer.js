@@ -29,7 +29,7 @@ export default function reducer(state = {
       case 'SET_TEMPLATES_PARENTFOLDERID': {
         return {
           ...state,
-          parentFolderId: action.payload.parentFolderId,
+          parentFolderId: action.payload,
         };
       }
       case 'FETCH_ASSETS': {

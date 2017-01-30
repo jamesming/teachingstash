@@ -1,5 +1,5 @@
 import React from 'react';
-import { setMeta } from '../../../actions/siteActions';
+import { setMeta, setDescription, setTitle } from '../../../actions/siteActions';
 
 export default class Site extends React.Component {
   setMeta() {

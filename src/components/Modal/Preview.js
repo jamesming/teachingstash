@@ -13,7 +13,7 @@ export default class Preview extends React.Component {
         <img
           id="previewImg"
           className="img-responsive" style={imgStyle} alt=''
-          src={`${window.feedersite}pngs/${this.props.activeFileId}.png`}
+          src={`${window.feedersite}templates/pngs/${this.props.activeFileId}.png`}
         />
       </div>
     );

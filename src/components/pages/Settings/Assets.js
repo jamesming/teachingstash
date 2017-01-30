@@ -8,13 +8,13 @@ export default class Assets extends React.Component {
       <img alt='' src='https://pictographr.com/img/smallloading.gif'/>
     `);
 
-    let templatesPromise = new Promise((resolve, reject) => {
+    const templatesPromise = new Promise((resolve, reject) => {
       this.props.dispatch(generateTemplates(this.refs['shared-templates'].value, () => {
         resolve('promise1');
       }));
     });
 
-    let carouselPromise = new Promise((resolve, reject) => {
+    const carouselPromise = new Promise((resolve, reject) => {
       this.props.dispatch(generateCarousel(this.refs['carousel-images'].value, () => {
         resolve('promise2');
       }));

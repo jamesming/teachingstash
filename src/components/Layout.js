@@ -9,14 +9,15 @@ import ShojiComponent from './Shoji/Shoji';
 @connect((store) => ({
   activeFileId: store.files.activeFileId,
   assets: store.templates.assets,
+  carouselParentFolderId: store.carousel.parentFolderId,
   files: store.files.files,
   folderTitle: store.files.folderTitle,
   modalshow: store.app.modalshow,
-  templatesParentFolderId: store.templates.parentFolderId,
   slides: store.carousel.slides,
-  carouselParentFolderId: store.carousel.parentFolderId,
   sidemenutop: store.app.sidemenutop,
+  site: store.site,
   templates: store.templates.templates,
+  templatesParentFolderId: store.templates.parentFolderId,
   user: store.user,
 }))
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { generateTemplates, setTemplateFolderId } from '../../../actions/templatesActions';
-import { generateCarousel } from '../../../actions/carouselActions';
+import { generateCarousel, setCarouselFolderId } from '../../../actions/carouselActions';
 
 export default class Assets extends React.Component {
   generateAssets() {
@@ -30,6 +30,9 @@ export default class Assets extends React.Component {
 
   setTemplateFolderId(e) {
     this.props.dispatch(setTemplateFolderId(e.target.value));
+  }
+  setCarouselFolderId(e) {
+    this.props.dispatch(setCarouselFolderId(e.target.value));
   }
 
   render() {
@@ -69,9 +72,7 @@ export default class Assets extends React.Component {
                   id="carousel-images"
                   className="form-control"
                   name="carousel-images"
-                  onChange={() => {
-
-                  }}
+                  onChange={this.setCarouselFolderId.bind(this)}
                   placeholder="Carousel Folder URL"
                   ref="carousel-images"
                   type="text"

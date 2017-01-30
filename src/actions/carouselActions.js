@@ -12,6 +12,16 @@ export function fetchCarousel() {
   };
 }
 
+
+export function setCarouselFolderId(parentFolderId) {
+  return {
+    type: 'SET_CAROUSEL_PARENTFOLDERID',
+    payload: {
+      parentFolderId
+    },
+  };
+}
+
 export function generateCarousel(parentFolderId, callback) {
   return function (dispatch) {
     axios.get(`${window.host}feed/generateCarousel?feed=${feed}&parentFolderId=${parentFolderId}`)

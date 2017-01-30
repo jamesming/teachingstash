@@ -42,13 +42,13 @@
       scrolling="no"></iframe>
     <div id="app"></div>
     <script type="text/javascript">
-    	var test = '<?php
+    	var feedSrc = '<?php
     		$domain = $_SERVER['SERVER_NAME'];
     		$feed = explode('.', $domain)[0];
     		if($feed == 'www') $feed = explode('.', $domain)[1];
     		echo $feed;
     	?>';
-    	console.log(test);
+    	console.log('feedSrc: ', feedSrc);
       var feed = (window.location.hostname.split('.')[0] === 'localhost' ?
           'teachingstash' : window.location.hostname.split('.')[0]);
       if(feed === 'www') feed = window.location.hostname.split('.')[1];

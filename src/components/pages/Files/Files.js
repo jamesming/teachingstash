@@ -50,6 +50,7 @@ export default class Files extends React.Component {
       <File
         file={file}
         key={file.id}
+        slideFolderMenu={this.slideFolderMenu.bind(this)}
         {...this.props}
       />
     ));

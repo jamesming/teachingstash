@@ -40,10 +40,23 @@ export default class ShojiCompnent extends React.Component {
       $('html, body').stop().animate({ scrollTop: sideMenuTop }, 500);
     }
 
+    toast(message) {
+      $.toast().reset('all');
+      const options = {};
+      options.text = message;
+      options.stack = 12;
+      options.loaderBg = '#4285F4';
+      options.icon = 'success';
+      options.heading = 'Success';
+      options.hideAfter = 10000;
+      $.toast(options);
+    }
+
     render() {
       const children = React.Children.map(this.props.children, (child) =>
         React.cloneElement(child, {
           ...this.props,
+          toast: this.toast,
           shoji: this.shoji,
           scrollToSidemenuTop: this.scrollToSidemenuTop
         })

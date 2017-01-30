@@ -15,6 +15,12 @@ export default class Site extends React.Component {
         `);
     }));
   }
+  setDescription(e) {
+    this.props.dispatch(setDescription(e.target.value));
+  }
+  setTitle(e) {
+    this.props.dispatch(setTitle(e.target.value));
+  }
   render() {
     return (
       <div>
@@ -31,6 +37,7 @@ export default class Site extends React.Component {
                       id="title"
                       className="form-control"
                       name="title"
+                      onChange={this.setTitle.bind(this)}
                       ref="title"
                       type="text"
                       placeholder="Title"
@@ -45,6 +52,7 @@ export default class Site extends React.Component {
                       id="description"
                       className="form-control"
                       name="description"
+                      onChange={this.setDescription.bind(this)}
                       ref="description"
                       rows="5"
                       placeholder="Describe the website."

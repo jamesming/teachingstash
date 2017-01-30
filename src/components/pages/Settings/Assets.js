@@ -24,6 +24,7 @@ export default class Assets extends React.Component {
       $('#submit-assets-button').removeClass('waiting').text(`
         Submit
       `);
+      this.props.toast('All assets have been retrieved.');
     });
 
   }

@@ -25,7 +25,7 @@ export default class File extends React.Component {
       this.setActiveFileId();
       this.props.dispatch(setModalShow('preview'));
       $('#modalScreen').modal('show');
-      // this.toast('Please click edit now.');
+      // this.props.toast('Please click edit now.');
       // const $selector = $(`#edit-button-${this.props.file.id}`);
       // this.animateElement($selector);
     } else {
@@ -102,18 +102,6 @@ export default class File extends React.Component {
     }
   }
 
-  toast(message) {
-    $.toast().reset('all');
-    const options = {};
-    options.text = message;
-    options.stack = 12;
-    options.loaderBg = '#4285F4';
-    options.icon = 'success';
-    options.heading = 'Success';
-    options.hideAfter = 10000;
-    $.toast(options);
-  }
-
   launchPictographrFile() {
     this.props.dispatch(setActiveFileId(this.props.file.id));
     this.props.launchPictographrFile(false);
@@ -126,7 +114,7 @@ export default class File extends React.Component {
     }
 
     if (this.props.user.session === 'initiated') {
-      this.toast('You can now click any Edit button to customize.');
+      this.props.toast('You can now click any Edit button to customize.');
       const $selector = $(`#edit-button-${this.props.activeFileId}`);
       // this.animateElement($selector);
       $('#modalScreen').modal('hide');

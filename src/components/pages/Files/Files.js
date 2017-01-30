@@ -48,14 +48,9 @@ export default class Files extends React.Component {
 
   const FilesComponents = this.props.files.map((file) => (
       <File
-        activeFileId={this.props.activeFileId}
-        assets={this.props.assets}
-        dispatch={this.props.dispatch}
         file={file}
-        launchPictographrFile={this.props.launchPictographrFile}
         key={file.id}
-        slideFolderMenu={this.slideFolderMenu.bind(this)}
-        user={this.props.user}
+        {...this.props}
       />
     ));
 

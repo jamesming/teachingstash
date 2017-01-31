@@ -46,7 +46,11 @@
 
       console.log('index.php');
 
-
+      var subdomain = '<?php
+        $domain = $_SERVER['SERVER_NAME'];
+        $domainArr = explode('.', $domain);
+        echo 'undefined';
+      ?>';
 
 
     	var domain = '<?php

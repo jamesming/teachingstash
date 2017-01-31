@@ -42,6 +42,7 @@
       scrolling="no"></iframe>
     <div id="app"></div>
     <script type="text/javascript">
+      console.log('index.php');
     	var domain = '<?php
     		$domain = $_SERVER['SERVER_NAME'];
     		$site = explode('.', $domain)[0];

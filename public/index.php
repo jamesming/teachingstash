@@ -42,13 +42,13 @@
       scrolling="no"></iframe>
     <div id="app"></div>
     <script type="text/javascript">
-    	var resources = '<?php
+    	var domain = '<?php
     		$domain = $_SERVER['SERVER_NAME'];
     		$site = explode('.', $domain)[0];
     		if($site == 'www') $site = explode('.', $domain)[1];
     		echo $site;
     	?>';
-    	console.log('resources: ', resources);
+    	console.log('domain: ', domain);
       var site = (window.location.hostname.split('.')[0] === 'localhost' ?
           'teachingstash' : window.location.hostname.split('.')[0]);
       if(site === 'www') site = window.location.hostname.split('.')[1];

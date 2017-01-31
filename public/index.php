@@ -42,6 +42,27 @@
       scrolling="no"></iframe>
     <div id="app"></div>
     <script type="text/javascript">
+
+
+      console.log('index.php');
+      var subdomain = '<?php
+        $domain = $_SERVER['SERVER_NAME'];
+        $domainArr = explode('.', $domain);
+        if(count($domainArr) == 3) echo $domainArr[0];
+        else echo 'undefined';
+      ?>';
+      console.log('subdomain', subdomain);
+      var domain = '<?php
+         if(count($domainArr) == 3) echo $domainArr[1];
+         else echo $domainArr[0]);
+      ?>';
+      console.log('domain', domain);
+
+
+
+
+
+
     	var domain = '<?php
     		$domain = $_SERVER['SERVER_NAME'];
     		$site = explode('.', $domain)[0];

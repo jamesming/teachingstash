@@ -7,7 +7,7 @@ export default class Slide extends React.Component {
       <div
         className={this.props.idx === 0 ? 'item active' : 'item '}
       >
-        <img alt="" src={`${feedersite}carousel/${this.props.fileId}.png`} />
+        <img alt="" src={`${feedersite}carousel/pngs/${this.props.fileId}.png`} />
         <div className="carousel-caption">
           carousel-caption
         </div>

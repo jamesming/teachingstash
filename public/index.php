@@ -64,6 +64,8 @@
 
       var subdomainSegment = ( typeof(subdomain) !== 'undefined' ? '/subdomain/' + subdomain: '');
 
+      console.log(subdomainSegment);
+
       var host = 'https://pictographr.com/';
       var resources = host
           + 'sites/'

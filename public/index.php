@@ -49,15 +49,13 @@
         if(count($domainArr) == 3) echo $domainArr[0];
         else echo 'undefined';
       ?>';
+      console.log('subdomain', subdomain);
       var domain = '<?php
          if(count($domainArr) == 3) echo $domainArr[1];
          else echo $domainArr[0]);
       ?>';
-      console.log('subdomain', subdomain);
       console.log('domain', domain);
 
-      var domain = (window.location.hostname.split('.')[0] === 'localhost' ?
-          'teachingstash' : window.location.hostname.split('.')[0]);
       var host = 'https://pictographr.com/';
       var resources = host
           + 'sites/'

@@ -72,7 +72,7 @@
           + domain
           + subdomainSegment
           + '/';
-      console.log('resources: ', resources);
+      console.log(resources);
     </script>
     <!-- <script src="app.min.js"></script> -->
     <script type="text/javascript">

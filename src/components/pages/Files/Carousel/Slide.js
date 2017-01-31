@@ -3,6 +3,7 @@ import React from 'react';
 export default class Slide extends React.Component {
 
   render() {
+    console.log('hello test');
     return (
       <div
         className={this.props.idx === 0 ? 'item active' : 'item '}

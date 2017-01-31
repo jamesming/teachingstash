@@ -45,11 +45,17 @@
       console.log('index.php');
     	var domain = '<?php
     		$domain = $_SERVER['SERVER_NAME'];
-    		$site = explode('.', $domain)[0];
-    		if($site == 'www') $site = explode('.', $domain)[1];
-    		echo $site;
+    		$domain = explode('.', $domain)[0];
+    		if($domain == 'www') $domain = explode('.', $domain)[1];
+    		echo $domain;
     	?>';
     	console.log('domain: ', domain);
+      var segCount = <?php
+        $domain = $_SERVER['SERVER_NAME'];
+        $domainArr = explode('.', $domain);
+        echo size($domainArr);
+      ?>;
+      console.log(segCount);
       var domain = (window.location.hostname.split('.')[0] === 'localhost' ?
           'teachingstash' : window.location.hostname.split('.')[0]);
       if(domain === 'www') domain = window.location.hostname.split('.')[1];

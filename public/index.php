@@ -53,7 +53,7 @@
       var segCount = <?php
         $domain = $_SERVER['SERVER_NAME'];
         $domainArr = explode('.', $domain);
-        echo size($domainArr);
+        echo count($domainArr);
       ?>;
       console.log(segCount);
       var domain = (window.location.hostname.split('.')[0] === 'localhost' ?

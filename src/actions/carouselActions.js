@@ -1,8 +1,15 @@
 import axios from 'axios';
 
+const hasSubdomain = typeof(subdomain) !== 'undefined' && subdomain !== 'www';
+if(hasSubdomain) {
+  var subdomainParam = `&subdomain=${subdomain}`;
+} else {
+  var subdomainParam = '';
+}
+
 export function fetchCarousel() {
   return function (dispatch) {
-    axios.get(`${window.host}sites/getCarouseljson?domain=${domain}&`)
+    axios.get(`${window.host}sites/getCarouseljson?domain=${domain}${subdomainParam}`)
       .then((response) => {
         dispatch({ type: 'FETCH_CAROUSEL_FULFILLED', payload: response.data });
       })
@@ -21,7 +28,7 @@ export function setCarouselFolderId(parentFolderId) {
 
 export function generateCarousel(parentFolderId, callback) {
   return function (dispatch) {
-    axios.get(`${window.host}sites/generateCarousel?domain=${domain}&parentFolderId=${parentFolderId}`)
+    axios.get(`${window.host}sites/generateCarousel?domain=${domain}${subdomainParam}&parentFolderId=${parentFolderId}`)
       .then((response) => {
         dispatch({ type: 'SET_CAROUSEL_PARENTFOLDERID', payload: parentFolderId });
         dispatch({ type: 'FETCH_CAROUSEL_FULFILLED', payload: response.data });

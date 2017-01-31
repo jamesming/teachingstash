@@ -1,8 +1,15 @@
 import axios from 'axios';
 
+const hasSubdomain = typeof(subdomain) !== 'undefined' && subdomain !== 'www';
+if(hasSubdomain) {
+  var subdomainParam = `&subdomain=${subdomain}`;
+} else {
+  var subdomainParam = '';
+}
+
 export function fetchTemplates() {
   return function (dispatch) { // 'http://staging.pictographr.com/sites/getAssetsjson'
-    axios.get(`${window.host}sites/getMenujson?domain=${domain}`)
+    axios.get(`${window.host}sites/getMenujson?domain=${domain}${subdomainParam}`)
       .then((response) => {
         dispatch({ type: 'FETCH_TEMPLATES_FULFILLED', payload: response.data });
 
@@ -26,7 +33,7 @@ export function fetchTemplates() {
 
 export function generateTemplates(parentFolderId, callback) {
   return function (dispatch) { //https://pictographr.com/sites/createMenu?parentFolderId=0B1nKK3UKG5hjbk5Ba2dLNE9zUW8
-    axios.get(`${window.host}sites/generateMenu?domain=${domain}&parentFolderId=${parentFolderId}`)
+    axios.get(`${window.host}sites/generateMenu?domain=${domain}${subdomainParam}&parentFolderId=${parentFolderId}`)
       .then((response) => {
         dispatch({ type: 'FETCH_TEMPLATES_FULFILLED', payload: response.data });
 
@@ -70,7 +77,7 @@ export function setTemplateFolderId(parentFolderId) {
 
 export function fetchAssets() {
   return function (dispatch) {
-    axios.get(`${window.host}sites/getAssetsjson?domain=${domain}&`)
+    axios.get(`${window.host}sites/getAssetsjson?domain=${domain}${subdomainParam}&`)
       .then((response) => {
         dispatch({ type: 'FETCH_ASSETS_FULFILLED', payload: response.data });
       })
@@ -95,7 +102,7 @@ export function renderPNGandPullAssetsJson(activeFileId, callback) {
 
 export function renderPDFandPullAssetsJson(activeFileId, callback) {
   return function (dispatch) {
-    axios.get(`${window.host}sites/createAssets?domain=${domain}&format=pdf&fileId=${activeFileId}`)
+    axios.get(`${window.host}sites/createAssets?domain=${domain}${subdomainParam}&format=pdf&fileId=${activeFileId}`)
       .then((response) => {
         dispatch({ type: 'FETCH_ASSETS_FULFILLED', payload: response.data });
         callback();

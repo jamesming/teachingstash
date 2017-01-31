@@ -42,24 +42,20 @@
       scrolling="no"></iframe>
     <div id="app"></div>
     <script type="text/javascript">
-      console.log('index.php');
-      var subdomain = '<?php
-        $domain = $_SERVER['SERVER_NAME'];
-        $domainArr = explode('.', $domain);
-        if(count($domainArr) == 3) echo $domainArr[0];
-        else echo 'undefined';
-      ?>';
-      console.log('subdomain', subdomain);
-      var domain = '<?php
-         if(count($domainArr) == 3) echo $domainArr[1];
-         else echo $domainArr[0]);
-      ?>';
-      console.log('domain', domain);
-
+    	var resources = '<?php
+    		$domain = $_SERVER['SERVER_NAME'];
+    		$site = explode('.', $domain)[0];
+    		if($site == 'www') $site = explode('.', $domain)[1];
+    		echo $site;
+    	?>';
+    	console.log('resources: ', resources);
+      var site = (window.location.hostname.split('.')[0] === 'localhost' ?
+          'teachingstash' : window.location.hostname.split('.')[0]);
+      if(site === 'www') site = window.location.hostname.split('.')[1];
       var host = 'https://pictographr.com/';
       var resources = host
           + 'sites/'
-          + domain
+          + site
           + '/';
     </script>
     <!-- <script src="app.min.js"></script> -->

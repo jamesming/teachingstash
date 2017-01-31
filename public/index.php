@@ -62,13 +62,13 @@
      	console.log('subdomain: ', subdomain);
       console.log('domain: ', domain);
 
-      var path = ( typeOf(subdomain) !== 'undefined' ? '/subdomain/' + subdomain: '');
+      var subdomainSegment = ( typeof(subdomain) !== 'undefined' ? '/subdomain/' + subdomain: '');
 
       var host = 'https://pictographr.com/';
       var resources = host
           + 'sites/'
           + domain
-          + path
+          + subdomainSegment
           + '/';
       console.log('resources: '. resources);
     </script>

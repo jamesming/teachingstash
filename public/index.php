@@ -43,7 +43,6 @@
     <div id="app"></div>
     <script type="text/javascript">
 
-
       console.log('index.php');
 
       var subdomain = <?php
@@ -53,17 +52,16 @@
         else echo 'undefined';
       ?>;
 
+      var domain = <?php
+        $domain = $_SERVER['SERVER_NAME'];
+        $domainArr = explode('.', $domain);
+        if(count($domainArr) == 3) echo "'" .$domainArr[1] . "'";
+        else echo "'" .$domainArr[0] . "'";
+      ?>;
 
-    	var domain = '<?php
-    		$domain = $_SERVER['SERVER_NAME'];
-    		$site = explode('.', $domain)[0];
-    		if($site == 'www') $site = explode('.', $domain)[1];
-    		echo $site;
-    	?>';
-    	console.log('domain: ', domain);
-      var domain = (window.location.hostname.split('.')[0] === 'localhost' ?
-          'teachingstash' : window.location.hostname.split('.')[0]);
-      if(domain === 'www') domain = window.location.hostname.split('.')[1];
+     	console.log('subdomain: ', subdomain);
+      console.log('domain: ', domain);
+
       var host = 'https://pictographr.com/';
       var resources = host
           + 'sites/'

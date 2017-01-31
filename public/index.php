@@ -66,7 +66,9 @@
       var resources = host
           + 'sites/'
           + domain
+          + ( typeOf(subdomain) !== 'undefined' ? '/subdomain/' + subdomain: '')
           + '/';
+      console.log('resources: '. resources);
     </script>
     <!-- <script src="app.min.js"></script> -->
     <script type="text/javascript">

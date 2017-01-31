@@ -63,7 +63,7 @@
       console.log('domain: ', domain);
 
       var subdomainSegment = ( typeof(subdomain) !== 'undefined' && subdomain !== 'www'
-          ? '/subdomain/' + subdomain: '');
+          ? '/subdomains/' + subdomain: '');
 
       console.log(subdomainSegment);
 

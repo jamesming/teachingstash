@@ -13,7 +13,7 @@
        so that you will be able to use Promise on IE -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <!-- Must keey bootstrap to 3.2.0 cause 3.3.7 disables Shoji -->
+  <!-- Must keep bootstrap to 3.2.0 cause 3.3.7 disables Shoji -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   <script src="js/shoji/shoji.js"></script>
   <script src="https://pictographr.com/js/lib/toast/jquery.toast.min.js"></script>

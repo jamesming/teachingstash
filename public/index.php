@@ -46,12 +46,12 @@
 
       console.log('index.php');
 
-      var subdomain = '<?php
+      var subdomain = <?php
         $domain = $_SERVER['SERVER_NAME'];
         $domainArr = explode('.', $domain);
-        if(count($domainArr) == 3) echo $domainArr[0];
+        if(count($domainArr) == 3) echo "'" .$domainArr[0] . "'";
         else echo 'undefined';
-      ?>';
+      ?>;
 
 
     	var domain = '<?php

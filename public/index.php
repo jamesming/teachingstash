@@ -49,13 +49,13 @@
     		echo $site;
     	?>';
     	console.log('domain: ', domain);
-      var site = (window.location.hostname.split('.')[0] === 'localhost' ?
+      var domain = (window.location.hostname.split('.')[0] === 'localhost' ?
           'teachingstash' : window.location.hostname.split('.')[0]);
-      if(site === 'www') site = window.location.hostname.split('.')[1];
+      if(domain === 'www') domain = window.location.hostname.split('.')[1];
       var host = 'https://pictographr.com/';
       var resources = host
           + 'sites/'
-          + site
+          + domain
           + '/';
     </script>
     <!-- <script src="app.min.js"></script> -->

@@ -43,13 +43,6 @@
     <div id="app"></div>
     <script type="text/javascript">
       console.log('index.php');
-    	var domain = '<?php
-    		$domain = $_SERVER['SERVER_NAME'];
-    		$domain = explode('.', $domain)[0];
-    		if($domain == 'www') $domain = explode('.', $domain)[1];
-    		echo $domain;
-    	?>';
-    	console.log('domain: ', domain);
       var subdomain = '<?php
         $domain = $_SERVER['SERVER_NAME'];
         $domainArr = explode('.', $domain);
@@ -57,9 +50,11 @@
         else echo 'undefined';
       ?>';
       var domain = '<?php
-         if(count($domainArr) == 3) echo explode('.', $domain)[1];
-         else echo explode('.', $domain)[0]);
+         if(count($domainArr) == 3) echo $domainArr[1];
+         else echo $domainArr[0]);
       ?>';
+      console.log('subdomain', subdomain);
+      console.log('domain', domain);
 
       var domain = (window.location.hostname.split('.')[0] === 'localhost' ?
           'teachingstash' : window.location.hostname.split('.')[0]);

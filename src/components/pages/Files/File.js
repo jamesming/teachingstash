@@ -45,7 +45,7 @@ export default class File extends React.Component {
           `);
         };
 
-        img.src = `${window.feedersite}pngs/${this.props.file.id}.png`;
+        img.src = `${window.resources}pngs/${this.props.file.id}.png`;
       }));
     }
   }
@@ -83,7 +83,7 @@ export default class File extends React.Component {
   printPDF() {
     if (this.props.assets[this.props.file.id] &&
         this.props.assets[this.props.file.id].pdf) {
-      const url = `${window.feedersite}templates/pdfs/${this.props.file.id}.pdf`;
+      const url = `${window.resources}templates/pdfs/${this.props.file.id}.pdf`;
       console.log(url);
       this.download(url, 'something.pdf');
     } else {
@@ -93,7 +93,7 @@ export default class File extends React.Component {
       `);
 
       this.props.dispatch(renderPDFandPullAssetsJson(this.props.file.id, () => {
-        const url = `${window.feedersite}templates/pdfs/${this.props.file.id}.pdf`;
+        const url = `${window.resources}templates/pdfs/${this.props.file.id}.pdf`;
         this.download(url, 'something.pdf');
         $(selectorIs).removeClass('waiting').text(`
           Print
@@ -108,7 +108,7 @@ export default class File extends React.Component {
   }
 
   render() {
-    const src = `${window.feedersite}templates/thumbs/${this.props.file.id}.png`;
+    const src = `${window.resources}templates/thumbs/${this.props.file.id}.png`;
     const inlineButtonStyle = {
       minWidth: '65px'
     };

@@ -49,7 +49,8 @@
       var subdomain = '<?php
         $domain = $_SERVER['SERVER_NAME'];
         $domainArr = explode('.', $domain);
-        echo 'undefined';
+        if(count($domainArr) == 3) echo $domainArr[0];
+        else echo 'undefined';
       ?>';
 
 

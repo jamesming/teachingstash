@@ -42,20 +42,20 @@
       scrolling="no"></iframe>
     <div id="app"></div>
     <script type="text/javascript">
-    	var feedSrc = '<?php
+    	var domain = '<?php
     		$domain = $_SERVER['SERVER_NAME'];
-    		$feed = explode('.', $domain)[0];
-    		if($feed == 'www') $feed = explode('.', $domain)[1];
-    		echo $feed;
+    		$site = explode('.', $domain)[0];
+    		if($site == 'www') $site = explode('.', $domain)[1];
+    		echo $site;
     	?>';
-    	console.log('feedSrc: ', feedSrc);
-      var feed = (window.location.hostname.split('.')[0] === 'localhost' ?
+    	console.log('domain: ', domain);
+      var domain = (window.location.hostname.split('.')[0] === 'localhost' ?
           'teachingstash' : window.location.hostname.split('.')[0]);
-      if(feed === 'www') feed = window.location.hostname.split('.')[1];
+      if(domain === 'www') domain = window.location.hostname.split('.')[1];
       var host = 'https://pictographr.com/';
-      var feedersite = host
-          + 'feed/'
-          + feed
+      var resources = host
+          + 'sites/'
+          + domain
           + '/';
     </script>
     <!-- <script src="app.min.js"></script> -->

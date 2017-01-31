@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export function fetchCarousel() {
   return function (dispatch) {
-    axios.get(`${window.host}feed/getCarouseljson?feed=${feed}&`)
+    axios.get(`${window.host}sites/getCarouseljson?domain=${domain}&`)
       .then((response) => {
         dispatch({ type: 'FETCH_CAROUSEL_FULFILLED', payload: response.data });
       })
@@ -21,7 +21,7 @@ export function setCarouselFolderId(parentFolderId) {
 
 export function generateCarousel(parentFolderId, callback) {
   return function (dispatch) {
-    axios.get(`${window.host}feed/generateCarousel?feed=${feed}&parentFolderId=${parentFolderId}`)
+    axios.get(`${window.host}sites/generateCarousel?domain=${domain}&parentFolderId=${parentFolderId}`)
       .then((response) => {
         dispatch({ type: 'SET_CAROUSEL_PARENTFOLDERID', payload: parentFolderId });
         dispatch({ type: 'FETCH_CAROUSEL_FULFILLED', payload: response.data });

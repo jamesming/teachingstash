@@ -42,12 +42,12 @@
       scrolling="no"></iframe>
     <div id="app"></div>
     <script type="text/javascript">
-      var feed = (window.location.hostname.split('.')[0] === 'localhost' ?
+      var domain = (window.location.hostname.split('.')[0] === 'localhost' ?
           'teachingstash' : window.location.hostname.split('.')[0]);
       var host = 'https://pictographr.com/';
-      var feedersite = host
-          + 'feed/'
-          + feed
+      var resources = host
+          + 'sites/'
+          + domain
           + '/';
     </script>
     <!-- <script src="app.min.js"></script> -->

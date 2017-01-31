@@ -50,15 +50,19 @@
     		echo $domain;
     	?>';
     	console.log('domain: ', domain);
-      var segCount = <?php
+      var subdomain = '<?php
         $domain = $_SERVER['SERVER_NAME'];
         $domainArr = explode('.', $domain);
-        echo count($domainArr);
-      ?>;
-      console.log(segCount);
+        if(count($domainArr) == 3) echo explode('.', $domain)[0];
+        else echo 'undefined';
+      ?>';
+      var domain = '<?php
+         if(count($domainArr) == 3) echo explode('.', $domain)[1];
+         else echo explode('.', $domain)[0]);
+      ?>';
+
       var domain = (window.location.hostname.split('.')[0] === 'localhost' ?
           'teachingstash' : window.location.hostname.split('.')[0]);
-      if(domain === 'www') domain = window.location.hostname.split('.')[1];
       var host = 'https://pictographr.com/';
       var resources = host
           + 'sites/'

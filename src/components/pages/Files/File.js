@@ -45,7 +45,7 @@ export default class File extends React.Component {
           `);
         };
 
-        img.src = `${window.resources}pngs/${this.props.file.id}.png`;
+        img.src = `${window.resources}templates/pngs/${this.props.file.id}.png`;
       }));
     }
   }

@@ -46,21 +46,21 @@
       console.log('index.php');
 
       var subdomain = <?php
-        $domain = $_SERVER['SERVER_NAME'];
-        $domainArr = explode('.', $domain);
-        if(count($domainArr) == 3) echo "'" .$domainArr[0] . "'";
+        $site = $_SERVER['SERVER_NAME'];
+        $siteArr = explode('.', $site);
+        if(count($siteArr) == 3) echo "'" .$siteArr[0] . "'";
         else echo 'undefined';
       ?>;
 
-      var domain = <?php
-        $domain = $_SERVER['SERVER_NAME'];
-        $domainArr = explode('.', $domain);
-        if(count($domainArr) == 3) echo "'" .$domainArr[1] . "'";
-        else echo "'" .$domainArr[0] . "'";
+      var site = <?php
+        $site = $_SERVER['SERVER_NAME'];
+        $siteArr = explode('.', $site);
+        if(count($siteArr) == 3) echo "'" .$siteArr[1] . "'";
+        else echo "'" .$siteArr[0] . "'";
       ?>;
 
      	console.log('subdomain: ', subdomain);
-      console.log('domain: ', domain);
+      console.log('site: ', site);
 
       var subdomainSegment = ( typeof(subdomain) !== 'undefined' && subdomain !== 'www'
           ? '/subdomains/' + subdomain: '');
@@ -70,7 +70,7 @@
       var host = 'https://pictographr.com/';
       var resources = host
           + 'sites/'
-          + domain
+          + site
           + subdomainSegment
           + '/';
       console.log(resources);

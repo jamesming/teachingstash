@@ -1,21 +1,34 @@
 import React from 'react';
-import { generateTemplates, setTemplateFolderId } from '../../../actions/templatesActions';
-import { generateCarousel, setCarouselFolderId } from '../../../actions/carouselActions';
+import { generateTemplates, setTemplateFolderUrl } from '../../../actions/templatesActions';
+import { generateCarousel, setCarouselFolderUrl } from '../../../actions/carouselActions';
 
 export default class Assets extends React.Component {
+
+  setTemplateFolderUrl(e) {
+    this.props.dispatch(setTemplateFolderUrl(e.target.value));
+  }
+
+  setCarouselFolderUrl(e) {
+    this.props.dispatch(setCarouselFolderUrl(e.target.value));
+  }
+
   generateAssets() {
     $('#submit-assets-button').addClass('waiting').html(`
       <img alt='' src='https://pictographr.com/img/smallloading.gif'/>
     `);
 
+    const templatesFolderId = this.refs['shared-templates'].value.split('=')[1];
+
     const templatesPromise = new Promise((resolve, reject) => {
-      this.props.dispatch(generateTemplates(this.refs['shared-templates'].value, () => {
+      this.props.dispatch(generateTemplates(templatesFolderId, () => {
         resolve('promise1');
       }));
     });
 
+    const carouselFolderId = this.refs['carousel-images'].value.split('=')[1];
+
     const carouselPromise = new Promise((resolve, reject) => {
-      this.props.dispatch(generateCarousel(this.refs['carousel-images'].value, () => {
+      this.props.dispatch(generateCarousel(carouselFolderId, () => {
         resolve('promise2');
       }));
     });
@@ -28,14 +41,6 @@ export default class Assets extends React.Component {
     });
 
   }
-
-  setTemplateFolderId(e) {
-    this.props.dispatch(setTemplateFolderId(e.target.value));
-  }
-  setCarouselFolderId(e) {
-    this.props.dispatch(setCarouselFolderId(e.target.value));
-  }
-
   render() {
     return (
       <div className="container">
@@ -54,11 +59,11 @@ export default class Assets extends React.Component {
                     id="carousel-images"
                     className="form-control"
                     name="carousel-images"
-                    onChange={this.setCarouselFolderId.bind(this)}
+                    onChange={this.setCarouselFolderUrl.bind(this)}
                     placeholder="Carousel Folder URL"
                     ref="carousel-images"
                     type="text"
-                    value={this.props.carouselParentFolderId}
+                    value={this.props.carouselParentFolderUrl}
                   />
                 </div>
               </div>
@@ -72,11 +77,11 @@ export default class Assets extends React.Component {
                     id="shared-templates"
                     className="form-control"
                     name="shared-templates"
-                    onChange={this.setTemplateFolderId.bind(this)}
+                    onChange={this.setTemplateFolderUrl.bind(this)}
                     placeholder="Templates Folder URL"
                     ref="shared-templates"
                     type="text"
-                    value={this.props.templatesParentFolderId}
+                    value={this.props.templatesParentFolderUrl}
                   />
                 </div>
               </div>

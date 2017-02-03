@@ -36,9 +36,6 @@ export function generateTemplates(parentFolderId, callback) {
     axios.get(`${window.host}sites/generateMenu?site=${site}${subdomainParam}&parentFolderId=${parentFolderId}`)
       .then((response) => {
         dispatch({ type: 'FETCH_TEMPLATES_FULFILLED', payload: response.data });
-
-        dispatch({ type: 'SET_TEMPLATES_PARENTFOLDERID', payload: parentFolderId });
-
         const files = (response.data[0].files ?
               response.data[0].files : response.data[0].sub_folders[0].files);
 
@@ -68,10 +65,10 @@ export function setModalShow(which) {
   };
 }
 
-export function setTemplateFolderId(parentFolderId) {
+export function setTemplateFolderUrl(parentFolderUrl) {
   return {
-    type: 'SET_TEMPLATES_PARENTFOLDERID',
-    payload: parentFolderId,
+    type: 'SET_TEMPLATES_PARENTFOLDERURL',
+    payload: parentFolderUrl,
   };
 }
 

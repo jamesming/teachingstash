@@ -19,10 +19,10 @@ export function fetchCarousel() {
   };
 }
 
-export function setCarouselFolderId(parentFolderId) {
+export function setCarouselFolderUrl(parentFolderUrl) {
   return {
-    type: 'SET_CAROUSEL_PARENTFOLDERID',
-    payload:  parentFolderId,
+    type: 'SET_CAROUSEL_PARENTFOLDERURL',
+    payload:  parentFolderUrl,
   };
 }
 
@@ -30,8 +30,6 @@ export function generateCarousel(parentFolderId, callback) {
   return function (dispatch) {
     axios.get(`${window.host}sites/generateCarousel?site=${site}${subdomainParam}&parentFolderId=${parentFolderId}`)
       .then((response) => {
-        dispatch({ type: 'SET_CAROUSEL_PARENTFOLDERID', payload: parentFolderId });
-        console.log(response.data );
         dispatch({ type: 'FETCH_CAROUSEL_FULFILLED', payload: response.data });
         callback();
       })

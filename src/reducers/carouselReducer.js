@@ -1,5 +1,5 @@
 export default function reducer(state = {
-    parentFolderId: '0B1nKK3UKG5hjYXRZbXhsbDliVWM',
+    parentFolderUrl: 'https://drive.google.com/open?id=0B1nKK3UKG5hjYXRZbXhsbDliVWM',
     slides: [],
     fetching: false,
     fetched: false,
@@ -20,10 +20,10 @@ export default function reducer(state = {
           slides: action.payload,
         };
       }
-      case 'SET_CAROUSEL_PARENTFOLDERID': {
+      case 'SET_CAROUSEL_PARENTFOLDERURL': {
         return {
           ...state,
-          parentFolderId: action.payload,
+          parentFolderUrl: action.payload,
         };
       }
       default: {

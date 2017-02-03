@@ -9,7 +9,7 @@ import ShojiComponent from './Shoji/Shoji';
 @connect((store) => ({
   activeFileId: store.files.activeFileId,
   assets: store.templates.assets,
-  carouselParentFolderId: store.carousel.parentFolderId,
+  carouselParentFolderUrl: store.carousel.parentFolderUrl,
   files: store.files.files,
   folderTitle: store.files.folderTitle,
   modalshow: store.app.modalshow,
@@ -17,7 +17,7 @@ import ShojiComponent from './Shoji/Shoji';
   sidemenutop: store.app.sidemenutop,
   site: store.site,
   templates: store.templates.templates,
-  templatesParentFolderId: store.templates.parentFolderId,
+  templatesParentFolderUrl: store.templates.parentFolderUrl,
   user: store.user,
 }))
 

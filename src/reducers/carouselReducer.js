@@ -1,5 +1,5 @@
 export default function reducer(state = {
-    parentFolderUrl: 'https://drive.google.com/open?id=0B1nKK3UKG5hjYXRZbXhsbDliVWM',
+    parentFolderUrl: 'https://drive.google.com/open?id=',
     slides: [],
     fetching: false,
     fetched: false,

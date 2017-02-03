@@ -1,5 +1,5 @@
 export default function reducer(state = {
-    parentFolderUrl: 'https://drive.google.com/open?id=0B1nKK3UKG5hjbk5Ba2dLNE9zUW8',
+    parentFolderUrl: 'https://drive.google.com/open?id=',
     templates: [],
     fetching: false,
     fetched: false,
@@ -29,7 +29,7 @@ export default function reducer(state = {
       case 'SET_TEMPLATES_PARENTFOLDERURL': {
         return {
           ...state,
-          parentFolderId: action.payload,
+          parentFolderUrl: action.payload,
         };
       }
       case 'FETCH_ASSETS': {

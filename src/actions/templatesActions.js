@@ -11,17 +11,22 @@ export function fetchTemplates() {
   return function (dispatch) { // 'http://staging.pictographr.com/sites/getAssetsjson'
     axios.get(`${window.host}sites/getMenujson?site=${site}${subdomainParam}`)
       .then((response) => {
-        dispatch({ type: 'FETCH_TEMPLATES_FULFILLED', payload: response.data });
+        dispatch({ type: 'FETCH_TEMPLATES_FULFILLED', payload: response.data.folders });
 
-        const files = (response.data[0].files ?
-              response.data[0].files : response.data[0].sub_folders[0].files);
+        dispatch({
+          type: 'SET_TEMPLATES_PARENTFOLDERURL',
+          payload: `https://drive.google.com/open?id=${response.data.parentFolderId}`
+        });
+
+        const files = (response.data.folders[0].files ?
+              response.data.folders[0].files : response.data.folders[0].sub_folders[0].files);
 
         dispatch({
           type: 'ADD_FILES',
           payload: {
             files,
-            folderTitle: (response.data[0].files ?
-                files.title : response.data[0].sub_folders[0].title)
+            folderTitle: (response.data.folders[0].files ?
+                files.title : response.data.folders[0].sub_folders[0].title)
           },
         });
       })
@@ -35,16 +40,22 @@ export function generateTemplates(parentFolderId, callback) {
   return function (dispatch) { //https://pictographr.com/sites/createMenu?parentFolderId=0B1nKK3UKG5hjbk5Ba2dLNE9zUW8
     axios.get(`${window.host}sites/generateMenu?site=${site}${subdomainParam}&parentFolderId=${parentFolderId}`)
       .then((response) => {
-        dispatch({ type: 'FETCH_TEMPLATES_FULFILLED', payload: response.data });
-        const files = (response.data[0].files ?
-              response.data[0].files : response.data[0].sub_folders[0].files);
+        dispatch({ type: 'FETCH_TEMPLATES_FULFILLED', payload: response.data.folders });
+
+        dispatch({
+          type: 'SET_TEMPLATES_PARENTFOLDERURL',
+          payload: `https://drive.google.com/open?id=${response.data.parentFolderId}`
+        });
+
+        const files = (response.data.folders[0].files ?
+              response.data.folders[0].files : response.data.folders[0].sub_folders[0].files);
 
         dispatch({
           type: 'ADD_FILES',
           payload: {
             files,
-            folderTitle: (response.data[0].files ?
-                files.title : response.data[0].sub_folders[0].title)
+            folderTitle: (response.data.folders[0].files ?
+                files.title : response.data.folders[0].sub_folders[0].title)
           },
         });
 

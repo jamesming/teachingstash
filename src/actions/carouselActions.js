@@ -31,6 +31,7 @@ export function generateCarousel(parentFolderId, callback) {
     axios.get(`${window.host}sites/generateCarousel?site=${site}${subdomainParam}&parentFolderId=${parentFolderId}`)
       .then((response) => {
         dispatch({ type: 'SET_CAROUSEL_PARENTFOLDERID', payload: parentFolderId });
+        console.log(response.data );
         dispatch({ type: 'FETCH_CAROUSEL_FULFILLED', payload: response.data });
         callback();
       })

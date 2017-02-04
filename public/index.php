@@ -67,7 +67,7 @@
 
       console.log(subdomainSegment);
 
-      var host = 'https://staging.pictographr.com/';
+      var host = 'http://staging.pictographr.com/';
       var resources = host
           + 'sites/'
           + site

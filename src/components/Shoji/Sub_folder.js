@@ -1,5 +1,6 @@
 import React from 'react';
 import { addFiles } from '../../actions/filesActions';
+import fooStyle from './styles.css';
 
 export default class Subfolder extends React.Component {
 
@@ -15,8 +16,11 @@ export default class Subfolder extends React.Component {
       listStyle: 'none'
     };
 
+    console.log(fooStyle);
+
     return (
         <li
+        className={fooStyle.li}
         style={inlineTitle}
         onClick={this.dispatch.bind(this)}
         >{ this.props.subFolder.title }</li>

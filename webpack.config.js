@@ -1,5 +1,6 @@
 var debug = process.env.NODE_ENV !== 'production';
 var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var path = require('path');
 
 module.exports = {
@@ -16,6 +17,11 @@ module.exports = {
           presets: ['react', 'es2015', 'stage-0'],
           plugins: ['react-html-attrs', 'transform-class-properties', 'transform-decorators-legacy'],
         }
+      },
+      {
+        test: /\.css$/,
+        //loader: 'style-loader!css-loader?modules=true&localIdentName=[name]__[local]___[hash:base64:5]'
+        loader: ExtractTextPlugin.extract('css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]')
       }
     ]
   },
@@ -23,9 +29,18 @@ module.exports = {
     path: __dirname + '/public/',
     filename: "app.min.js"
   },
-  plugins: debug ? [] : [
+  plugins: debug ? [
+    new ExtractTextPlugin('styles.css', {
+            allChunks: true
+        })
+    ]
+    :
+    [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
+    new ExtractTextPlugin('styles.css', {
+            allChunks: true
+        }),
   ],
 };

@@ -3,6 +3,10 @@ NODE_ENV=production ./node_modules/.bin/webpack; git add .; git commit -m "updat
 **** IMPORTANT ******
 in production.... remove index.html to force index.php to be default
 
+index.html only works in development cause we need php to pull site specific configuration
+
+also the following is not in index.html cause webpack will put module css in the <head><style></style></head>
+<link rel="stylesheet" href="css/styles.css">
 
 in order to update .htaccess file on production server you must remove it first ...
 	sudo -Hu apache rm -f -r .htaccess

@@ -16,11 +16,9 @@ export default class Subfolder extends React.Component {
       listStyle: 'none'
     };
 
-    console.log(fooStyle);
-
     return (
         <li
-        className={fooStyle.li}
+        className={fooStyle.element}
         style={inlineTitle}
         onClick={this.dispatch.bind(this)}
         >{ this.props.subFolder.title }</li>

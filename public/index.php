@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="js/shoji/shoji.css">
   <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="https://pictographr.com/js/lib/toast/jquery.toast.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   <!-- The following script will pull in an external Bluebird Promise Library,

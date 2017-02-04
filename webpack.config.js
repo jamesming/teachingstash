@@ -20,8 +20,8 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        //loader: 'style-loader!css-loader?modules=true&localIdentName=[name]__[local]___[hash:base64:5]'
-        loader: ExtractTextPlugin.extract('css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]')
+        loader: debug ? 'style-loader!css-loader?modules=true&localIdentName=[name]__[local]___[hash:base64:5]' :
+        ExtractTextPlugin.extract('css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]')
       }
     ]
   },
@@ -29,17 +29,13 @@ module.exports = {
     path: __dirname + '/public/',
     filename: "app.min.js"
   },
-  plugins: debug ? [
-    new ExtractTextPlugin('styles.css', {
-            allChunks: true
-        })
-    ]
+  plugins: debug ? []
     :
     [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
-    new ExtractTextPlugin('styles.css', {
+    new ExtractTextPlugin('css/styles.css', {
             allChunks: true
         }),
   ],

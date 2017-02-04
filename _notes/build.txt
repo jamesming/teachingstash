@@ -8,6 +8,9 @@ index.html only works in development cause we need php to pull site specific con
 also the following is not in index.html cause webpack will put module css in the <head><style></style></head>
 <link rel="stylesheet" href="css/styles.css">
 
+https://css-tricks.com/css-modules-part-3-react/
+http://javascriptplayground.com/blog/2016/07/css-modules-webpack-react/
+
 in order to update .htaccess file on production server you must remove it first ...
 	sudo -Hu apache rm -f -r .htaccess
 then do the pull.php

@@ -1,4 +1,5 @@
 export default function reducer(state = {
+    logoUrl: 'https://drive.google.com/open?id=',
     description: '',
     keywords: [],
     title: '',
@@ -22,6 +23,12 @@ export default function reducer(state = {
         return {
           ...state,
           title: action.payload,
+        };
+      }
+      case 'SET_LOGOURL': {
+        return {
+          ...state,
+          logoUrl: action.payload,
         };
       }
       default: {

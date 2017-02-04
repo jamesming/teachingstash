@@ -1,25 +1,44 @@
 import React from 'react';
-import { setMeta, setDescription, setTitle } from '../../../actions/siteActions';
+import { setSite, setDescription, setTitle, setLogoUrl, renderLogo } from '../../../actions/siteActions';
 
 export default class Site extends React.Component {
-  setMeta() {
-    $('#setmeta-button').addClass('waiting').html(`
-      <img alt='' src='https://pictographr.com/img/smallloading.gif'/>
-    `);
-    this.props.dispatch(setMeta(
-        this.refs.description.value,
-        this.refs.keywords.value,
-        this.refs.title.value,
-        () => {$('#setmeta-button').removeClass('waiting').text(`
-          Submit
-        `);
-    }));
+  setLogoUrl(e) {
+    this.props.dispatch(setLogoUrl(e.target.value));
   }
   setDescription(e) {
     this.props.dispatch(setDescription(e.target.value));
   }
   setTitle(e) {
     this.props.dispatch(setTitle(e.target.value));
+  }
+  generateSite() {
+    $('#setsite-button').addClass('waiting').html(`
+      <img alt='' src='https://pictographr.com/img/smallloading.gif'/>
+    `);
+    const logoFileId = this.refs.logoUrl.value.split('=')[1];
+
+    const logoPromise = new Promise((resolve, reject) => {
+      this.props.dispatch(renderLogo(
+          logoFileId,
+          () => {
+            resolve('promise1');
+      }));
+    });
+
+    Promise.all([logoPromise]).then((data) => {
+      $('#setsite-button').removeClass('waiting').text(`
+        Submit
+      `);
+      this.props.toast('Site has been set.');
+    });
+    // this.props.dispatch(setSite(
+    //     this.refs.description.value,
+    //     this.refs.keywords.value,
+    //     this.refs.title.value,
+    //     () => {$('#setsite-button').removeClass('waiting').text(`
+    //       Submit
+    //     `);
+    // }));
   }
   render() {
     return (
@@ -30,6 +49,21 @@ export default class Site extends React.Component {
               <form className="form-horizontal" action="" method="post">
               <fieldset>
                 <legend className="text-center">Set Site Detail</legend>
+                <div className="form-group">
+                  <label className="col-md-3 control-label" htmlFor="name">Logo Url</label>
+                  <div className="col-md-7">
+                    <input
+                      id="logoUrl"
+                      className="form-control"
+                      name="logoUrl"
+                      onChange={this.setLogoUrl.bind(this)}
+                      ref="logoUrl"
+                      type="text"
+                      placeholder="Enter Logo Url"
+                      value={this.props.site.logoUrl}
+                    />
+                  </div>
+                </div>
                 <div className="form-group">
                   <label className="col-md-3 control-label" htmlFor="name">Title</label>
                   <div className="col-md-7">
@@ -77,11 +111,11 @@ export default class Site extends React.Component {
                 <div className="form-group">
                   <div className="col-md-12 text-right">
                     <button
-                      id="setmeta-button"
-                      ref="setmeta-button"
-                      type="submit"
+                      id="setsite-button"
                       className="btn btn-primary btn-sm"
-                      onClick={this.setMeta.bind(this)}
+                      onClick={this.generateSite.bind(this)}
+                      ref="setsite-button"
+                      type="button"
                     >Submit</button>
                   </div>
                 </div>

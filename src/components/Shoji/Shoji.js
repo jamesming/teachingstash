@@ -98,7 +98,7 @@ export default class ShojiCompnent extends React.Component {
                     className="navbar navbar-default" role="navigation"
                   >
                     <div className="container">
-                      <Logo />
+                      <Logo {...this.props}/>
                       <div className="navbar-header">
                           { // Only show button when route is Files
                             this.props.children.type.name === 'Files' ?

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchTemplates, fetchAssets } from '../actions/templatesActions';
 import { fetchCarousel } from '../actions/carouselActions';
+import { getLogoJson } from '../actions/siteActions';
 import CrossDomService from '../crossdom';
 import Modal from './Modal/Modal';
 import ShojiComponent from './Shoji/Shoji';
@@ -26,6 +27,7 @@ export default class Layout extends React.Component {
     this.props.dispatch(fetchTemplates());
     this.props.dispatch(fetchAssets());
     this.props.dispatch(fetchCarousel());
+    this.props.dispatch(getLogoJson());
     this.crossDomService = new CrossDomService();
   }
 

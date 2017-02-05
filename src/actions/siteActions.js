@@ -35,7 +35,7 @@ export function setSite(title, description, keywords, callback) {
       &title=${title}
       &keywords=${keywords}
     `;
-    const sitePath = `${site}.com/sites.php?do=set&site=${site}${subdomainParam}${paramStr}`;
+    const sitePath = `http://${site}.com/sites.php?do=set&site=${site}${subdomainParam}${paramStr}`;
     console.log(sitePath);
     axios.get(sitePath)
       .then((response) => {

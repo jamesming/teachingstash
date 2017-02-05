@@ -1,16 +1,22 @@
 export default function reducer(state = {
     logoUrl: 'https://drive.google.com/open?id=',
     description: '',
-    keywords: [],
+    keywords: '',
     title: '',
   }, action) {
     switch (action.type) {
-      case 'SET_META': {
+      case 'SET_SITE': {
         return {
           ...state,
           description: action.payload.description,
-          site: action.payload.site,
+          keywords: action.payload.keywords,
           title: action.payload.title,
+        };
+      }
+      case 'SET_KEYWORDS': {
+        return {
+          ...state,
+          keywords: action.payload,
         };
       }
       case 'SET_DESCRIPTION': {

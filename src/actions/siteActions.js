@@ -7,14 +7,23 @@ if(hasSubdomain) {
   var subdomainParam = '';
 }
 
-export function setSite(description, keywords, title) {
-  return {
-    type: 'SET_META',
-    payload: {
-      description,
-      keywords,
-      title,
-    },
+export function getSite() {
+  return function (dispatch) {
+    axios.get(`/php/sites?do=get&site=${site}${subdomainParam}`)
+      .then((response) => {
+        console.log('XXXXXXXXXXXXXXXXXXXX', response);
+        // dispatch({
+        //     type: 'SET_SITE',
+        //     payload: {
+        //       description,
+        //       keywords,
+        //       title,
+        //     },
+        //   });
+        })
+      .catch((err) => {
+
+      });
   };
 }
 

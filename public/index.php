@@ -46,6 +46,16 @@
 
       console.log('index.php');
 
+      <?php
+
+        $SERVER_NAME = $_SERVER['SERVER_NAME'];
+        $siteArr = explode('.', $SERVER_NAME);
+        if(count($siteArr) == 3) $site = $siteArr[1];
+        else $site = $siteArr[0];
+        if(count($siteArr) == 3) $subdomain = $siteArr[0];
+
+      ?>
+
       var subdomain = <?php
         $site = $_SERVER['SERVER_NAME'];
         $siteArr = explode('.', $site);

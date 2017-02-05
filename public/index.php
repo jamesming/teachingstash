@@ -82,8 +82,8 @@
         $pathToJson = $siteroot . $subdomainSegment . 'site.json';
 
         echo "var pathToJson = '" . $pathToJson . "'";
-
-        echo $tools->object_to_array(json_decode(file_get_contents($pathToJson)));
+        $obj = $tools->object_to_array(json_decode(file_get_contents($pathToJson)));
+        echo '<pre>'; print_r( $obj ); echo '</pre>';
 
       ?>
 

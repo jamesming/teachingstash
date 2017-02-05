@@ -3,7 +3,7 @@ RewriteEngine on
 #don't do anything if index.php is called directly
 RewriteRule ^index\.php - [L]
 
-RewriteRule ^site\.php - [L]
+RewriteRule ^sites\.php - [L]
 
 #if other php file called(user typed it in), redirect to extensionless uri
 #RewriteCond %{THE_REQUEST} ^GET\ /(.+)\.php

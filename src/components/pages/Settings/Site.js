@@ -1,9 +1,19 @@
 import React from 'react';
-import { setSite, setDescription, setTitle, setLogoUrl, renderLogo } from '../../../actions/siteActions';
+import {
+  setSite,
+  setDescription,
+  setTitle,
+  setLogoUrl,
+  setKeywords,
+  renderLogo
+} from '../../../actions/siteActions';
 
 export default class Site extends React.Component {
   setLogoUrl(e) {
     this.props.dispatch(setLogoUrl(e.target.value));
+  }
+  setKeywords(e) {
+    this.props.dispatch(setKeywords(e.target.value));
   }
   setDescription(e) {
     this.props.dispatch(setDescription(e.target.value));
@@ -102,6 +112,7 @@ export default class Site extends React.Component {
                     <textarea
                       id="keywords"
                       className="form-control"
+                      onChange={this.setKeywords.bind(this)}
                       name="keywords"
                       rows="5"
                       ref="keywords"

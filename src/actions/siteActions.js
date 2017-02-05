@@ -91,6 +91,12 @@ export function setDescription(description) {
     payload: description,
   };
 }
+export function setKeywords(keywords) {
+  return {
+    type: 'SET_KEYWORDS',
+    payload: keywords,
+  };
+}
 
 export function setTitle(title) {
   return {

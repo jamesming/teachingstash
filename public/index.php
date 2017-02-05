@@ -53,8 +53,16 @@
         if(count($siteArr) == 3) $site = $siteArr[1];
         else $site = $siteArr[0];
         if(count($siteArr) == 3) $subdomain = $siteArr[0];
-        echo "var theSite = '" . $site . "'";
-        echo "var theSubdomain = '" . $subdomain . "'";
+
+        $siteroot = '/var/www/teachingstash/public/sites/' . $site;
+        $subdomainSegment = '/';
+        if( isset($subdomain) ) {
+          $subdomainSegment = '/subdomains/' . $subdomain . '/';
+        }
+
+        $pathToJson = $siteroot . subdomainSegment . 'site.json';
+        echo file_get_contents($pathToJson);
+
       ?>
 
       var subdomain = <?php

@@ -87,8 +87,10 @@
 
         echo "var pathToJson = '" . $pathToJson . "'";
         echo json_decode(file_get_contents($pathToJson));
-        // $obj = $tools->object_to_array(json_decode(file_get_contents($pathToJson)));
-        // echo '<pre>'; print_r( $obj ); echo '</pre>';
+
+        $jsonAssetsArray =  $tools->object_to_array(json_decode((file_get_contents( $pathToJson ))));
+
+        echo '<pre>'; print_r( $jsonAssetsArray ); echo '</pre>';
 
       ?>
 

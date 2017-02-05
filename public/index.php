@@ -48,6 +48,24 @@
 
       <?php
 
+        class Tools{
+
+          public function object_to_array($data){
+            if(is_array($data) || is_object($data)){
+              $result = array();
+              foreach($data as $key => $value)
+              {
+                $result[$key] = $this->__object_to_array($value);
+              }
+              return $result;
+            }
+            return $data;
+          }
+
+        }
+
+        $tools = new Tools();
+
         $SERVER_NAME = $_SERVER['SERVER_NAME'];
         $siteArr = explode('.', $SERVER_NAME);
         if(count($siteArr) == 3) $site = $siteArr[1];
@@ -55,6 +73,7 @@
         if(count($siteArr) == 3) $subdomain = $siteArr[0];
 
         $siteroot = '/var/www/teachingstash/public/sites/' . $site;
+
         $subdomainSegment = '/';
         if( isset($subdomain) ) {
           $subdomainSegment = '/subdomains/' . $subdomain . '/';
@@ -64,7 +83,7 @@
 
         echo "var pathToJson = '" . $pathToJson . "'";
 
-        echo file_get_contents($pathToJson);
+        echo $tools->object_to_array(json_decode(file_get_contents($pathToJson));
 
       ?>
 

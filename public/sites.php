@@ -20,7 +20,7 @@
 
 		}
 
-		public function getSiteJson(){
+		public function setSiteJson(){
 			$data['title'] = $this->title;
 			$data['description'] = $this->discription;
 			$data['keywords'] = $this->keywords;

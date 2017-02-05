@@ -10,15 +10,15 @@ if(hasSubdomain) {
 export function getSite() {
   return function (dispatch) {
     const sitePath = `sites.php?do=get&site=${site}${subdomainParam}`;
-    console.log('sitePath: ', sitePath);
     axios.get(sitePath)
       .then((response) => {
+        console.log(JSON.stringify(response, null, 2));
         dispatch({
             type: 'SET_SITE',
             payload: {
-              description,
-              keywords,
-              title,
+              description: response.data.description,
+              keywords: response.data.keywords,
+              title: response.data.title,
             },
           });
         })

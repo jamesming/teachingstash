@@ -13,15 +13,14 @@ export function getSite() {
     console.log('sitePath: ', sitePath);
     axios.get(sitePath)
       .then((response) => {
-        console.log('XXXXXXXXXXXXXXXXXXXX', response);
-        // dispatch({
-        //     type: 'SET_SITE',
-        //     payload: {
-        //       description,
-        //       keywords,
-        //       title,
-        //     },
-        //   });
+        dispatch({
+            type: 'SET_SITE',
+            payload: {
+              description,
+              keywords,
+              title,
+            },
+          });
         })
       .catch((err) => {
 

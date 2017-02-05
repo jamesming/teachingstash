@@ -48,7 +48,10 @@ export default class Site extends React.Component {
       $('#setsite-button').removeClass('waiting').text(`
         Submit
       `);
-      this.props.toast('Site has been set.');
+      this.props.toast('This site has been reset with new configuration.  Site will reload in two seconds.');
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
     });
 
   }

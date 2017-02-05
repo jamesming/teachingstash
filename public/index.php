@@ -61,6 +61,9 @@
         }
 
         $pathToJson = $siteroot . subdomainSegment . 'site.json';
+
+        echo "var pathToJson = '" . $pathToJson . "'";
+
         echo file_get_contents($pathToJson);
 
       ?>

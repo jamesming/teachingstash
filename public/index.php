@@ -90,7 +90,7 @@
 
         $jsonAssetsArray =  $tools->object_to_array(json_decode((file_get_contents( $pathToJson ))));
 
-        echo json_decode(file_get_contents( $pathToJson ));
+        echo json_encode(file_get_contents( $pathToJson ));
 
       ?>
 

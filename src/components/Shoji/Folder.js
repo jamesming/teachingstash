@@ -58,7 +58,7 @@ export default class Folder extends React.Component {
                       ' ...'
                     :
                       ''
-                  }
+                }
               </a>
             </h4>
           </div>

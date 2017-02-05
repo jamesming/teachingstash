@@ -21,24 +21,26 @@ export default class Site extends React.Component {
       this.props.dispatch(renderLogo(
           logoFileId,
           () => {
-            resolve('promise1');
+            resolve('logoPromise');
+      }));
+    });
+    const sitePromise = new Promise((resolve, reject) => {
+      this.props.dispatch(setSite(
+          this.refs.description.value,
+          this.refs.keywords.value,
+          this.refs.title.value,
+          () => {
+            resolve('sitePromise');
       }));
     });
 
-    Promise.all([logoPromise]).then((data) => {
+    Promise.all([logoPromise, sitePromise]).then((data) => {
       $('#setsite-button').removeClass('waiting').text(`
         Submit
       `);
       this.props.toast('Site has been set.');
     });
-    // this.props.dispatch(setSite(
-    //     this.refs.description.value,
-    //     this.refs.keywords.value,
-    //     this.refs.title.value,
-    //     () => {$('#setsite-button').removeClass('waiting').text(`
-    //       Submit
-    //     `);
-    // }));
+
   }
   render() {
     return (

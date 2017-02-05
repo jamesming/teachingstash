@@ -25,8 +25,7 @@
 			$data['description'] = $this->description;
 			$data['keywords'] = $this->keywords;
 			$this->JSON = file_put_contents($this->pathToJson, $data);
-			header('Access-Control-Allow-Origin: *');
-			echo json_encode($this->data);
+			$this->getSiteJson();
 		}
 
 		private function __paramIntoProperties($input) {

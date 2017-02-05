@@ -12,7 +12,6 @@ export function getSite() {
     const sitePath = `sites.php?do=get&site=${site}${subdomainParam}`;
     axios.get(sitePath)
       .then((response) => {
-        console.log(JSON.stringify(response, null, 2));
         dispatch({
             type: 'SET_SITE',
             payload: {
@@ -21,6 +20,33 @@ export function getSite() {
               title: response.data.title,
             },
           });
+        })
+      .catch((err) => {
+
+      });
+  };
+}
+
+
+export function setSite(title, description, keywords, callback) {
+  return function (dispatch) {
+    const paramStr = `
+      &description=${description}
+      &title=${title}
+      &keywords=${keywords}
+    `;
+    const sitePath = `sites.php?do=set&site=${site}${subdomainParam}${paramStr}`;
+    axios.get(sitePath)
+      .then((response) => {
+        dispatch({
+            type: 'SET_SITE',
+            payload: {
+              description: response.data.description,
+              keywords: response.data.keywords,
+              title: response.data.title,
+            },
+          });
+        callback();
         })
       .catch((err) => {
 

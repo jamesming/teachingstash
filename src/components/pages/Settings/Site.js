@@ -36,9 +36,9 @@ export default class Site extends React.Component {
     });
     const sitePromise = new Promise((resolve, reject) => {
       this.props.dispatch(setSite(
+          this.refs.title.value,
           this.refs.description.value,
           this.refs.keywords.value,
-          this.refs.title.value,
           () => {
             resolve('sitePromise');
       }));

@@ -53,7 +53,7 @@
         if(count($siteArr) == 3) $site = $siteArr[1];
         else $site = $siteArr[0];
         if(count($siteArr) == 3) $subdomain = $siteArr[0];
-
+        echo "var theSite = '" . $site . "'";
       ?>
 
       var subdomain = <?php

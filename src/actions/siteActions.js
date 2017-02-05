@@ -30,12 +30,8 @@ export function getSite() {
 
 export function setSite(title, description, keywords, callback) {
   return function (dispatch) {
-    const paramStr = `
-      &description=${description}
-      &title=${title}
-      &keywords=${keywords}
-    `;
-    const sitePath = `http://${site}.com/sites.php?do=set&site=${site}${subdomainParam}${paramStr}`;
+    const paramStr = `&description=${description}&title=${title}&keywords=${keywords}`;
+    const sitePath = `sites.php?do=set&site=${site}${subdomainParam}${paramStr}`;
     console.log(sitePath);
     axios.get(sitePath)
       .then((response) => {

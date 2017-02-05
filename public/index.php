@@ -86,11 +86,10 @@
         $pathToJson = $siteroot . $subdomainSegment . 'data.json';
 
         echo "var pathToJson = '" . $pathToJson . "'";
-        echo json_decode(file_get_contents($pathToJson));
 
         $jsonAssetsArray =  $tools->object_to_array(json_decode((file_get_contents( $pathToJson ))));
 
-
+        echo '<pre>'; print_r( $jsonAssetsArray ); echo '</pre>';
       ?>
 
       var subdomain = <?php

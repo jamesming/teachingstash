@@ -60,7 +60,7 @@
           $subdomainSegment = '/subdomains/' . $subdomain . '/';
         }
 
-        $pathToJson = $siteroot . subdomainSegment . 'site.json';
+        $pathToJson = $siteroot . $subdomainSegment . 'site.json';
 
         echo "var pathToJson = '" . $pathToJson . "'";
 

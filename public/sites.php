@@ -22,7 +22,7 @@
 
 		public function setSiteJson(){
 			$data['title'] = $this->title;
-			$data['description'] = $this->discription;
+			$data['description'] = $this->description;
 			$data['keywords'] = $this->keywords;
 			$this->JSON = file_put_contents($this->pathToJson, $data);
 			header('Access-Control-Allow-Origin: *');

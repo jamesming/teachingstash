@@ -9,7 +9,7 @@ if(hasSubdomain) {
 
 export function getSite() {
   return function (dispatch) {
-    const sitePath = `php/sites.php?do=get&site=${site}${subdomainParam}`;
+    const sitePath = `/php/sites.php?do=get&site=${site}${subdomainParam}`;
     console.log('sitePath: ', sitePath);
     axios.get(sitePath)
       .then((response) => {

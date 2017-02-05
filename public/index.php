@@ -107,13 +107,8 @@
         else echo "'" .$siteArr[0] . "'";
       ?>;
 
-     	console.log('subdomain: ', subdomain);
-      console.log('site: ', site);
-
       var subdomainSegment = ( typeof(subdomain) !== 'undefined' && subdomain !== 'www'
           ? '/subdomains/' + subdomain: '');
-
-      console.log(subdomainSegment);
 
       var host = 'http://staging.pictographr.com/';
       var resources = host
@@ -121,7 +116,6 @@
           + site
           + subdomainSegment
           + '/';
-      console.log(resources);
     </script>
     <!-- <script src="app.min.js"></script> -->
     <script type="text/javascript">

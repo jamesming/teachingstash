@@ -1,9 +1,58 @@
+<?php
+
+  ini_set('display_errors', 1);
+  ini_set('display_startup_errors', 1);
+  error_reporting(E_ALL);
+
+  class Tools{
+
+    public function object_to_array($data){
+      if(is_array($data) || is_object($data)){
+        $result = array();
+        foreach($data as $key => $value)
+        {
+          $result[$key] = $this->object_to_array($value);
+        }
+        return $result;
+      }
+      return $data;
+    }
+
+  }
+
+  $tools = new Tools();
+
+  $SERVER_NAME = $_SERVER['SERVER_NAME'];
+  $siteArr = explode('.', $SERVER_NAME);
+  if(count($siteArr) == 3) $site = $siteArr[1];
+  else $site = $siteArr[0];
+  if(count($siteArr) == 3) $subdomain = $siteArr[0];
+
+  $siteroot = '/var/www/teachingstash/public/sites/' . $site;
+
+  $subdomainSegment = '/';
+  if( isset($subdomain) ) {
+    $subdomainSegment = '/subdomains/' . $subdomain . '/';
+  }
+
+  $pathToJson = $siteroot . $subdomainSegment . 'data.json';
+
+  $jsonArray =  $tools->object_to_array(json_decode((file_get_contents( $pathToJson ))));
+
+  echo '<pre>'; print_r( $jsonArray ); echo '</pre>';
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
+
   <meta charset="utf-8">
+  <title><?php echo $jsonArray['title']?></title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Templates for Teachers</title>
+  <meta name="description" content="<?php echo $jsonArray['description']?>">
+  <meta name="keywords" content="<?php echo $jsonArray['keywords']?>">
+  <meta name="author" content="John Doe">
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="js/shoji/shoji.css">
   <link rel="stylesheet" href="css/app.css">
@@ -45,52 +94,6 @@
     <script type="text/javascript">
 
       console.log('index.php');
-
-      <?php
-
-        ini_set('display_errors', 1);
-        ini_set('display_startup_errors', 1);
-        error_reporting(E_ALL);
-
-        class Tools{
-
-          public function object_to_array($data){
-            if(is_array($data) || is_object($data)){
-              $result = array();
-              foreach($data as $key => $value)
-              {
-                $result[$key] = $this->object_to_array($value);
-              }
-              return $result;
-            }
-            return $data;
-          }
-
-        }
-
-        $tools = new Tools();
-
-        $SERVER_NAME = $_SERVER['SERVER_NAME'];
-        $siteArr = explode('.', $SERVER_NAME);
-        if(count($siteArr) == 3) $site = $siteArr[1];
-        else $site = $siteArr[0];
-        if(count($siteArr) == 3) $subdomain = $siteArr[0];
-
-        $siteroot = '/var/www/teachingstash/public/sites/' . $site;
-
-        $subdomainSegment = '/';
-        if( isset($subdomain) ) {
-          $subdomainSegment = '/subdomains/' . $subdomain . '/';
-        }
-
-        $pathToJson = $siteroot . $subdomainSegment . 'data.json';
-
-        echo "var pathToJson = '" . $pathToJson . "'";
-
-        $jsonAssetsArray =  $tools->object_to_array(json_decode((file_get_contents( $pathToJson ))));
-
-        echo '<pre>'; print_r( $jsonAssetsArray ); echo '</pre>';
-      ?>
 
       var subdomain = <?php
         $site = $_SERVER['SERVER_NAME'];

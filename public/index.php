@@ -38,8 +38,6 @@
   $pathToJson = $siteroot . $subdomainSegment . 'data.json';
 
   $jsonArray =  $tools->object_to_array(json_decode((file_get_contents( $pathToJson ))));
-
-  echo '<pre>'; print_r( $jsonArray ); echo '</pre>';
 ?>
 
 <!DOCTYPE html>

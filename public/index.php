@@ -108,7 +108,7 @@
       ?>;
 
       var subdomainSegment = ( typeof(subdomain) !== 'undefined' && subdomain !== 'www'
-          ? '/subdomains/' + subdomain: '/');
+          ? '/subdomains/' + subdomain + '/' : '/');
 
       var host = 'https://pictographr.com/';
       var resources = host

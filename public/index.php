@@ -117,6 +117,6 @@
           + subdomainSegment;
     </script>
     <?php $version=11111111111; ?>
-    <script src="app.min.js?version=<? echo $version; ?>"></script>
+    <script src="app.min.js?version=<?php echo $version; ?>"></script>
   </body>
 </html>

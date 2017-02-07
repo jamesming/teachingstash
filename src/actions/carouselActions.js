@@ -9,7 +9,8 @@ if(hasSubdomain) {
 
 export function fetchCarousel() {
   return function (dispatch) {
-    axios.get(`${window.host}sites/getCarouseljson?site=${site}${subdomainParam}`)
+    const carouselPath = `${window.host}sites/getCarouseljson?site=${site}${subdomainParam}`;
+    axios.get(carouselPath)
       .then((response) => {
         dispatch({
           type: 'SET_CAROUSEL_PARENTFOLDERURL',

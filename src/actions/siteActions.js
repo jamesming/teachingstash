@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const hasSubdomain = typeof(subdomain) !== 'undefined' && subdomain !== 'www';
 if(hasSubdomain) {
-  var subdomainParam = `&subsite=${subdomain}`;
+  var subdomainParam = `&subdomain=${subdomain}`;
 } else {
   var subdomainParam = '';
 }

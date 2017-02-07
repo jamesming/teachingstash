@@ -36,7 +36,7 @@
   }
 
   $pathToJson = $siteroot . $subdomainSegment . 'data.json';
-echo $pathToJson;
+
   $jsonArray =  $tools->object_to_array(json_decode((file_get_contents( $pathToJson ))));
 ?>
 

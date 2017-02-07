@@ -14,3 +14,6 @@ http://javascriptplayground.com/blog/2016/07/css-modules-webpack-react/
 in order to update .htaccess file on production server you must remove it first ...
 	sudo -Hu apache rm -f -r .htaccess
 then do the pull.php
+
+
+FOR SOME UNKNOWN REASON WFT... RENDERING PDFS ONLY WORKS IN THE PRODUCTION SERVER AND NOT THE STAGING SERVER

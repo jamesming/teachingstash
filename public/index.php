@@ -110,7 +110,7 @@
       var subdomainSegment = ( typeof(subdomain) !== 'undefined' && subdomain !== 'www'
           ? '/subdomains/' + subdomain: '');
 
-      var host = 'http://staging.pictographr.com/';
+      var host = 'https://pictographr.com/';
       var resources = host
           + 'sites/'
           + site

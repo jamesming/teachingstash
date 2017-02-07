@@ -9,8 +9,14 @@ if(hasSubdomain) {
 
 export function fetchTemplates() {
   return function (dispatch) { // 'http://staging.pictographr.com/sites/getAssetsjson'
-    axios.get(`${window.host}sites/getMenujson?site=${site}${subdomainParam}`)
+    const pathToTemplatesJson = `${window.host}sites/getMenujson?site=${site}${subdomainParam}`;
+    console.log(pathToTemplatesJson);
+    axios.get(pathToTemplatesJson)
       .then((response) => {
+        console.log(pathToTemplatesJson);
+        console.log('xxxxxxxxx', response);
+        console.log('xxxxxxxxx', response.data);
+        console.log('xxxxxxxxx', response.data.folders);
         dispatch({ type: 'FETCH_TEMPLATES_FULFILLED', payload: response.data.folders });
 
         dispatch({

@@ -1,5 +1,5 @@
 import React from 'react';
-import { generateTemplates, setTemplateFolderUrl } from '../../../actions/templatesActions';
+import { generateTemplates, setTemplateFolderUrl, fetchAssets } from '../../../actions/templatesActions';
 import { generateCarousel, setCarouselFolderUrl } from '../../../actions/carouselActions';
 
 export default class Assets extends React.Component {
@@ -21,7 +21,7 @@ export default class Assets extends React.Component {
 
     const templatesPromise = new Promise((resolve, reject) => {
       this.props.dispatch(generateTemplates(templatesFolderId, () => {
-        resolve('promise1');
+        resolve('templatesPromise');
       }));
     });
 
@@ -29,11 +29,17 @@ export default class Assets extends React.Component {
 
     const carouselPromise = new Promise((resolve, reject) => {
       this.props.dispatch(generateCarousel(carouselFolderId, () => {
-        resolve('promise2');
+        resolve('carouselPromise');
       }));
     });
 
-    Promise.all([templatesPromise, carouselPromise]).then((data) => {
+    const getAssetsPromise = new Promise((resolve, reject) => {
+      this.props.dispatch(fetchAssets(() => {
+        resolve('getAssetsPromise');
+      }));
+    });
+
+    Promise.all([templatesPromise, carouselPromise, getAssetsPromise]).then((data) => {
       $('#submit-assets-button').removeClass('waiting').text(`
         Submit
       `);

@@ -83,11 +83,12 @@ export function setTemplateFolderUrl(parentFolderUrl) {
   };
 }
 
-export function fetchAssets() {
+export function fetchAssets(callback) {
   return function (dispatch) {
     axios.get(`${window.host}sites/getAssetsjson?site=${site}${subdomainParam}&`)
       .then((response) => {
         dispatch({ type: 'FETCH_ASSETS_FULFILLED', payload: response.data });
+        if (typeof (callback) !== 'undefined') callback();
       })
       .catch((err) => {
         dispatch({ type: 'FETCH_ASSETS_REJECTED', payload: err });

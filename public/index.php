@@ -108,19 +108,18 @@
       ?>;
 
       var subdomainSegment = ( typeof(subdomain) !== 'undefined' && subdomain !== 'www'
-          ? '/subdomains/' + subdomain: '');
+          ? '/subdomains/' + subdomain: '/');
 
       var host = 'https://pictographr.com/';
       var resources = host
           + 'sites/'
           + site
-          + subdomainSegment
-          + '/';
+          + subdomainSegment;
     </script>
     <!-- <script src="app.min.js"></script> -->
     <script type="text/javascript">
       var cacheBust = ['app.min.js'];
-      for (var i=0; i < cacheBust.length; i++) {
+      for (var i = 0; i < cacheBust.length; i++) {
            var el = document.createElement('script');
            el.src = cacheBust[i] + '?v=' + Math.random();
            document.getElementsByTagName('head')[0].appendChild(el);

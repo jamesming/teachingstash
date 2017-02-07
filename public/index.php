@@ -116,15 +116,7 @@
           + site
           + subdomainSegment;
     </script>
-    <!-- <script src="app.min.js"></script> -->
-    <script type="text/javascript">
-      var cacheBust = ['app.min.js'];
-      for (var i = 0; i < cacheBust.length; i++) {
-           var el = document.createElement('script');
-           el.src = cacheBust[i] + '?v=' + Math.random();
-           document.getElementsByTagName('head')[0].appendChild(el);
-      }
-    </script>
-
+    <?php $version=11111111111; ?>
+    <script src="app.min.js?version=<? echo $version; ?>"></script>
   </body>
 </html>

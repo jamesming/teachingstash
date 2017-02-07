@@ -13,10 +13,6 @@ export function fetchTemplates() {
     console.log(pathToTemplatesJson);
     axios.get(pathToTemplatesJson)
       .then((response) => {
-        console.log(pathToTemplatesJson);
-        console.log('xxxxxxxxx', response);
-        console.log('xxxxxxxxx', response.data);
-        console.log('xxxxxxxxx', response.data.folders);
         dispatch({ type: 'FETCH_TEMPLATES_FULFILLED', payload: response.data.folders });
 
         dispatch({

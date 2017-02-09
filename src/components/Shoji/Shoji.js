@@ -83,6 +83,8 @@ export default class ShojiCompnent extends React.Component {
         this.toast('You have no permission to view this site.');
       }
 
+      console.log('HELLO XXXXXXXXXXXXXXXXXXXXXXXXXX');
+
       const shojiDiv = (
           <div className="shoji" id="shoji">
             <div className="shoji-rail">

@@ -158,6 +158,12 @@ export default class ShojiCompnent extends React.Component {
       ) {
         displayWhat = <Waitingforpermissions />;
       } else if (
+          this.props.user.organization_id === 0 &&
+          this.props.site.organization_id === 0 &&
+          this.props.user.organization_id === this.props.site.organization_id
+      ) {
+        displayWhat = shojiDiv;
+      } else if (
           this.props.user.organization_id !== 0 &&
           this.props.site.organization_id !== 0 &&
           this.props.user.organization_id !== this.props.site.organization_id

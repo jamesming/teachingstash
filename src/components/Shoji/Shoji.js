@@ -73,16 +73,6 @@ export default class ShojiCompnent extends React.Component {
           dispatch={this.props.dispatch}
         />);
 
-      if (
-          this.props.user.organization_id !== 0 &&
-          this.props.site.organization_id !== 0 &&
-          this.props.user.organization_id === this.props.site.organization_id
-      ) {
-        this.toast('You can view this site');
-      } else {
-        this.toast('You have no permission to view this site.');
-      }
-
       const shojiDiv = (
           <div className="shoji" id="shoji">
             <div className="shoji-rail">
@@ -152,7 +142,24 @@ export default class ShojiCompnent extends React.Component {
 
       return (
         <div>
-        {shojiDiv}
+        { () => {
+          if (
+              this.props.user.organization_id !== 0 &&
+              this.props.site.organization_id !== 0 &&
+              this.props.user.organization_id === this.props.site.organization_id
+          ) {
+            return shojiDiv;
+          } else if (
+              this.props.user.organization_id !== this.props.site.organization_id
+          ) {
+            return <Nopermissiontoview />;
+          } else if (
+              this.props.user.organization_id === 0 &&
+              this.props.site.organization_id === 0
+          ) {
+            return <Waitingforpermissions />;
+          }
+        }}
         </div>
 
     );

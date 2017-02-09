@@ -1,10 +1,11 @@
-export function setUser(google_id, loggedIn, name) {
+export function setUser(google_id, loggedIn, name, organization_id) {
   return {
     type: 'SET_USER',
     payload: {
       google_id,
       loggedIn,
-      name
+      name,
+      organization_id
     },
   };
 }

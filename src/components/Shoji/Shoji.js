@@ -5,6 +5,7 @@ import Logo from './Logo';
 import Folder from './Folder';
 import Nopermissiontoview from './Nopermissiontoview';
 import Waitingforpermissions from './Waitingforpermissions';
+import ShowLoginScreen from './ShowLoginScreen';
 
 export default class ShojiCompnent extends React.Component {
     componentDidMount() {
@@ -142,33 +143,43 @@ export default class ShojiCompnent extends React.Component {
 
       let displayWhat;
       if (
-          this.props.user.organization_id !== 0 &&
-          this.props.site.organization_id !== 0 &&
-          this.props.user.organization_id === this.props.site.organization_id
+          window.location.hostname.split('.')[0] === 'localhost'
       ) {
         displayWhat = shojiDiv;
       } else if (
-          this.props.user.organization_id === 0 &&
-          this.props.user.organization_id !== this.props.site.organization_id
+          this.props.site.organization_id === -1
       ) {
         displayWhat = <Waitingforpermissions />;
       } else if (
-          this.props.site.organization_id === 0 &&
-          this.props.user.organization_id !== this.props.site.organization_id
-      ) {
-        displayWhat = <Waitingforpermissions />;
-      } else if (
-          this.props.user.organization_id === 0 &&
-          this.props.site.organization_id === 0 &&
-          this.props.user.organization_id === this.props.site.organization_id
-      ) {
-        displayWhat = shojiDiv;
-      } else if (
+          this.props.user.loggedIn &&
           this.props.user.organization_id !== 0 &&
           this.props.site.organization_id !== 0 &&
           this.props.user.organization_id !== this.props.site.organization_id
       ) {
         displayWhat = <Nopermissiontoview />;
+      } else if (
+          this.props.user.loggedIn &&
+          this.props.site.organization_id !== 0 &&
+          this.props.user.organization_id !== this.props.site.organization_id
+      ) {
+        displayWhat = <Waitingforpermissions />;
+      } else if (
+          !this.props.user.loggedIn &&
+          this.props.site.organization_id !== 0
+      ) {
+        displayWhat = <ShowLoginScreen />;
+      } else if (
+          !this.props.user.loggedIn &&
+          this.props.site.organization_id === 0
+      ) {
+        displayWhat = shojiDiv;
+      } else if (
+          this.props.user.loggedIn &&
+          this.props.user.organization_id !== 0 &&
+          this.props.site.organization_id !== 0 &&
+          this.props.user.organization_id === this.props.site.organization_id
+      ) {
+        displayWhat = shojiDiv;
       }
 
       return (

@@ -2,7 +2,7 @@ export default function reducer(state = {
     logoUrl: 'https://drive.google.com/open?id=',
     description: '',
     keywords: '',
-    organization_id: 0,
+    organization_id: -1,
     title: '',
   }, action) {
     switch (action.type) {

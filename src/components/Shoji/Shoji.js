@@ -1,11 +1,11 @@
 import React from 'react';
 import Desktopmenu from './Settings/Desktopmenu';
-import Mobilemenu from './Settings/Mobilemenu';
-import Logo from './Logo';
 import Folder from './Folder';
+import Logo from './Logo';
+import Mobilemenu from './Settings/Mobilemenu';
 import Nopermissiontoview from './Nopermissiontoview';
-import Waitingforpermissions from './Waitingforpermissions';
 import ShowLoginScreen from './ShowLoginScreen';
+import Waiting from './Waiting';
 
 export default class ShojiCompnent extends React.Component {
     componentDidMount() {
@@ -149,7 +149,7 @@ export default class ShojiCompnent extends React.Component {
       } else if (
           this.props.site.organization_id === -1
       ) {
-        displayWhat = <Waitingforpermissions />;
+        displayWhat = <Waiting />;
       } else if (
           this.props.user.loggedIn &&
           this.props.user.organization_id !== 0 &&
@@ -162,7 +162,7 @@ export default class ShojiCompnent extends React.Component {
           this.props.site.organization_id !== 0 &&
           this.props.user.organization_id !== this.props.site.organization_id
       ) {
-        displayWhat = <Waitingforpermissions />;
+        displayWhat = <Waiting />;
       } else if (
           !this.props.user.loggedIn &&
           this.props.site.organization_id !== 0

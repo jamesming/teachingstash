@@ -31,11 +31,8 @@ export function getSite() {
 
 export function setSite(title, description, keywords, organizationId, callback) {
   return function (dispatch) {
-    const paramStr = `\
-      &description=${description}\
-      &title=${title}\
-      &keywords=${keywords}\
-      &organization_id=${organizationId}`;
+    // PLEASE NOTE.. must not break up paramStr into separate lines.  It won't pass as $_GET properly
+    const paramStr = `&description=${description}&title=${title}&keywords=${keywords}&organization_id=${organizationId}`;
     const sitePath = `sites.php?do=set&site=${site}${subdomainParam}${paramStr}`;
     console.log(sitePath);
     axios.get(sitePath)
@@ -46,6 +43,8 @@ export function setSite(title, description, keywords, organizationId, callback) 
               description: response.data.description,
               keywords: response.data.keywords,
               title: response.data.title,
+              organization_id: response.data.organization_id,
+              test: 'test'
             },
           });
         callback();

@@ -51,7 +51,7 @@ export default class Site extends React.Component {
       `);
       this.props.toast('This site has been reset with new configuration.  Site will reload in two seconds.');
       setTimeout(() => {
-        // window.location.reload();
+        window.location.reload();
       }, 2000);
     });
 

@@ -1,11 +1,11 @@
 import React from 'react';
 import {
+  renderLogo,
   setSite,
   setDescription,
-  setTitle,
-  setLogoUrl,
   setKeywords,
-  renderLogo
+  setLogoUrl,
+  setTitle,
 } from '../../../actions/siteActions';
 
 export default class Site extends React.Component {
@@ -39,6 +39,7 @@ export default class Site extends React.Component {
           this.refs.title.value,
           this.refs.description.value,
           this.refs.keywords.value,
+          this.props.user.organization_id,
           () => {
             resolve('sitePromise');
       }));

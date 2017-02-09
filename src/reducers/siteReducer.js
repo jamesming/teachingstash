@@ -2,6 +2,7 @@ export default function reducer(state = {
     logoUrl: 'https://drive.google.com/open?id=',
     description: '',
     keywords: '',
+    organization_id: 0,
     title: '',
   }, action) {
     switch (action.type) {
@@ -11,6 +12,7 @@ export default function reducer(state = {
           description: action.payload.description,
           keywords: action.payload.keywords,
           title: action.payload.title,
+          organization_id: action.payload.organization_id,
         };
       }
       case 'SET_KEYWORDS': {

@@ -24,6 +24,7 @@
 			$data['title'] = $this->title;
 			$data['description'] = $this->description;
 			$data['keywords'] = $this->keywords;
+			$data['organization_id'] = $this->organization_id;
 			$this->JSON = file_put_contents($this->pathToJson, json_encode($data));
 			$this->getSiteJson();
 		}

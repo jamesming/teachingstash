@@ -1,0 +1,1 @@
+-d templatesforstudents.com -d pmsd.templatesforstudents.com -d swsd.templatesforstudents.com -d lausd.templatesforstudents.com -d smmusd.templatesforstudents.com -d templatesforteachers.com -d pmsd.templatesforteachers.com -d swsd.templatesforteachers.com -d lausd.templatesforteachers.com -d smmusd.templatesforteachers.com

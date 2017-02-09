@@ -17,6 +17,7 @@ export function getSite() {
             payload: {
               description: response.data.description,
               keywords: response.data.keywords,
+              organization_id: response.data.organization_id,
               title: response.data.title,
             },
           });
@@ -28,9 +29,13 @@ export function getSite() {
 }
 
 
-export function setSite(title, description, keywords, callback) {
+export function setSite(title, description, keywords, organizationId, callback) {
   return function (dispatch) {
-    const paramStr = `&description=${description}&title=${title}&keywords=${keywords}`;
+    const paramStr = `
+      &description=${description}
+      &title=${title}
+      &keywords=${keywords}
+      &organization_id=${organizationId}`;
     const sitePath = `sites.php?do=set&site=${site}${subdomainParam}${paramStr}`;
     axios.get(sitePath)
       .then((response) => {

@@ -3,6 +3,8 @@ import Desktopmenu from './Settings/Desktopmenu';
 import Mobilemenu from './Settings/Mobilemenu';
 import Logo from './Logo';
 import Folder from './Folder';
+import Nopermissiontoview from './Nopermissiontoview';
+import Waitingforpermissions from './Waitingforpermissions';
 
 export default class ShojiCompnent extends React.Component {
     componentDidMount() {
@@ -70,6 +72,16 @@ export default class ShojiCompnent extends React.Component {
           folder={folder}
           dispatch={this.props.dispatch}
         />);
+
+      if (
+          this.props.user.organization_id !== 0 &&
+          this.props.site.organization_id !== 0 &&
+          this.props.user.organization_id === this.props.site.organization_id
+      ) {
+        this.toast('You can view this site');
+      } else {
+        this.toast('You have no permission to view this site.');
+      }
 
       return (
         <div className="shoji" id="shoji">

@@ -5,9 +5,9 @@ import store from './store';
 export default class CrossDomService {
 
 	constructor() {
+		this.hasPopped = false;
 		this.nameOfThisFile = 'crossdomfile';
 		this.initiateMessaging();
-		this.hasPopped = false;
 	}
 
 	testObserable() {

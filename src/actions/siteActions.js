@@ -43,8 +43,7 @@ export function setSite(title, description, keywords, organizationId, callback) 
               description: response.data.description,
               keywords: response.data.keywords,
               title: response.data.title,
-              organization_id: response.data.organization_id,
-              test: 'test'
+              organization_id: response.data.organization_id
             },
           });
         callback();

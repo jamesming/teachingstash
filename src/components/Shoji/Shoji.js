@@ -83,71 +83,78 @@ export default class ShojiCompnent extends React.Component {
         this.toast('You have no permission to view this site.');
       }
 
-      return (
-        <div className="shoji" id="shoji">
-          <div className="shoji-rail">
-              <div className="shoji-panel shoji-panel-left">
-                <div
-                  className='panel-group'
-                  id='accordion'
-                  role='tablist'
-                  aria-multiselectable='true'
-                >
-                {
-                  FoldersComponents
-                }
-                </div>
-              </div>
-              <Mobilemenu
-                shoji={this.shoji}
-                scrollToSidemenuTop={this.scrollToSidemenuTop.bind(this)}
-              />
-          </div>
-          <div className="shoji-door">
-              <div className="content">
-                  <nav
-                    id="navbar-fixed"
-                    className="navbar navbar-default" role="navigation"
+      const shojiDiv = (
+          <div className="shoji" id="shoji">
+            <div className="shoji-rail">
+                <div className="shoji-panel shoji-panel-left">
+                  <div
+                    className='panel-group'
+                    id='accordion'
+                    role='tablist'
+                    aria-multiselectable='true'
                   >
-                    <div className="container">
-                      <Logo {...this.props}/>
-                      <div className="navbar-header">
-                          { // Only show button when route is Files
-                            this.props.children.type.name === 'Files' ?
-                                <button
-                                  id="folders-mobile-button"
-                                  onClick={this.slideFolderMenu.bind(this)}
-                                  type="button"
-                                  className="navbar-toggle navbar-toggle-left"
-                                  data-slide="right"
-                                >
-                                    <i className="glyphicon glyphicon-menu-hamburger" />
-                                </button>
-                            :
-                              ''
-                          }
-                          <button // Mobile settings button hidden... for use later
-                            id="settings-mobile-button"
-                            onClick={this.slideAccountMenu.bind(this)}
-                            type="button"
-                            className="navbar-toggle navbar-toggle-right"
-                            data-slide="left"
-                          >
-                              <i className="glyphicon glyphicon-cog" />
-                          </button>
-                      </div>
-                      <Desktopmenu
-                        {...this.props}
-                        scrollToSidemenuTop={this.scrollToSidemenuTop.bind(this)}
-                      />
-                    </div>
-                  </nav>
-                  <div id="route-section">
-                    {children}
+                  {
+                    FoldersComponents
+                  }
                   </div>
-              </div>
+                </div>
+                <Mobilemenu
+                  shoji={this.shoji}
+                  scrollToSidemenuTop={this.scrollToSidemenuTop.bind(this)}
+                />
+            </div>
+            <div className="shoji-door">
+                <div className="content">
+                    <nav
+                      id="navbar-fixed"
+                      className="navbar navbar-default" role="navigation"
+                    >
+                      <div className="container">
+                        <Logo {...this.props}/>
+                        <div className="navbar-header">
+                            { // Only show button when route is Files
+                              this.props.children.type.name === 'Files' ?
+                                  <button
+                                    id="folders-mobile-button"
+                                    onClick={this.slideFolderMenu.bind(this)}
+                                    type="button"
+                                    className="navbar-toggle navbar-toggle-left"
+                                    data-slide="right"
+                                  >
+                                      <i className="glyphicon glyphicon-menu-hamburger" />
+                                  </button>
+                              :
+                                ''
+                            }
+                            <button // Mobile settings button hidden... for use later
+                              id="settings-mobile-button"
+                              onClick={this.slideAccountMenu.bind(this)}
+                              type="button"
+                              className="navbar-toggle navbar-toggle-right"
+                              data-slide="left"
+                            >
+                                <i className="glyphicon glyphicon-cog" />
+                            </button>
+                        </div>
+                        <Desktopmenu
+                          {...this.props}
+                          scrollToSidemenuTop={this.scrollToSidemenuTop.bind(this)}
+                        />
+                      </div>
+                    </nav>
+                    <div id="route-section">
+                      {children}
+                    </div>
+                </div>
+            </div>
           </div>
-      </div>
+      );
+
+      return (
+        <div>
+        {shojiDiv}
+        </div>
+
     );
   }
 }

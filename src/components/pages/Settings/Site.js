@@ -10,6 +10,8 @@ import {
   setOrganizationId,
 } from '../../../actions/siteActions';
 
+import { generateCarousel, setCarouselFolderUrl } from '../../../actions/carouselActions';
+
 export default class Site extends React.Component {
   setLogoUrl(e) {
     this.props.dispatch(setLogoUrl(e.target.value));
@@ -29,6 +31,11 @@ export default class Site extends React.Component {
   setTitle(e) {
     this.props.dispatch(setTitle(e.target.value));
   }
+
+  setCarouselFolderUrl(e) {
+    this.props.dispatch(setCarouselFolderUrl(e.target.value));
+  }
+
   generateSite() {
     $('#setsite-button').addClass('waiting').html(`
       <img alt='' src='https://pictographr.com/img/smallloading.gif'/>
@@ -54,7 +61,17 @@ export default class Site extends React.Component {
       }));
     });
 
-    Promise.all([logoPromise, sitePromise]).then((data) => {
+
+    const carouselFolderId = this.refs['carousel-images'].value.split('=')[1];
+
+    const carouselPromise = new Promise((resolve, reject) => {
+      this.props.dispatch(generateCarousel(carouselFolderId, () => {
+        resolve('carouselPromise');
+      }));
+    });
+
+
+    Promise.all([logoPromise, carouselPromise, sitePromise]).then((data) => {
       $('#setsite-button').removeClass('waiting').text(`
         Submit
       `);
@@ -78,6 +95,21 @@ export default class Site extends React.Component {
               <fieldset>
                 <legend className="text-center">Set Site Detail</legend>
                 <div className="form-group">
+                  <label className="col-md-3 control-label" htmlFor="name">Organization Name</label>
+                  <div className="col-md-7">
+                    <input
+                      id="organizationName"
+                      className="form-control"
+                      name="organizationName"
+                      onChange={this.setOrganizationName.bind(this)}
+                      ref="organizationName"
+                      type="text"
+                      placeholder="Name of Organization"
+                      value={this.props.site.organizationName}
+                    />
+                  </div>
+                </div>
+                <div className="form-group">
                   <label className="col-md-3 control-label" htmlFor="name">Logo Url</label>
                   <div className="col-md-7">
                     <input
@@ -93,17 +125,20 @@ export default class Site extends React.Component {
                   </div>
                 </div>
                 <div className="form-group">
-                  <label className="col-md-3 control-label" htmlFor="name">Organization Name</label>
+                  <label
+                    className="col-md-3 control-label"
+                    htmlFor="name"
+                  >Carousel Folder URL</label>
                   <div className="col-md-7">
                     <input
-                      id="organizationName"
+                      id="carousel-images"
                       className="form-control"
-                      name="organizationName"
-                      onChange={this.setOrganizationName.bind(this)}
-                      ref="organizationName"
+                      name="carousel-images"
+                      onChange={this.setCarouselFolderUrl.bind(this)}
+                      placeholder="Carousel Folder URL"
+                      ref="carousel-images"
                       type="text"
-                      placeholder="Name of Organization"
-                      value={this.props.site.organizationName}
+                      value={this.props.carouselParentFolderUrl}
                     />
                   </div>
                 </div>

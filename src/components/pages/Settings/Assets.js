@@ -1,15 +1,14 @@
 import React from 'react';
-import { generateTemplates, setTemplateFolderUrl, fetchAssets } from '../../../actions/templatesActions';
-import { generateCarousel, setCarouselFolderUrl } from '../../../actions/carouselActions';
+import {
+  generateTemplates,
+  setTemplateFolderUrl,
+  fetchAssets }
+from '../../../actions/templatesActions';
 
 export default class Assets extends React.Component {
 
   setTemplateFolderUrl(e) {
     this.props.dispatch(setTemplateFolderUrl(e.target.value));
-  }
-
-  setCarouselFolderUrl(e) {
-    this.props.dispatch(setCarouselFolderUrl(e.target.value));
   }
 
   generateAssets() {
@@ -25,21 +24,13 @@ export default class Assets extends React.Component {
       }));
     });
 
-    const carouselFolderId = this.refs['carousel-images'].value.split('=')[1];
-
-    const carouselPromise = new Promise((resolve, reject) => {
-      this.props.dispatch(generateCarousel(carouselFolderId, () => {
-        resolve('carouselPromise');
-      }));
-    });
-
     const getAssetsPromise = new Promise((resolve, reject) => {
       this.props.dispatch(fetchAssets(() => {
         resolve('getAssetsPromise');
       }));
     });
 
-    Promise.all([templatesPromise, carouselPromise, getAssetsPromise]).then((data) => {
+    Promise.all([templatesPromise, getAssetsPromise]).then((data) => {
       $('#submit-assets-button').removeClass('waiting').text(`
         Submit
       `);
@@ -55,24 +46,6 @@ export default class Assets extends React.Component {
             <form className="form-horizontal" action="" method="post">
             <fieldset>
               <legend className="text-center">Set Shared Folders</legend>
-              <div className="form-group">
-                <label
-                  className="col-md-3 control-label"
-                  htmlFor="name"
-                >Carousel Folder URL</label>
-                <div className="col-md-7">
-                  <input
-                    id="carousel-images"
-                    className="form-control"
-                    name="carousel-images"
-                    onChange={this.setCarouselFolderUrl.bind(this)}
-                    placeholder="Carousel Folder URL"
-                    ref="carousel-images"
-                    type="text"
-                    value={this.props.carouselParentFolderUrl}
-                  />
-                </div>
-              </div>
               <div className="form-group">
                 <label
                   className="col-md-3 control-label"

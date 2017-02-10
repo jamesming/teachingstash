@@ -149,6 +149,10 @@ export default class ShojiCompnent extends React.Component {
       ) {
         displayWhat = shojiDiv;
       } else if (
+        typeof (this.props.site.organization_id) === 'undefined'
+      ) {
+        displayWhat = shojiDiv;
+      } else if (
           this.props.user.loggedIn &&
           userOrganizationId !== siteOrganizationId
       ) {
@@ -156,7 +160,7 @@ export default class ShojiCompnent extends React.Component {
         displayWhat = <Nopermissiontoview />;
       } else if (
           !this.props.user.loggedIn &&
-          siteOrganizationId !== 0
+          siteOrganizationId > 0
       ) {
         displayWhat = <ShowLoginScreen {...this.props} />;
       } else if (

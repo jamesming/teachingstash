@@ -147,7 +147,7 @@ export default class ShojiCompnent extends React.Component {
       if (
           window.location.hostname.split('.')[0] === 'localhost'
       ) {
-        displayWhat = <Nopermissiontoview {...this.props}/>;
+        displayWhat = shojiDiv;
       } else if (
         typeof (this.props.site.organization_id) === 'undefined'
       ) {

@@ -45,7 +45,7 @@ export default class Assets extends React.Component {
           <div className="well well-sm">
             <form className="form-horizontal" action="" method="post">
             <fieldset>
-              <legend className="text-center">Set Shared Folders</legend>
+              <legend className="text-center">Set or Refresh Shared Folders</legend>
               <div className="form-group">
                 <label
                   className="col-md-3 control-label"
@@ -72,7 +72,7 @@ export default class Assets extends React.Component {
                     onClick={this.generateAssets.bind(this)}
                     type="button"
                   >
-                    Submit
+                    Refresh
                   </button>
                 </div>
               </div>

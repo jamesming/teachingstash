@@ -71,7 +71,7 @@ export default class Site extends React.Component {
     });
 
 
-    Promise.all([logoPromise, carouselPromise, sitePromise]).then((data) => {
+    Promise.all([logoPromise, carouselPromise, sitePromise]).then(() => {
       $('#setsite-button').removeClass('waiting').text(`
         Submit
       `);
@@ -110,7 +110,7 @@ export default class Site extends React.Component {
                   </div>
                 </div>
                 <div className="form-group">
-                  <label className="col-md-3 control-label" htmlFor="name">Logo Url</label>
+                  <label className="col-md-3 control-label" htmlFor="name">Shared Logo Url</label>
                   <div className="col-md-7">
                     <input
                       id="logoUrl"
@@ -128,7 +128,7 @@ export default class Site extends React.Component {
                   <label
                     className="col-md-3 control-label"
                     htmlFor="name"
-                  >Carousel Folder URL</label>
+                  >Shared Carousel Folder URL</label>
                   <div className="col-md-7">
                     <input
                       id="carousel-images"

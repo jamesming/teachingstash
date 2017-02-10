@@ -5,7 +5,6 @@ import Logo from './Logo';
 import Mobilemenu from './Settings/Mobilemenu';
 import Nopermissiontoview from './Nopermissiontoview';
 import ShowLoginScreen from './ShowLoginScreen';
-import Waiting from './Waiting';
 
 export default class ShojiCompnent extends React.Component {
     componentDidMount() {

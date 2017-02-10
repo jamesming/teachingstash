@@ -2,7 +2,8 @@ import React from 'react';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import Settings from './components/pages/Settings/Settings';
+import Assets from './components/pages/Assets/Assets';
+import Site from './components/pages/Site/Site';
 import Files from './components/pages/Files/Files';
 
 import Layout from './components/Layout';
@@ -16,7 +17,8 @@ ReactDOM.render(<Provider store={store}>
 	<Router history={hashHistory}>
 		<Route path="/" component={Layout} >
 			<IndexRoute component={Files} />
-			<Route path="settings" name="settings" component={Settings} />
+			<Route path="assets" name="assets" component={Assets} />
+			<Route path="site" name="site" component={Site} />
 		</Route>
 	</Router>
 </Provider>, app);

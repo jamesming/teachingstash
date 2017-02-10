@@ -54,14 +54,26 @@ export default class Desktopmenu extends React.Component {
                           </li>
                           <li>
                             <a
-                              href="#/Settings"
+                              href="#/Assets"
                               onClick={() => {
                                 setTimeout(() => {
                                   $('html, body').stop().animate({ scrollTop: 0 }, 500);
                                 }, 500);
                               }}
                             >
-                              Settings
+                              Assets
+                            </a>
+                          </li>
+                          <li>
+                            <a
+                              href="#/Site"
+                              onClick={() => {
+                                setTimeout(() => {
+                                  $('html, body').stop().animate({ scrollTop: 0 }, 500);
+                                }, 500);
+                              }}
+                            >
+                              Site
                             </a>
                           </li>
                           <li className="divider" />

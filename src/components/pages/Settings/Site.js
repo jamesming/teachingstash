@@ -47,7 +47,7 @@ export default class Site extends React.Component {
           this.refs.title.value,
           this.refs.description.value,
           this.refs.keywords.value,
-          this.refs.organizationId.value,
+          this.props.user.organization_id,
           this.refs.organizationName.value,
           () => {
             resolve('sitePromise');
@@ -58,14 +58,17 @@ export default class Site extends React.Component {
       $('#setsite-button').removeClass('waiting').text(`
         Submit
       `);
-      this.props.toast('This site has been reset with new configuration.  Site will reload in two seconds.');
+      this.props.toast(`This site has been reset with new configuration.
+        Site will reload in two seconds.`);
       setTimeout(() => {
         window.location.reload();
       }, 2000);
     });
-
   }
   render() {
+    const inlineStyle = {
+      display: 'none'
+    };
     return (
       <div>
         <div className="container">
@@ -104,7 +107,9 @@ export default class Site extends React.Component {
                     />
                   </div>
                 </div>
-                <div className="form-group">
+                <div
+                  className="form-group" style={inlineStyle}
+                >
                   <label className="col-md-3 control-label" htmlFor="name">Organization_id</label>
                   <div className="col-md-7">
                     <input

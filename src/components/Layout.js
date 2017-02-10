@@ -52,6 +52,7 @@ export default class Layout extends React.Component {
           {...this.props}
           launchPictographrFile={this.launchPictographrFile.bind(this)}
           crossDomService={this.crossDomService}
+          popGoogleSignIn={this.popGoogleSignIn.bind(this)}
         />
       </div>
     );

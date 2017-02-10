@@ -10,6 +10,11 @@ RewriteRule ^index\.php - [L]
 #if extensionless uri maps to a real php file, forward to index.php
 #RewriteCond %{DOCUMENT_ROOT}/$1\.php -f [OR]
 
+
+RewriteBase /
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
 #or if not a real file or directory forward to index.php
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f

@@ -12,11 +12,11 @@ RewriteRule ^index\.php - [L]
 
 RewriteCond %{HTTPS} off
 RewriteCond %{HTTP_HOST} !^www\.(.*)$ [NC]
-RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+RewriteRule ^(.*)$ http://%{HTTP_HOST}/$1 [R=301,L]
 
 RewriteCond %{HTTPS} on
 RewriteCond %{HTTP_HOST} !^www\.(.*)$ [NC]
-RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 
 #or if not a real file or directory forward to index.php
 RewriteCond %{SCRIPT_FILENAME} !-d

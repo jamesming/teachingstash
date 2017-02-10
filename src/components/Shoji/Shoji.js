@@ -6,6 +6,8 @@ import Mobilemenu from './Settings/Mobilemenu';
 import Nopermissiontoview from './Nopermissiontoview';
 import ShowLoginScreen from './ShowLoginScreen';
 
+import classStyle from './Shoji.css';
+
 export default class ShojiCompnent extends React.Component {
     componentDidMount() {
       this.resizeWindow();

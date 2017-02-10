@@ -52,30 +52,40 @@ export default class Desktopmenu extends React.Component {
                               Templates
                             </a>
                           </li>
-                          <li>
-                            <a
-                              href="#/Assets"
-                              onClick={() => {
-                                setTimeout(() => {
-                                  $('html, body').stop().animate({ scrollTop: 0 }, 500);
-                                }, 500);
-                              }}
-                            >
-                              Assets
-                            </a>
-                          </li>
-                          <li>
-                            <a
-                              href="#/Site"
-                              onClick={() => {
-                                setTimeout(() => {
-                                  $('html, body').stop().animate({ scrollTop: 0 }, 500);
-                                }, 500);
-                              }}
-                            >
-                              Site
-                            </a>
-                          </li>
+                            { // Only when user is Super User
+                              this.props.user.isSuper === '1' ?
+                                <li>
+                                  <a
+                                    href="#/Assets"
+                                    onClick={() => {
+                                      setTimeout(() => {
+                                        $('html, body').stop().animate({ scrollTop: 0 }, 500);
+                                      }, 500);
+                                    }}
+                                  >
+                                    Assets
+                                  </a>
+                                </li>
+                              :
+                                ''
+                            }
+                            { // Only when user is Administrator
+                              this.props.user.isOrgAdmin === '1' ?
+                                <li>
+                                  <a
+                                    href="#/Site"
+                                    onClick={() => {
+                                      setTimeout(() => {
+                                        $('html, body').stop().animate({ scrollTop: 0 }, 500);
+                                      }, 500);
+                                    }}
+                                  >
+                                    Site
+                                  </a>
+                                </li>
+                              :
+                                ''
+                            }
                           <li className="divider" />
                           <li>
                               <a

@@ -18,6 +18,7 @@ export function getSite() {
               description: response.data.description,
               keywords: response.data.keywords,
               organization_id: response.data.organization_id,
+              organizationName: response.data.name,
               title: response.data.title,
             },
           });
@@ -29,10 +30,10 @@ export function getSite() {
 }
 
 
-export function setSite(title, description, keywords, organizationId, callback) {
+export function setSite(title, description, keywords, organizationId, organizationName, callback) {
   return function (dispatch) {
     // PLEASE NOTE.. must not break up paramStr into separate lines.  It won't pass as $_GET properly
-    const paramStr = `&description=${description}&title=${title}&keywords=${keywords}&organization_id=${organizationId}`;
+    const paramStr = `&description=${description}&title=${title}&keywords=${keywords}&organization_id=${organizationId}&organizationName=${organizationName}`;
     const sitePath = `sites.php?do=set&site=${site}${subdomainParam}${paramStr}`;
     console.log(sitePath);
     axios.get(sitePath)
@@ -91,6 +92,21 @@ export function setDescription(description) {
     payload: description,
   };
 }
+
+export function setOrganizationName(organizationName) {
+  return {
+    type: 'SET_ORGANIZATIONNAME',
+    payload: organizationName,
+  };
+}
+
+export function setOrganizationId(organizationId) {
+  return {
+    type: 'SET_ORGANIZATIONID',
+    payload: organizationId,
+  };
+}
+
 export function setKeywords(keywords) {
   return {
     type: 'SET_KEYWORDS',

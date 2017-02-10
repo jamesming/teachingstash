@@ -6,6 +6,8 @@ import {
   setKeywords,
   setLogoUrl,
   setTitle,
+  setOrganizationName,
+  setOrganizationId,
 } from '../../../actions/siteActions';
 
 export default class Site extends React.Component {
@@ -17,6 +19,12 @@ export default class Site extends React.Component {
   }
   setDescription(e) {
     this.props.dispatch(setDescription(e.target.value));
+  }
+  setOrganizationName(e) {
+    this.props.dispatch(setOrganizationName(e.target.value));
+  }
+  setOrganizationId(e) {
+    this.props.dispatch(setOrganizationId(e.target.value));
   }
   setTitle(e) {
     this.props.dispatch(setTitle(e.target.value));
@@ -39,7 +47,8 @@ export default class Site extends React.Component {
           this.refs.title.value,
           this.refs.description.value,
           this.refs.keywords.value,
-          this.props.user.organization_id,
+          this.refs.organizationId,
+          this.refs.organizationName,
           () => {
             resolve('sitePromise');
       }));
@@ -77,6 +86,36 @@ export default class Site extends React.Component {
                       type="text"
                       placeholder="Enter Logo Url"
                       value={this.props.site.logoUrl}
+                    />
+                  </div>
+                </div>
+                <div className="form-group">
+                  <label className="col-md-3 control-label" htmlFor="name">Organization Name</label>
+                  <div className="col-md-7">
+                    <input
+                      id="title"
+                      className="form-control"
+                      name="title"
+                      onChange={this.setOrganizationName.bind(this)}
+                      ref="title"
+                      type="text"
+                      placeholder="Name of Organization"
+                      value={this.props.site.organizationName}
+                    />
+                  </div>
+                </div>
+                <div className="form-group">
+                  <label className="col-md-3 control-label" htmlFor="name">Organization_id</label>
+                  <div className="col-md-7">
+                    <input
+                      id="organizationId"
+                      className="form-control"
+                      name="organizationId"
+                      onChange={this.setOrganizationId.bind(this)}
+                      ref="organizationId"
+                      type="text"
+                      placeholder="Please ask Pictographr Support to provide this."
+                      value={this.props.site.organization_id}
                     />
                   </div>
                 </div>

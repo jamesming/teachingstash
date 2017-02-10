@@ -1,9 +1,11 @@
 export default function reducer(state = {
     google_id: '',
+    isOrgAdmin: 0,
+    isSuper: 0,
     loggedIn: false,
     name: '',
     organization_id: 0,
-    session: 'none', //  ['none', 'established', 'initiated']
+    session: 'none', //  ['none', 'established', 'initiated'],
   }, action) {
     switch (action.type) {
       case 'SET_USER': {
@@ -12,7 +14,9 @@ export default function reducer(state = {
           google_id: action.payload.google_id,
           loggedIn: action.payload.loggedIn,
           name: action.payload.name,
-          organization_id: action.payload.organization_id
+          organization_id: action.payload.organization_id,
+          isOrgAdmin: action.payload.isOrgAdmin,
+          isSuper: action.payload.isSuper,
         };
       }
       case 'SET_SESSION': {

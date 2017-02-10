@@ -47,8 +47,8 @@ export default class Site extends React.Component {
           this.refs.title.value,
           this.refs.description.value,
           this.refs.keywords.value,
-          this.refs.organizationId,
-          this.refs.organizationName,
+          this.refs.organizationId.value,
+          this.refs.organizationName.value,
           () => {
             resolve('sitePromise');
       }));

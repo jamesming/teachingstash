@@ -110,7 +110,7 @@ export default class Site extends React.Component {
                   </div>
                 </div>
                 <div className="form-group">
-                  <label className="col-md-3 control-label" htmlFor="name">Shared Logo Url</label>
+                  <label className="col-md-3 control-label" htmlFor="name">Shared Logo <b>File</b> Url</label>
                   <div className="col-md-7">
                     <input
                       id="logoUrl"

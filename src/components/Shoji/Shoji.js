@@ -150,7 +150,6 @@ export default class ShojiCompnent extends React.Component {
         displayWhat = shojiDiv;
       } else if (
           this.props.user.loggedIn &&
-          userOrganizationId !== 0 &&
           userOrganizationId !== siteOrganizationId
       ) {
         console.log('No Permission to View');

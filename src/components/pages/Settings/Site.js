@@ -93,11 +93,11 @@ export default class Site extends React.Component {
                   <label className="col-md-3 control-label" htmlFor="name">Organization Name</label>
                   <div className="col-md-7">
                     <input
-                      id="title"
+                      id="organizationName"
                       className="form-control"
-                      name="title"
+                      name="organizationName"
                       onChange={this.setOrganizationName.bind(this)}
-                      ref="title"
+                      ref="organizationName"
                       type="text"
                       placeholder="Name of Organization"
                       value={this.props.site.organizationName}

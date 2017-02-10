@@ -142,42 +142,33 @@ export default class ShojiCompnent extends React.Component {
       );
 
       let displayWhat;
+      const siteOrganizationId = parseInt(this.props.site.organization_id, 10);
+      const userOrganizationId = parseInt(this.props.user.organization_id, 10);
       if (
           window.location.hostname.split('.')[0] === 'localhost'
       ) {
         displayWhat = shojiDiv;
       } else if (
-          this.props.site.organization_id === -1
-      ) {
-        displayWhat = <Waiting />;
-      } else if (
           this.props.user.loggedIn &&
-          this.props.user.organization_id !== 0 &&
-          this.props.site.organization_id !== 0 &&
-          this.props.user.organization_id !== this.props.site.organization_id
+          userOrganizationId !== 0 &&
+          userOrganizationId !== siteOrganizationId
       ) {
         displayWhat = <Nopermissiontoview />;
       } else if (
-          this.props.user.loggedIn &&
-          this.props.site.organization_id !== 0 &&
-          this.props.user.organization_id !== this.props.site.organization_id
-      ) {
-        displayWhat = <Waiting />;
-      } else if (
           !this.props.user.loggedIn &&
-          this.props.site.organization_id !== 0
+          siteOrganizationId !== 0
       ) {
         displayWhat = <ShowLoginScreen />;
       } else if (
           !this.props.user.loggedIn &&
-          this.props.site.organization_id === 0
+          siteOrganizationId === 0
       ) {
         displayWhat = shojiDiv;
       } else if (
           this.props.user.loggedIn &&
-          this.props.user.organization_id !== 0 &&
-          this.props.site.organization_id !== 0 &&
-          this.props.user.organization_id === this.props.site.organization_id
+          userOrganizationId !== 0 &&
+          siteOrganizationId !== 0 &&
+          userOrganizationId === siteOrganizationId
       ) {
         displayWhat = shojiDiv;
       }

@@ -117,7 +117,7 @@
           + subdomainSegment;
     </script>
     <?php $version=uniqid(); ?>
-    <?php $version=123456; ?>
+    <?php $version=223456; ?>
     <script src="app.min.js?version=<?php echo $version; ?>"></script>
   </body>
 </html>

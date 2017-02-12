@@ -5,11 +5,12 @@
   width: 100%;
   z-index: 1;
   background-color: white;
-  height: 50px;
+  height: 57px;
 }
 
 .navbarFixed > div{
   padding: 0px;
+  height: 57px;
 }
 
 .navbarHeader{

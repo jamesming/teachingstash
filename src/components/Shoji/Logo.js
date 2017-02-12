@@ -9,11 +9,12 @@ export default class Logo extends React.Component {
       <div>
         <div className={`${classStyle.navbarBanner} navbar-banner`}>
           <a
-            className={`${classStyle.navbarBand} navbar-brand`}
+            className={`${classStyle.navbarBrand} navbar-brand`}
           >
             <img
               id="logo"
               alt=""
+              className={classStyle.logo}
               src={
                   typeof (logoFileId) !== 'undefined'
                   ?

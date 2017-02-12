@@ -23,15 +23,18 @@ export default class Desktopmenu extends React.Component {
     };
     const buttonStyle = {
       float: 'right',
-      marginTop: '10px',
+      marginTop: '14px',
       marginRight: '10px'
+    };
+    const ulStyle = {
+      marginTop: '4px',
     };
     return (
       <div>
         <div className="navbar-collapse collapse">
           {
             this.props.user.loggedIn ?
-              <ul className="nav navbar-nav navbar-right">
+              <ul  style={ulStyle} className="nav navbar-nav navbar-right">
                   <li className="dropdown">
                       <a
                         href="" className="dropdown-toggle"

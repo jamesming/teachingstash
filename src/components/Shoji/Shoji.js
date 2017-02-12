@@ -40,7 +40,7 @@ export default class ShojiCompnent extends React.Component {
     }
 
     scrollToSidemenuTop() {
-      const sideMenuTop = $('#files-column').offset().top - 40;
+      const sideMenuTop = $('#files-column').offset().top - 55;
       $('html, body').stop().animate({ scrollTop: sideMenuTop }, 500);
     }
 

@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Droid+Sans);
+
 legend{
   border-bottom: 1px;
 }
@@ -80,8 +82,15 @@ button.waiting{
 #sidemenu .panel-title, #sidemenu .panel li,
 .shoji-panel-left .panel-title, .shoji-panel-left .panel li{
   font-size: 20px;
-  color:gray;
 }
+
+#sidemenu .panel-title, #sidemenu .panel li,
+.shoji-panel-left .panel-title, .shoji-panel-left .panel li,
+#files-column h3{
+  color:gray;
+  font-family: 'Droid Sans',serif;
+}
+
 #sidemenu .panel li,
 .shoji-panel-left .panel li{
   font-size: 17px;

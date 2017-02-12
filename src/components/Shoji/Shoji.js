@@ -99,11 +99,11 @@ export default class ShojiCompnent extends React.Component {
                 <div className="content">
                     <nav
                       id="navbar-fixed"
-                      className="navbar navbar-default" role="navigation"
+                      className={`${classStyle.navbarFixed} navbar navbar-default`} role="navigation"
                     >
                       <div className="container">
-                        <Logo {...this.props}/>
-                        <div className="navbar-header">
+                        <Logo {...this.props} />
+                        <div className={`${classStyle.navbarHeader} navbar-header`}>
                             { // Only show button when route is Files
                               this.props.children.type.name === 'Files' ?
                                   <button
@@ -134,7 +134,7 @@ export default class ShojiCompnent extends React.Component {
                         />
                       </div>
                     </nav>
-                    <div id="route-section">
+                    <div id="routeSection" className={classStyle.routeSection}>
                       {children}
                     </div>
                 </div>

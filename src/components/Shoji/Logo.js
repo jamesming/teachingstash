@@ -1,4 +1,5 @@
 import React from 'react';
+import classStyle from './Logo.css';
 
 export default class Logo extends React.Component {
 
@@ -6,9 +7,9 @@ export default class Logo extends React.Component {
     const logoFileId = this.props.site.logoUrl.split('=')[1];
     return (
       <div>
-        <div className="navbar-banner">
+        <div className={`${classStyle.navbarBanner} navbar-banner`}>
           <a
-            className="navbar-brand"
+            className={`${classStyle.navbarBand} navbar-brand`}
           >
             <img
               id="logo"

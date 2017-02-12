@@ -46,15 +46,10 @@ button.waiting{
   -o-animation-iteration-count: infinite;
 }
 
-#shoji .navbar-header{
-  margin: 0px;
-}
-#shoji .navbar{
-  height: 50px;
-}
-
-#shoji #navbar-fixed {
-  background-color: white;
+.shadowed {
+    -webkit-box-shadow: 0 8px 6px -6px #999;
+    -moz-box-shadow: 0 8px 6px -6px #999;
+    box-shadow: 0 8px 6px -6px #999;
 }
 
 #shoji .navbar-banner {
@@ -63,10 +58,6 @@ button.waiting{
 
 #shoji .navbar-brand>img {
     display: inherit;
-}
-
-#navbar-fixed > div{
-  padding: 0px;
 }
 
 #sidemenu .panel, #sidemenu .panel-heading,

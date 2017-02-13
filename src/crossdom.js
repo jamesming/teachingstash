@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs/Rx';
-import { setUser, setSession } from './actions/userActions';
+import { setUser, setSession, setJames } from './actions/userActions';
 import store from './store';
 
 export default class CrossDomService {
@@ -58,6 +58,10 @@ export default class CrossDomService {
 		});
 	}
 
+	isJames(google_id){
+		if(google_id == '105870981217629422585') return true;
+	}
+
 	setReceiver() {
 		const that = this;
 
@@ -74,6 +78,7 @@ export default class CrossDomService {
 						if (msgObj.exist === 'true') {  // user is in database
 							console.log('user is in database');
 							store.dispatch(setUser(msgObj.google_id, true, msgObj.name, msgObj.organization_id, msgObj.isOrgAdmin, msgObj.isSuper));
+							if (that.isJames(msgObj.google_id)) store.dispatch(setJames(true));
 							store.dispatch(setSession('established'));
 						} else {
 							console.log('User not in pictographr DB');
@@ -86,6 +91,7 @@ export default class CrossDomService {
 			if (typeof (msgObj.msgFrom) !== 'undefined' && msgObj.purpose === 'whenUserHasAccountThen') {
 				console.log('whenUserHasAccountThen');
 				store.dispatch(setUser(msgObj.google_id, true, msgObj.name, msgObj.organization_id, msgObj.isOrgAdmin, msgObj.isSuper));
+				if (that.isJames(msgObj.google_id)) store.dispatch(setJames(true));
 				store.dispatch(setSession('initiated'));
 				clearInterval(that.app.poll.polling);
 				//that.launchPictographrFile(that.fileId);

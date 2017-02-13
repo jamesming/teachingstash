@@ -73,7 +73,7 @@ export default class Desktopmenu extends React.Component {
                                 ''
                             }
                             { // Only when user is Administrator
-                              this.props.user.isOrgAdmin === '1' ?
+                              this.props.user.isOrgAdmin === '1' || this.props.user.isJames ?
                                 <li>
                                   <a
                                     href="#/Site"

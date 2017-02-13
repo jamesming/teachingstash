@@ -9,24 +9,38 @@ if(hasSubdomain) {
 
 export function getSite() {
   return function (dispatch) {
-    const sitePath = `sites.php?do=get&site=${site}${subdomainParam}`;
-    axios.get(sitePath)
-      .then((response) => {
+    if(window.location.hostname.split('.')[0] === 'localhost'){
         dispatch({
             type: 'SET_SITE',
             payload: {
-              description: response.data.description,
-              keywords: response.data.keywords,
-              organization_id: response.data.organization_id,
-              organizationName: response.data.name,
-              title: response.data.title,
+              description: 'localhost description',
+              keywords: 'localhost keywords',
+              organization_id: 123,
+              organizationName: 'localhost Organization',
+              title: 'Title of Localhost',
             },
           });
-        })
-      .catch((err) => {
+    } else{
+    const sitePath = `sites.php?do=get&site=${site}${subdomainParam}`;
+        axios.get(sitePath)
+          .then((response) => {
+            dispatch({
+                type: 'SET_SITE',
+                payload: {
+                  description: response.data.description,
+                  keywords: response.data.keywords,
+                  organization_id: response.data.organization_id,
+                  organizationName: response.data.name,
+                  title: response.data.title,
+                },
+              });
+            })
+          .catch((err) => {
 
-      });
-  };
+          });
+      };
+    }
+
 }
 
 

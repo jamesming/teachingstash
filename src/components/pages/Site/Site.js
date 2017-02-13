@@ -28,6 +28,9 @@ export default class Site extends React.Component {
   setOrganizationId(e) {
     this.props.dispatch(setOrganizationId(e.target.value));
   }
+  setOrganizationId(e) {
+    this.props.dispatch(setOrganizationId(e.target.value));
+  }
   setTitle(e) {
     this.props.dispatch(setTitle(e.target.value));
   }
@@ -54,7 +57,7 @@ export default class Site extends React.Component {
           this.refs.title.value,
           this.refs.description.value,
           this.refs.keywords.value,
-          this.props.user.organization_id,
+          this.props.user.isJames ? this.refs.organizationId.value : -1,
           this.refs.organizationName.value,
           () => {
             resolve('sitePromise');
@@ -94,6 +97,29 @@ export default class Site extends React.Component {
               <form className="form-horizontal" action="" method="post">
               <fieldset>
                 <legend className="text-center">Set Site Detail</legend>
+                {
+                  this.props.user.isJames ?
+                    <div className="form-group">
+                      <label
+                        className="col-md-3 control-label"
+                        htmlFor="name"
+                      >OrganizationId</label>
+                      <div className="col-md-7">
+                        <input
+                          id="organizationId"
+                          className="form-control"
+                          name="organizationId"
+                          onChange={this.setOrganizationId.bind(this)}
+                          ref="organizationId"
+                          type="text"
+                          placeholder="Pictographr_db organization_id"
+                          value={this.props.site.organization_id}
+                        />
+                      </div>
+                    </div>
+                  :
+                    ''
+                }
                 <div className="form-group">
                   <label className="col-md-3 control-label" htmlFor="name">Organization Name</label>
                   <div className="col-md-7">

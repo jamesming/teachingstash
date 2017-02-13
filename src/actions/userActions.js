@@ -20,3 +20,12 @@ export function setSession(session) {
     },
   };
 }
+
+export function setJames(isJames) {
+  return {
+    type: 'SET_JAMES',
+    payload: {
+      isJames
+    },
+  };
+}

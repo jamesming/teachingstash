@@ -155,6 +155,10 @@ export default class ShojiCompnent extends React.Component {
       ) {
         displayWhat = shojiDiv;
       } else if (
+        this.props.user.isJames
+      ) {
+        displayWhat = shojiDiv;
+      } else if (
           this.props.user.loggedIn &&
           userOrganizationId !== siteOrganizationId
       ) {

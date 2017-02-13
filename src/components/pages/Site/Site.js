@@ -101,40 +101,42 @@ export default class Site extends React.Component {
                 <legend className="text-center">Set Site Detail</legend>
                 {
                   this.props.user.isJames ?
-                    <div className="form-group">
-                      <label
-                        className="col-md-3 control-label"
-                        htmlFor="name"
-                      >OrganizationId</label>
-                      <div className="col-md-7">
-                        <input
-                          id="organizationId"
-                          className="form-control"
-                          name="organizationId"
-                          onChange={this.setOrganizationId.bind(this)}
-                          ref="organizationId"
-                          type="text"
-                          placeholder="Pictographr_db organization_id"
-                          value={this.props.site.organization_id}
-                        />
+                    <div>
+                      <div className="form-group">
+                        <label
+                          className="col-md-3 control-label"
+                          htmlFor="name"
+                        >OrganizationId</label>
+                        <div className="col-md-7">
+                          <input
+                            id="organizationId"
+                            className="form-control"
+                            name="organizationId"
+                            onChange={this.setOrganizationId.bind(this)}
+                            ref="organizationId"
+                            type="text"
+                            placeholder="Pictographr_db organization_id"
+                            value={this.props.site.organization_id}
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <div className="form-group">
-                      <label
-                        className="col-md-3 control-label"
-                        htmlFor="name"
-                      >PartnerId</label>
-                      <div className="col-md-7">
-                        <input
-                          id="partnerId"
-                          className="form-control"
-                          name="partnerId"
-                          onChange={this.setPartnerId.bind(this)}
-                          ref="partnerId"
-                          type="text"
-                          placeholder="Pictographr_db partner_id"
-                          value={this.props.site.partner_id}
-                        />
+                      <div className="form-group">
+                        <label
+                          className="col-md-3 control-label"
+                          htmlFor="name"
+                        >PartnerId</label>
+                        <div className="col-md-7">
+                          <input
+                            id="partnerId"
+                            className="form-control"
+                            name="partnerId"
+                            onChange={this.setPartnerId.bind(this)}
+                            ref="partnerId"
+                            type="text"
+                            placeholder="Pictographr_db partner_id"
+                            value={this.props.site.partner_id}
+                          />
+                        </div>
                       </div>
                     </div>
                   :

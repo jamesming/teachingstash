@@ -58,7 +58,7 @@ export default class CrossDomService {
 		});
 	}
 
-	isJames(google_id){
+	isJames(google_id) {
 		if (google_id === '104384554224634036843') return true;
 	}
 

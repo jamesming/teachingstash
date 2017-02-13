@@ -31,6 +31,7 @@ export function getSite() {
                   keywords: response.data.keywords,
                   organization_id: response.data.organization_id,
                   organizationName: response.data.name,
+                  partner_id: response.data.partner_id,
                   title: response.data.title,
                 },
               });
@@ -44,10 +45,10 @@ export function getSite() {
 }
 
 
-export function setSite(title, description, keywords, organizationId, organizationName, callback) {
+export function setSite(title, description, keywords, organizationId, organizationName, partnerId, callback) {
   return function (dispatch) {
     // PLEASE NOTE.. must not break up paramStr into separate lines.  It won't pass as $_GET properly
-    const paramStr = `&description=${description}&title=${title}&keywords=${keywords}&organization_id=${organizationId}&organizationName=${organizationName}`;
+    const paramStr = `&description=${description}&title=${title}&keywords=${keywords}&organization_id=${organizationId}&organizationName=${organizationName}&partnerId=${partnerId}`;
     const sitePath = `sites.php?do=set&site=${site}${subdomainParam}${paramStr}`;
     console.log(sitePath);
     axios.get(sitePath)
@@ -58,7 +59,9 @@ export function setSite(title, description, keywords, organizationId, organizati
               description: response.data.description,
               keywords: response.data.keywords,
               title: response.data.title,
-              organization_id: response.data.organization_id
+              organization_id: response.data.organization_id,
+              organizationName: response.data.organizationName,
+              partner_id: response.data.partner_id
             },
           });
         callback();
@@ -118,6 +121,13 @@ export function setOrganizationId(organizationId) {
   return {
     type: 'SET_ORGANIZATIONID',
     payload: organizationId,
+  };
+}
+
+export function setPartnerId(partnerId) {
+  return {
+    type: 'SET_PARTNERID',
+    payload: partnerId,
   };
 }
 

@@ -4,6 +4,7 @@ export default function reducer(state = {
     keywords: '',
     organization_id: -1,
     organizationName: '',
+    partner_id: -1,
     title: '',
   }, action) {
     switch (action.type) {
@@ -15,6 +16,7 @@ export default function reducer(state = {
           title: action.payload.title,
           organization_id: action.payload.organization_id,
           organizationName: action.payload.organizationName,
+          partner_id: action.payload.partner_id,
         };
       }
       case 'SET_KEYWORDS': {
@@ -39,6 +41,12 @@ export default function reducer(state = {
         return {
           ...state,
           organization_id: action.payload,
+        };
+      }
+      case 'SET_PARTNERID': {
+        return {
+          ...state,
+          partner_id: action.payload,
         };
       }
       case 'SET_TITLE': {

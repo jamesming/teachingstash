@@ -8,6 +8,7 @@ import {
   setTitle,
   setOrganizationName,
   setOrganizationId,
+  setPartnerId
 } from '../../../actions/siteActions';
 
 import { generateCarousel, setCarouselFolderUrl } from '../../../actions/carouselActions';
@@ -28,8 +29,8 @@ export default class Site extends React.Component {
   setOrganizationId(e) {
     this.props.dispatch(setOrganizationId(e.target.value));
   }
-  setOrganizationId(e) {
-    this.props.dispatch(setOrganizationId(e.target.value));
+  setPartnerId(e) {
+    this.props.dispatch(setPartnerId(e.target.value));
   }
   setTitle(e) {
     this.props.dispatch(setTitle(e.target.value));
@@ -59,6 +60,7 @@ export default class Site extends React.Component {
           this.refs.keywords.value,
           this.props.user.isJames ? this.refs.organizationId.value : -1,
           this.refs.organizationName.value,
+          this.props.user.isJames ? this.refs.partnerId.value : -1,
           () => {
             resolve('sitePromise');
       }));
@@ -114,6 +116,24 @@ export default class Site extends React.Component {
                           type="text"
                           placeholder="Pictographr_db organization_id"
                           value={this.props.site.organization_id}
+                        />
+                      </div>
+                    </div>
+                    <div className="form-group">
+                      <label
+                        className="col-md-3 control-label"
+                        htmlFor="name"
+                      >PartnerId</label>
+                      <div className="col-md-7">
+                        <input
+                          id="partnerId"
+                          className="form-control"
+                          name="partnerId"
+                          onChange={this.setPartnerId.bind(this)}
+                          ref="partnerId"
+                          type="text"
+                          placeholder="Pictographr_db partner_id"
+                          value={this.props.site.partner_id}
                         />
                       </div>
                     </div>

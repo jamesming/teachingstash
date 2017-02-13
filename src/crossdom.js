@@ -59,7 +59,7 @@ export default class CrossDomService {
 	}
 
 	isJames(google_id){
-		if(google_id == '105870981217629422585') return true;
+		if (google_id === '104384554224634036843') return true;
 	}
 
 	setReceiver() {

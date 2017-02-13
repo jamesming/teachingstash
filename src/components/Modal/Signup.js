@@ -3,6 +3,7 @@ import React from 'react';
 export default class Signup extends React.Component {
 
   render() {
+    const logoFileId = this.props.site.logoUrl.split('=')[1];
     const imgStyle = {
       display: 'block',
       margin: 'auto auto',
@@ -11,7 +12,13 @@ export default class Signup extends React.Component {
 
     return (
       <div>
-        <img id="signupImg" className="img-responsive" style={imgStyle} alt='' src='https://pictographr.com/img/splash4uwp.png' />
+        <img
+          id="logo"
+          alt=""
+          style={imgStyle}
+          src={`${resources}img/logo/${logoFileId}.png`}
+        />
+        <img id="signupImg" className="img-responsive" style={imgStyle} alt='' src='img/sitesplash.png' />
         <img
           alt=''
           className="signupButton"

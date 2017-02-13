@@ -44,6 +44,7 @@ export default class Layout extends React.Component {
     return (
       <div>
         <Modal
+          {...this.props}
           activeFileId={this.props.activeFileId}
           modalshow={this.props.modalshow}
           popGoogleSignIn={this.popGoogleSignIn.bind(this)}

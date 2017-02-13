@@ -152,7 +152,7 @@ export default class ShojiCompnent extends React.Component {
         //displayWhat = <Nopermissiontoview {...this.props} />;
       } else if (
         typeof (this.props.site.organization_id) === 'undefined' ||
-        this.props.site.organization_id === -1
+        this.props.site.organization_id === '-1'
       ) {
         displayWhat = shojiDiv;
       } else if (

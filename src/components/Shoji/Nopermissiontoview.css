@@ -1,12 +1,15 @@
 .middleDiv {
-    position : absolute;
-    width    : 450px;
-    left     : 50%;
-    top      : 50%;
-    margin-left : -100px; /* half of the width  */
-    margin-top  : -100px; /* half of the height */
+	bottom: 0;
+	height: 200px;
+	left: 0;
+	margin: auto;
+	position: absolute;
+	right: 0;
+	top:0;
+	width: 450px;
 }
 .head{
+	text-align: center;
 	width: 450px;
-	font-size: 28px;
+	font-size: 35px;
 }

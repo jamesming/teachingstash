@@ -7,22 +7,20 @@ export default class Nopermissiontoview extends React.Component {
 		const logoFileId = this.props.site.logoUrl.split('=')[1];
     return (
       <div className={classStyle.middleDiv}>
-      	<div>
-      		<div  className={classStyle.head}>
-      			Restricted Access
-      		</div>
-					<img
-						id="logo"
-						alt=""
-						src={
-									typeof (logoFileId) !== 'undefined'
-								?
-									`${resources}img/logo/${logoFileId}.png`
-								:
-									''
-								}
-					/>
-      	</div>
+    		<div  className={classStyle.head}>
+    			Restricted Access
+    		</div>
+				<img
+					id="logo"
+					alt=""
+					src={
+								typeof (logoFileId) !== 'undefined'
+							?
+								`${resources}img/logo/${logoFileId}.png`
+							:
+								''
+							}
+				/>
       </div>
     );
   }

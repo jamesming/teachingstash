@@ -51,6 +51,7 @@ Shoji.prototype.toggle = function (direction, duration) {
         }
         break;
     case 'right':
+        alert('t');
         if (offset < 0) { // left
             this.slide('right', -offset, duration, function() {
                 rightPanel.hide();

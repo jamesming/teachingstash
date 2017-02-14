@@ -92,6 +92,7 @@ export default class Desktopmenu extends React.Component {
                           <li className="divider" />
                           <li>
                               <a
+                                href="#/"
                                 style={{
                                   cursor: 'pointer'
                                 }}

@@ -26,9 +26,9 @@ Shoji.prototype.slide = function (direction, width, duration, complete) {
     default:
         return;
     }
-    alert(operator);
-    alert(width);
-    alert(duration);
+    alert('operator' + operator);
+    alert('width' + width);
+    alert('duration' + duration);
     this.getDoor().animate({ left: operator + width }, duration, 'linear', complete);
     this.offset += offset;
 };
@@ -44,6 +44,7 @@ Shoji.prototype.toggle = function (direction, duration) {
             this.slide('right', -offset, duration, function() { rightPanel.hide(); });
         } else if (offset == 0) { // docked
             rightPanel.show();
+            alert('right panel width' + rightPanel.width());
             this.slide('left', rightPanel.width(), duration);
         } else if (offset > 0) { // right
             this.slide('left', offset, duration, function() {

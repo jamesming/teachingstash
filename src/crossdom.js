@@ -48,6 +48,7 @@ export default class CrossDomService {
 	}
 
 	logout() {
+		this.hasPopped = false;
 		const src = 'https://accounts.google.com/Logout';
 
 		$('#iframe_logout').attr('src', 'https://accounts.google.com/Logout').load(() => {

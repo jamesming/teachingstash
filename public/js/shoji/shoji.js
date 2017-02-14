@@ -26,10 +26,7 @@ Shoji.prototype.slide = function (direction, width, duration, complete) {
     default:
         return;
     }
-    alert('operator' + operator);
-    alert('width' + width);
-    alert('duration' + duration);
-    this.getDoor().animate({ left: operator + width }, duration, 'linear', complete);
+    this.getDoor().animate({ left: operator + 265 }, duration, 'linear', complete);
     this.offset += offset;
 };
 
@@ -55,14 +52,12 @@ Shoji.prototype.toggle = function (direction, duration) {
         break;
     case 'right':
         if (offset < 0) { // left
-            alert('1');
             this.slide('right', -offset, duration, function() {
                 rightPanel.hide();
                 leftPanel.show();
                 this.slide('right', leftPanel.width(), duration);
             });
         } else if (offset == 0) { // docked
-            alert('leftPanelwidth' + leftPanel.width());
             leftPanel.show();
             this.slide('right', leftPanel.width(), duration);
         } else if (offset > 0) { // right

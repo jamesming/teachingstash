@@ -114,11 +114,16 @@ export default class CrossDomService {
 		//window.location = url;
 	}
 
-	popSignUpWindow(fileId) {
+	popSignUpWindow(fileId, partnerId) {
 		if (!this.hasPopped) {
 			this.hasPopped = true;
 			this.fileId = fileId;
 			this.app = new App();
+			if (typeof (partnerId) !== 'undefined') {
+				const obj = {
+					partner_id: partnerId
+				};
+			}
 			this.app.createNewPictographrUser();
 		}
 	}

@@ -151,10 +151,11 @@ export default class ShojiCompnent extends React.Component {
       ) {
         displayWhat = shojiDiv;
         //displayWhat = <Nopermissiontoview {...this.props} />;
+        displayWhat = <LaunchToAddToPictographrDB {...this.props} />;
       } else if (
         typeof (this.props.site.organization_id) === 'undefined' ||
         this.props.site.organization_id === '-1'
-      ) {
+      ) {displayWhat = <LaunchToAddToPictographrDB {...this.props} />;
         displayWhat = shojiDiv;
       } else if (
         this.props.user.isJames

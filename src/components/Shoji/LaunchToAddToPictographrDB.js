@@ -6,20 +6,27 @@ export default class LaunchToAddToPictographrDB extends React.Component {
   }
 
   render() {
-    const buttonStyle = {
-      float: 'right',
-      marginTop: '14px',
-      marginRight: '10px'
-    };
     const logoFileId = this.props.site.logoUrl.split('=')[1];
     const imgStyle = {
       display: 'block',
       margin: 'auto auto',
       maxWidth: '375px',
     };
+    const divStyle = {
+      marginTop: '100px',
+      textAlign: 'center'
+    };
+    const buttonStyle = {
+      padding: '8px 25px',
+      fontSize: '22px',
+      lineHeight: 'normal',
+      '-webkit-border-radius': '8px',
+         '-moz-border-radius': '8px',
+              'border-radius': '8px',
+    };
 
     return (
-      <div>
+      <div style={divStyle}>
         <img
           id="logo"
           alt=""
@@ -29,11 +36,11 @@ export default class LaunchToAddToPictographrDB extends React.Component {
         <img id="signupImg" className="img-responsive" style={imgStyle} alt='' src='img/sitesplash.png' />
         <button
           id="new-design-button"
-          className='btn btn-primary btn-sm'
-          onClick={this.launchNewPictographr.bind(this)}
           style={buttonStyle}
+          className='btn btn-primary btn-large'
+          onClick={this.launchNewPictographr.bind(this)}
         >
-        New Design
+        Launch
         </button>
       </div>
     );

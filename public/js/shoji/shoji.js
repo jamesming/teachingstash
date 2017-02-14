@@ -3,6 +3,7 @@
 Shoji = function (element) {
     this.offset = 0;
     var shoji = $(element);
+    alert(element)
     var door = shoji.find('.shoji-door');
     this.getDoor = function() { return door; };
     var leftPanel = shoji.find('.shoji-panel-left');
@@ -26,6 +27,7 @@ Shoji.prototype.slide = function (direction, width, duration, complete) {
     default:
         return;
     }
+    alert(this.getDoor());
     this.getDoor().animate({ left: operator + 265 }, duration, 'linear', complete);
     this.offset += offset;
 };

@@ -41,6 +41,7 @@ Shoji.prototype.toggle = function (direction, duration) {
             this.slide('right', -offset, duration, function() { rightPanel.hide(); });
         } else if (offset == 0) { // docked
             rightPanel.show();
+            alert(rightPanel.width());
             this.slide('left', rightPanel.width(), duration);
         } else if (offset > 0) { // right
             this.slide('left', offset, duration, function() {

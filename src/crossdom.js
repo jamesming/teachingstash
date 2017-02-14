@@ -119,6 +119,7 @@ export default class CrossDomService {
 			this.hasPopped = true;
 			this.fileId = fileId;
 			this.app = new App();
+			console.log(partnerId);
 			if (typeof (partnerId) !== 'undefined') {
 				const obj = {
 					partner_id: partnerId

@@ -141,3 +141,20 @@ button.waiting{
       display: initial;
     }
 }
+
+@media screen and (max-width: 768px) {
+  #navbar-fixed {
+    height: 50px !important;
+  }
+
+  #navbar-fixed > div{
+    height: 50px !important;
+  }
+  .navbar-brand {
+    height: 50px !important;
+  }
+
+  #logo{
+    height: 50px !important;
+  }
+}

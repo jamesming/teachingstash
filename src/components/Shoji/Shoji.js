@@ -12,7 +12,8 @@ import classStyle from './Shoji.css';
 export default class ShojiCompnent extends React.Component {
     componentDidMount() {
       this.resizeWindow();
-      this.shoji = new Shoji('#shoji');
+
+      setTimeout(() => { this.shoji = new Shoji('#shoji');}, 1000);
     }
 
     componentWillUnmount() {

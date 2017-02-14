@@ -26,8 +26,7 @@ Shoji.prototype.slide = function (direction, width, duration, complete) {
     default:
         return;
     }
-
-    $('#door').animate({ left: operator + 265 }, duration, 'linear', complete);
+    this.getDoor().animate({ left: operator + 265 }, duration, 'linear', complete);
     this.offset += offset;
 };
 

@@ -3,6 +3,7 @@ import { setModalShow } from '../../../actions/appActions';
 
 export default class Desktopmenu extends React.Component {
   setModalSignup() {
+    this.props.crossDomService.logout();
     this.props.dispatch(setModalShow('signup'));
   }
 
@@ -12,7 +13,6 @@ export default class Desktopmenu extends React.Component {
 
   logout() {
     this.props.dispatch(setModalShow('signup'));
-    this.props.crossDomService.logout();
   }
 
   render() {

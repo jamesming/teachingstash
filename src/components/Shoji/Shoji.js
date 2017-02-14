@@ -31,9 +31,12 @@ export default class ShojiCompnent extends React.Component {
     }
 
     slideFolderMenu() {
-      this.toast('hello');
+
       if (window.innerWidth < 768) {
+        this.toast('< 768');
         this.shoji.toggle('right', 130);
+      } else {
+        this.toast('> 768');
       }
     }
 

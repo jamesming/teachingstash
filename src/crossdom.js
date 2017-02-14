@@ -54,6 +54,7 @@ export default class CrossDomService {
 			$('#iframe_logout').attr('src', 'https://pictographr.com/auth/destroySessionP').unbind('load').load(() => {
 				store.dispatch(setSession('none'));
 				store.dispatch(setUser('', false, ''));
+				store.dispatch(setJames(false));
 			});
 		});
 	}

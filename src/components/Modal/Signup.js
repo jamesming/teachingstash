@@ -18,7 +18,7 @@ export default class Signup extends React.Component {
           style={imgStyle}
           src={`${resources}img/logo/${logoFileId}.png`}
         />
-        <a href="https://pictographr.com">
+        <a href="https://pictographr.com" target="_blank">
           <img id="signupImg" className="img-responsive" style={imgStyle} alt='' src='img/sitesplash.png' />
         </a>
         <img

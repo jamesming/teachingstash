@@ -13,6 +13,7 @@ export default class Desktopmenu extends React.Component {
   }
 
   logout() {
+    this.props.crossDomService.logout();
     this.props.dispatch(setModalShow('signup'));
   }
 

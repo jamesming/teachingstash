@@ -110,7 +110,8 @@ export default class File extends React.Component {
   render() {
     const src = `${window.resources}templates/thumbs/${this.props.file.id}.png`;
     const inlineButtonStyle = {
-      minWidth: '65px'
+      minWidth: '65px',
+      'background-color': '#DDDDDD'
     };
 
     if (this.props.user.session === 'initiated') {

@@ -96,7 +96,7 @@ export default class ShojiCompnent extends React.Component {
                   scrollToSidemenuTop={this.scrollToSidemenuTop.bind(this)}
                 />
             </div>
-            <div className="shoji-door">
+            <div id="door" className="shoji-door">
                 <div className="content">
                     <nav
                       id="navbar-fixed"

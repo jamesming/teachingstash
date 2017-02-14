@@ -51,17 +51,19 @@ Shoji.prototype.toggle = function (direction, duration) {
         }
         break;
     case 'right':
-        alert('t');
         if (offset < 0) { // left
+            alert('1');
             this.slide('right', -offset, duration, function() {
                 rightPanel.hide();
                 leftPanel.show();
                 this.slide('right', leftPanel.width(), duration);
             });
         } else if (offset == 0) { // docked
+            alert('2');
             leftPanel.show();
             this.slide('right', leftPanel.width(), duration);
         } else if (offset > 0) { // right
+            alert('3');
             this.slide('left', offset, duration, function() { leftPanel.hide(); });
         }
         break;

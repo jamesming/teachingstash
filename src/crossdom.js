@@ -124,7 +124,7 @@ export default class CrossDomService {
 					partner_id: partnerId
 				};
 			}
-			this.app.createNewPictographrUser();
+			this.app.createNewPictographrUser(obj);
 		}
 	}
 }

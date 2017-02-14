@@ -37,9 +37,17 @@ export default class Layout extends React.Component {
   }
 
   popGoogleSignIn() {
+    let partnerId;
+    console.log(parseInt(this.props.site.partner_id, 10));
+    if (parseInt(this.props.site.partner_id, 10) !== -1) {
+      partnerId = this.props.site.partner_id;
+    } else {
+      partnerId = undefined;
+    }
+
     this.crossDomService.popSignUpWindow(
       undefined,
-      parseInt(this.props.site.partner_id, 10) !== -1 ? this.props.site.partner_id : undefined
+      partnerId
     );
   }
 

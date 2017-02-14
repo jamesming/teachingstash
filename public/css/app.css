@@ -8,8 +8,8 @@ button.waiting{
     background-color: white !important;
 }
 
-.btn: focus{
-      outline: 0px;
+.btn:focus{
+  outline: 0px !important;
 }
 
 .thumbnail button{

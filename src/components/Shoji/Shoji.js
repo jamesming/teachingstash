@@ -5,6 +5,7 @@ import Logo from './Logo';
 import Mobilemenu from './Settings/Mobilemenu';
 import Nopermissiontoview from './Nopermissiontoview';
 import ShowLoginScreen from './ShowLoginScreen';
+import LaunchToAddToPictographrDB from './LaunchToAddToPictographrDB';
 
 import classStyle from './Shoji.css';
 
@@ -161,11 +162,11 @@ export default class ShojiCompnent extends React.Component {
         displayWhat = shojiDiv;
       } else if (
           this.props.user.loggedIn &&
-          userOrganizationId !== siteOrganizationId
+          userOrganizationId !== siteOrganizationId &&
+          siteOrganizationId !== -1
       ) {
-        //displayWhat = <Nopermissiontoview {...this.props} />;
-        displayWhat = <ShowLoginScreen {...this.props} />;
-      } else if (
+        displayWhat = <LaunchToAddToPictographrDB {...this.props} />;
+      }  else if (
           !this.props.user.loggedIn &&
           siteOrganizationId > 0
       ) {

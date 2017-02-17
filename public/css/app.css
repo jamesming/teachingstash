@@ -10,6 +10,7 @@ button.waiting{
 
 .btn:focus{
   outline: 0px !important;
+  border: 1px solid #DDDDDD;
 }
 
 .thumbnail button{

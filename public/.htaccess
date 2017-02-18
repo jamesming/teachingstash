@@ -16,8 +16,8 @@ RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
 RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 
 #http://stackoverflow.com/questions/4398951/force-ssl-https-using-htaccess-and-mod-rewrite
-RewriteCond %{HTTPS} !=on
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+#RewriteCond %{HTTPS} !=on
+#RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 #or if not a real file or directory forward to index.php
 RewriteCond %{SCRIPT_FILENAME} !-d

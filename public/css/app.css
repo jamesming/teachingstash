@@ -138,6 +138,14 @@ button.waiting{
   display: none;
 }
 
+.carousel-indicators .active {
+    width: 10px;
+    height: 10px;
+    margin: 1px;
+    top: 2px;
+    background-color: #DDDDDD;
+}
+
 @media screen and (min-width: 768px) {
     #shoji .navbar-banner {
         text-align: left;

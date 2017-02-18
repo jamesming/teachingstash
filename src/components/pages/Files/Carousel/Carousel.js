@@ -17,6 +17,9 @@ export default class Carousel extends React.Component {
     const alineStyle = {
       background: 'none'
     };
+    const indicatorStyle = {
+      bottom: '-34px !important'
+    };
     const Slides = this.props.slides.map((slide, idx) =>
       <Slide
         key={idx}
@@ -37,7 +40,7 @@ export default class Carousel extends React.Component {
         id="carousel-example-generic"
         className="carousel slide" data-ride="carousel" style={inlineStyle}
       >
-        <ol className="carousel-indicators">
+        <ol className="carousel-indicators" style={indicatorStyle}>
           {Indicators}
         </ol>
         <div className="carousel-inner" role="listbox">

@@ -12,7 +12,7 @@ export default class Files extends React.Component {
     const handler = null;
     window.removeEventListener('scroll', handler, false);
 
-    const topPadding = 370;
+    const topPadding = 350;  // Adjust this number for folder animation
     const carouselHeight = 320;
     window.addEventListener('scroll', () => {
       if ($(window).scrollTop() > 1) {

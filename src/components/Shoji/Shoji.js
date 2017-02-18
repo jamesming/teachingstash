@@ -40,7 +40,7 @@ export default class ShojiCompnent extends React.Component {
       this.shoji.toggle('left', 130);
     }
 
-    scrollToSidemenuTop() {
+    scrollToSidemenuTop() {  // onScroll event in files.js
       const sideMenuTop = $('#files-column').offset().top - 55;
       $('html, body').stop().animate({ scrollTop: sideMenuTop }, 500);
     }

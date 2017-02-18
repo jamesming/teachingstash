@@ -9,7 +9,7 @@ export default class Slide extends React.Component {
       >
         <img alt="" src={`${resources}carousel/pngs/${this.props.fileId}.png`} />
         <div className="carousel-caption">
-          carousel-caption
+          {this.props.title}
         </div>
       </div>
     );

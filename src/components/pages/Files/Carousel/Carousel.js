@@ -13,6 +13,7 @@ export default class Carousel extends React.Component {
         key={idx}
         idx={idx}
         fileId={slide.id}
+        title={slide.title}
       />
     );
     const Indicators = this.props.slides.map((slide, idx) =>

@@ -5,6 +5,12 @@ import Slide from './Slide';
 export default class Carousel extends React.Component {
 
   render() {
+    const leftStyle = {
+      left: '-75px'
+    };
+    const rightStyle = {
+      right: '-75px'
+    };
     const inlineStyle = {
       maxWidth: '550px'
     };
@@ -43,7 +49,11 @@ export default class Carousel extends React.Component {
           role="button" data-slide="prev"
           style={alineStyle}
         >
-          <span className="glyphicon glyphicon-chevron-left" aria-hidden="true" />
+          <span
+            className="glyphicon glyphicon-chevron-left"
+            aria-hidden="true"
+            style={leftStyle}
+          />
           <span className="sr-only">Previous</span>
         </a>
         <a
@@ -52,7 +62,11 @@ export default class Carousel extends React.Component {
           role="button" data-slide="next"
           style={alineStyle}
         >
-          <span className="glyphicon glyphicon-chevron-right" aria-hidden="true" />
+          <span
+            className="glyphicon glyphicon-chevron-right"
+            aria-hidden="true"
+            style={rightStyle}
+          />
           <span className="sr-only">Next</span>
         </a>
       </div>

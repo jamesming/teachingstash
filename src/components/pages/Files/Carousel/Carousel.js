@@ -8,6 +8,9 @@ export default class Carousel extends React.Component {
     const inlineStyle = {
       maxWidth: '550px'
     };
+    const alineStyle = {
+      background: 'none'
+    };
     const Slides = this.props.slides.map((slide, idx) =>
       <Slide
         key={idx}
@@ -38,6 +41,7 @@ export default class Carousel extends React.Component {
           className="left carousel-control"
           href="#carousel-example-generic"
           role="button" data-slide="prev"
+          style={alineStyle}
         >
           <span className="glyphicon glyphicon-chevron-left" aria-hidden="true" />
           <span className="sr-only">Previous</span>
@@ -46,6 +50,7 @@ export default class Carousel extends React.Component {
           className="right carousel-control"
           href="#carousel-example-generic"
           role="button" data-slide="next"
+          style={alineStyle}
         >
           <span className="glyphicon glyphicon-chevron-right" aria-hidden="true" />
           <span className="sr-only">Next</span>

@@ -1,9 +1,10 @@
 export default function reducer(state = {
-    parentFolderUrl: 'https://drive.google.com/open?id=',
-    slides: [],
     fetching: false,
-    fetched: false,
     error: null,
+    fetched: false,
+    slides: [],
+    parentFolderUrl: 'https://drive.google.com/open?id=',
+    firstSlideUrl: 'https://drive.google.com/open?id=',
   }, action) {
     switch (action.type) {
       case 'FETCH_CAROUSEL': {
@@ -24,6 +25,12 @@ export default function reducer(state = {
         return {
           ...state,
           parentFolderUrl: action.payload,
+        };
+      }
+      case 'SET_CAROUSEL_FIRSTSLIDEURL': {
+        return {
+          ...state,
+          firstSlideUrl: action.payload,
         };
       }
       default: {

@@ -11,7 +11,7 @@ import {
   setPartnerId
 } from '../../../actions/siteActions';
 
-import { generateCarousel, setCarouselFolderUrl } from '../../../actions/carouselActions';
+import { generateCarousel, setCarouselFolderUrl, firstSlideUrl } from '../../../actions/carouselActions';
 
 export default class Site extends React.Component {
   setLogoUrl(e) {
@@ -35,9 +35,11 @@ export default class Site extends React.Component {
   setTitle(e) {
     this.props.dispatch(setTitle(e.target.value));
   }
-
   setCarouselFolderUrl(e) {
     this.props.dispatch(setCarouselFolderUrl(e.target.value));
+  }
+  firstSlideUrl(e) {
+    this.props.dispatch(firstSlideUrl(e.target.value));
   }
 
   generateSite() {
@@ -169,6 +171,24 @@ export default class Site extends React.Component {
                       type="text"
                       placeholder="Enter Logo Url"
                       value={this.props.site.logoUrl}
+                    />
+                  </div>
+                </div>
+                <div className="form-group">
+                  <label
+                    className="col-md-3 control-label"
+                    htmlFor="name"
+                  >First Slide URL</label>
+                  <div className="col-md-7">
+                    <input
+                      id="firstSlideUrl"
+                      className="form-control"
+                      name="firstSlideUrl"
+                      onChange={this.firstSlideUrl.bind(this)}
+                      placeholder="First Slide URL"
+                      ref="firstSlideUrl"
+                      type="text"
+                      value={this.props.firstSlideUrl}
                     />
                   </div>
                 </div>

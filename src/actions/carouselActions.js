@@ -27,7 +27,14 @@ export function fetchCarousel() {
 export function setCarouselFolderUrl(parentFolderUrl) {
   return {
     type: 'SET_CAROUSEL_PARENTFOLDERURL',
-    payload:  parentFolderUrl,
+    payload: parentFolderUrl,
+  };
+}
+
+export function firstSlideUrl(FileUrl) {
+  return {
+    type: 'SET_CAROUSEL_FIRSTSLIDEURL',
+    payload: FileUrl,
   };
 }
 

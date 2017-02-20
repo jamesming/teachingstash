@@ -11,6 +11,7 @@ import ShojiComponent from './Shoji/Shoji';
   activeFileId: store.files.activeFileId,
   assets: store.templates.assets,
   carouselParentFolderUrl: store.carousel.parentFolderUrl,
+  firstSlideUrl: store.carousel.firstSlideUrl,
   files: store.files.files,
   folderTitle: store.files.folderTitle,
   modalshow: store.app.modalshow,

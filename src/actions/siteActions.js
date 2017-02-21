@@ -20,7 +20,7 @@ export function getSite() {
               title: 'Title of Localhost',
             },
           });
-    } else{
+    } else {
     const sitePath = `sites.php?do=get&site=${site}${subdomainParam}`;
         axios.get(sitePath)
           .then((response) => {

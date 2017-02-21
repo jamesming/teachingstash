@@ -210,23 +210,6 @@ export default class Site extends React.Component {
                     />
                   </div>
                 </div>
-                <div
-                  className="form-group" style={inlineStyle}
-                >
-                  <label className="col-md-3 control-label" htmlFor="name">Organization_id</label>
-                  <div className="col-md-7">
-                    <input
-                      id="organizationId"
-                      className="form-control"
-                      name="organizationId"
-                      onChange={this.setOrganizationId.bind(this)}
-                      ref="organizationId"
-                      type="text"
-                      placeholder="Please ask Pictographr Support to provide this."
-                      value={this.props.site.organization_id}
-                    />
-                  </div>
-                </div>
                 <div className="form-group">
                   <label className="col-md-3 control-label" htmlFor="name">Title</label>
                   <div className="col-md-7">

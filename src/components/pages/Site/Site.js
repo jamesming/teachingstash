@@ -174,7 +174,7 @@ export default class Site extends React.Component {
                     />
                   </div>
                 </div>
-                <div className="form-group">
+                <div className="form-group" style={inlineStyle}>
                   <label
                     className="col-md-3 control-label"
                     htmlFor="name"

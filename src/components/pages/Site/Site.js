@@ -140,7 +140,7 @@ export default class Site extends React.Component {
                             onChange={this.setPartnerId.bind(this)}
                             ref="partnerId"
                             type="text"
-                            placeholder="Pictographr_db partner_id (i.e. shortpost, prospace, templatesforbusiness)"
+                            placeholder="Pictographr_db partner_id (i.e. shortpost, prospace, templatesforbusiness)  -1 if school"
                             value={this.props.site.partner_id}
                           />
                         </div>

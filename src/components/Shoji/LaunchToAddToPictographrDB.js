@@ -24,7 +24,17 @@ export default class LaunchToAddToPictographrDB extends React.Component {
          '-moz-border-radius': '8px',
               'border-radius': '8px',
     };
-
+    const resources = (window.location.hostname.split('.')[0] === 'localhost' ?
+            host
+          + 'sites/'
+          + site
+          + '/'
+    :
+            host
+          + 'sites/'
+          + site
+          + subdomainSegment
+    );
     return (
       <div style={divStyle}>
         <img

@@ -5,6 +5,17 @@ export default class Logo extends React.Component {
 
   render() {
     const logoFileId = this.props.site.logoUrl.split('=')[1];
+    const resources = (window.location.hostname.split('.')[0] === 'localhost' ?
+            host
+          + 'sites/'
+          + site
+          + '/'
+    :
+            host
+          + 'sites/'
+          + site
+          + subdomainSegment
+    );
     return (
       <div>
         <div className={`${classStyle.navbarBanner} navbar-banner`}>
@@ -18,7 +29,7 @@ export default class Logo extends React.Component {
               src={
                   typeof (logoFileId) !== 'undefined'
                   ?
-                    `${host}sites/${site}${subdomainSegment}img/logo/${logoFileId}.png`
+                     `${resources}img/logo/${logoFileId}.png`
                   :
                     'http://placehold.it/450x100'
               }

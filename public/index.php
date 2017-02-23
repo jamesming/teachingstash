@@ -136,7 +136,7 @@
       var subdomainSegment = ( typeof(subdomain) !== 'undefined' && subdomain !== 'www'
           ? '/subdomains/' + subdomain + '/' : '/');
 
-      var useDemo = <?php echo ( isset($jsonArray['useDemo']) ? $jsonArray['useDemo']: 1) ?>;
+      var useDemo = <?php echo ( isset($jsonArray['useDemo']) && $jsonArray['useDemo'] !== '' ? $jsonArray['useDemo']: 1) ?>;
 
       var host = 'https://pictographr.com/';
 

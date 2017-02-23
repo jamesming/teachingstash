@@ -136,13 +136,24 @@
       var subdomainSegment = ( typeof(subdomain) !== 'undefined' && subdomain !== 'www'
           ? '/subdomains/' + subdomain + '/' : '/');
 
-      var host = 'https://pictographr.com/';
-      var resources = host
-          + 'sites/'
-          + site
-          + subdomainSegment;
-
       var useDemo = <?php echo ( isset($jsonArray['useDemo']) ? $jsonArray['useDemo']: 0) ?>;
+
+      var host = 'https://pictographr.com/';
+
+      <?php if( isset($jsonArray['useDemo']) ?>
+
+        var resources = host
+            + 'sites/teachingstash/';
+
+      <?php } else { ?>
+
+        var resources = host
+            + 'sites/'
+            + site
+            + subdomainSegment;
+
+      <?php } ?>
+
     </script>
     <?php $version=uniqid(); ?>
     <?php $version=223456; ?>

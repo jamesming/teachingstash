@@ -142,7 +142,7 @@
           + site
           + subdomainSegment;
 
-      var useDemo = <?php echo ( isset($jsonArray['useDemo']) ? $jsonArray['useDemo']: 0) ?>
+      var useDemo = <?php echo ( isset($jsonArray['useDemo']) ? $jsonArray['useDemo']: 0) ?>;
     </script>
     <?php $version=uniqid(); ?>
     <?php $version=223456; ?>

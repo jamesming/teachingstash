@@ -140,7 +140,7 @@
 
       var host = 'https://pictographr.com/';
 
-      <?php if( isset($jsonArray['useDemo']) ?>
+      <?php if( isset($jsonArray['useDemo'])) ?>
 
         var resources = host
             + 'sites/teachingstash/';

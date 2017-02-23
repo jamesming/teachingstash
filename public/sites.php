@@ -52,10 +52,10 @@
 				$data['organization_id'] = '-1';
 				$data['partner_id'] = '-1';
 				$data['useDemo'] = '1';
-				$this->subdomainSegment = '/subomains/' . $record['name'] . '/';
+				$this->subdomainSegment = '/subdomains/' . $record['name'] . '/';
 				$this->pathToJson = $this->siteroot . $this->subdomainSegment .  'data.json';
 
-				echo "Writing into: " . $this->pathToJson;
+				echo "Writing into: " . $this->pathToJson. "</br>";
 
 				file_put_contents($this->pathToJson, json_encode($data));
 			}

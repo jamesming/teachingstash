@@ -10,7 +10,7 @@ if(hasSubdomain) {
 export function fetchTemplates() {
   return function (dispatch) { // 'http://staging.pictographr.com/sites/getAssetsjson'
     let pathToTemplatesJson = `${window.host}sites/getMenujson?site=${site}${subdomainParam}`;
-    if(window.useDemo === 1) pathToTemplatesJson = `${window.host}sites/getMenujson?site=teachingstash`;
+    if (window.useDemo === 1) pathToTemplatesJson = `${window.host}sites/getMenujson?site=teachingstash`;
 
     console.log(pathToTemplatesJson);
     axios.get(pathToTemplatesJson)
@@ -89,7 +89,9 @@ export function setTemplateFolderUrl(parentFolderUrl) {
 
 export function fetchAssets(callback) {
   return function (dispatch) {
-    axios.get(`${window.host}sites/getAssetsjson?site=${site}${subdomainParam}&`)
+    let pathToAssets = `${window.host}sites/getAssetsjson?site=${site}${subdomainParam}&`;
+    if (window.useDemo === 1) pathToAssets = `${window.host}sites/getAssetsjson?site=teachingstash`;
+    axios.get(pathToAssets)
       .then((response) => {
         dispatch({ type: 'FETCH_ASSETS_FULFILLED', payload: response.data });
         if (typeof (callback) !== 'undefined') callback();
@@ -102,7 +104,9 @@ export function fetchAssets(callback) {
 
 export function renderPNGandPullAssetsJson(activeFileId, callback) {
   return function (dispatch) {
-    axios.get(`${window.host}sites/createAssets?site=${site}${subdomainParam}&format=png&fileId=${activeFileId}`)
+    let pathToCreateAssets = `${window.host}sites/createAssets?site=${site}${subdomainParam}&format=png&fileId=${activeFileId}`;
+    if (window.useDemo === 1) pathToCreateAssets = `${window.host}sites/createAssets?site=teachingstash&format=png&fileId=${activeFileId}`;
+    axios.get(pathToCreateAssets)
       .then((response) => {
         dispatch({ type: 'FETCH_ASSETS_FULFILLED', payload: response.data });
         callback();
@@ -115,7 +119,9 @@ export function renderPNGandPullAssetsJson(activeFileId, callback) {
 
 export function renderPDFandPullAssetsJson(activeFileId, callback) {
   return function (dispatch) {
-    axios.get(`${window.host}sites/createAssets?site=${site}${subdomainParam}&format=pdf&fileId=${activeFileId}`)
+    let pathToCreateAssets = `${window.host}sites/createAssets?site=${site}${subdomainParam}&format=pdf&fileId=${activeFileId}`;
+    if (window.useDemo === 1) pathToCreateAssets = `${window.host}sites/createAssets?site=teachingstash&format=pdf&fileId=${activeFileId}`;
+    axios.get(pathToCreateAssets)
       .then((response) => {
         dispatch({ type: 'FETCH_ASSETS_FULFILLED', payload: response.data });
         callback();

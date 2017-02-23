@@ -54,7 +54,8 @@
 				$data['useDemo'] = '1';
 				$this->subdomainSegment = '/subomains/' . $record['name'] . '/';
 				$this->pathToJson = $this->siteroot . $this->subdomainSegment .  'data.json';
-				$data['pathToJson'] = $this->pathToJson;
+
+				echo "Writing into: " . $this->pathToJson;
 
 				file_put_contents($this->pathToJson, json_encode($data));
 			}

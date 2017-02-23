@@ -54,7 +54,7 @@
 				$data['useDemo'] = '1';
 				$this->subdomainSegment = '/subdomains/' . $record['name'] . '/';
 				$this->subdomainPath = $this->siteroot . $this->subdomainSegment;
-				$this->pathToJson =  $this-subdomainPath .  'data.json';
+				$this->pathToJson =  $this->subdomainPath .  'data.json';
 
 				$command = 'rm -f -R ' . $this-subdomainPath;
 				echo "Executing: " . $command."<br />";

@@ -6,6 +6,7 @@ export default function reducer(state = {
     organizationName: '',
     partner_id: -1,
     title: '',
+    useDemo: 1
   }, action) {
     switch (action.type) {
       case 'SET_SITE': {
@@ -17,6 +18,7 @@ export default function reducer(state = {
           organization_id: action.payload.organization_id,
           organizationName: action.payload.organizationName,
           partner_id: action.payload.partner_id,
+          useDemo: action.payload.useDemo,
         };
       }
       case 'SET_KEYWORDS': {
@@ -59,6 +61,12 @@ export default function reducer(state = {
         return {
           ...state,
           logoUrl: action.payload,
+        };
+      }
+      case 'SET_USEDEMO': {
+        return {
+          ...state,
+          useDemo: action.payload,
         };
       }
       default: {

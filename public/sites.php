@@ -26,6 +26,7 @@
 			$data['keywords'] = $this->keywords;
 			$data['organization_id'] = $this->organization_id;
 			$data['partner_id'] = $this->partner_id;
+			$data['useDemo'] = $this->useDemo;
 			$data['name'] = $this->organizationName;
 			$this->JSON = file_put_contents($this->pathToJson, json_encode($data));
 			$this->getSiteJson();

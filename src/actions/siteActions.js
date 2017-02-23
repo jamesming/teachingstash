@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const hasSubdomain = typeof(subdomain) !== 'undefined' && subdomain !== 'www';
-if(hasSubdomain) {
+if (hasSubdomain) {
   var subdomainParam = `&subdomain=${subdomain}`;
 } else {
   var subdomainParam = '';
@@ -9,7 +9,7 @@ if(hasSubdomain) {
 
 export function getSite() {
   return function (dispatch) {
-    if(window.location.hostname.split('.')[0] === 'localhost'){
+    if (window.location.hostname.split('.')[0] === 'localhost') {
         dispatch({
             type: 'SET_SITE',
             payload: {
@@ -18,6 +18,7 @@ export function getSite() {
               organization_id: 123,
               organizationName: 'localhost Organization',
               title: 'Title of Localhost',
+              useDemo: 1
             },
           });
     } else {
@@ -33,6 +34,7 @@ export function getSite() {
                   organizationName: response.data.name,
                   partner_id: response.data.partner_id,
                   title: response.data.title,
+                  useDemo: response.data.useDemo
                 },
               });
             })
@@ -45,10 +47,10 @@ export function getSite() {
 }
 
 
-export function setSite(title, description, keywords, organizationId, organizationName, partnerId, callback) {
+export function setSite(title, description, keywords, organizationId, organizationName, partnerId, useDemo, callback) {
   return function (dispatch) {
     // PLEASE NOTE.. must not break up paramStr into separate lines.  It won't pass as $_GET properly
-    const paramStr = `&description=${description}&title=${title}&keywords=${keywords}&organization_id=${organizationId}&organizationName=${organizationName}&partner_id=${partnerId}`;
+    const paramStr = `&description=${description}&title=${title}&keywords=${keywords}&organization_id=${organizationId}&organizationName=${organizationName}&partner_id=${partnerId}&useDemo=${useDemo}`;
     const sitePath = `sites.php?do=set&site=${site}${subdomainParam}${paramStr}`;
     console.log(sitePath);
     axios.get(sitePath)
@@ -61,7 +63,8 @@ export function setSite(title, description, keywords, organizationId, organizati
               title: response.data.title,
               organization_id: response.data.organization_id,
               organizationName: response.data.organizationName,
-              partner_id: response.data.partner_id
+              partner_id: response.data.partner_id,
+              useDemo: response.data.useDemo
             },
           });
         callback();
@@ -149,5 +152,11 @@ export function setLogoUrl(logoUrl) {
   return {
     type: 'SET_LOGOURL',
     payload: logoUrl,
+  };
+}
+export function setUseDemo(useDemo) {
+  return {
+    type: 'SET_USEDEMO',
+    payload: useDemo,
   };
 }

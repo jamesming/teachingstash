@@ -3,12 +3,13 @@ import {
   renderLogo,
   setSite,
   setDescription,
+  setUseDemo,
   setKeywords,
   setLogoUrl,
   setTitle,
   setOrganizationName,
   setOrganizationId,
-  setPartnerId
+  setPartnerId,
 } from '../../../actions/siteActions';
 
 import { generateCarousel, setCarouselFolderUrl, firstSlideUrl } from '../../../actions/carouselActions';
@@ -34,6 +35,9 @@ export default class Site extends React.Component {
   }
   setTitle(e) {
     this.props.dispatch(setTitle(e.target.value));
+  }
+  setUseDemo(e) {
+    this.props.dispatch(setUseDemo(e.target.value));
   }
   setCarouselFolderUrl(e) {
     this.props.dispatch(setCarouselFolderUrl(e.target.value));
@@ -63,6 +67,7 @@ export default class Site extends React.Component {
           this.props.user.isJames ? this.refs.organizationId.value : -1,
           this.refs.organizationName.value,
           this.props.user.isJames ? this.refs.partnerId.value : -1,
+          this.refs.useDemo.value,
           () => {
             resolve('sitePromise');
       }));
@@ -135,8 +140,26 @@ export default class Site extends React.Component {
                             onChange={this.setPartnerId.bind(this)}
                             ref="partnerId"
                             type="text"
-                            placeholder="Pictographr_db partner_id"
+                            placeholder="Pictographr_db partner_id (i.e. shortpost, prospace, templatesforbusiness)"
                             value={this.props.site.partner_id}
+                          />
+                        </div>
+                      </div>
+                      <div className="form-group">
+                        <label
+                          className="col-md-3 control-label"
+                          htmlFor="name"
+                        >Use Demo</label>
+                        <div className="col-md-7">
+                          <input
+                            id="useDemo"
+                            className="form-control"
+                            name="useDemo"
+                            onChange={this.setUseDemo.bind(this)}
+                            ref="useDemo"
+                            type="text"
+                            placeholder="Use 1 if showing demo data, otherwise use 0"
+                            value={this.props.site.useDemo}
                           />
                         </div>
                       </div>

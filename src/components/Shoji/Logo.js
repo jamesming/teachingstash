@@ -18,7 +18,7 @@ export default class Logo extends React.Component {
               src={
                   typeof (logoFileId) !== 'undefined'
                   ?
-                    `${host}${sites}/${site}${subdomainSegment}img/logo/${logoFileId}.png`
+                    `${host}sites/${site}${subdomainSegment}img/logo/${logoFileId}.png`
                   :
                     'http://placehold.it/450x100'
               }

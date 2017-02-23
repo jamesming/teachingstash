@@ -9,7 +9,17 @@ export default class Signup extends React.Component {
       margin: 'auto auto',
       maxWidth: '375px',
     };
-
+    const resources = (window.location.hostname.split('.')[0] === 'localhost' ?
+            host
+          + 'sites/'
+          + site
+          + '/'
+    :
+            host
+          + 'sites/'
+          + site
+          + subdomainSegment
+    );
     return (
       <div>
         <img

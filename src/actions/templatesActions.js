@@ -9,7 +9,9 @@ if(hasSubdomain) {
 
 export function fetchTemplates() {
   return function (dispatch) { // 'http://staging.pictographr.com/sites/getAssetsjson'
-    const pathToTemplatesJson = `${window.host}sites/getMenujson?site=${site}${subdomainParam}`;
+    let pathToTemplatesJson = `${window.host}sites/getMenujson?site=${site}${subdomainParam}`;
+    if(window.useDemo === 1) pathToTemplatesJson = `${window.host}sites/getMenujson?site=teachingstash`;
+
     console.log(pathToTemplatesJson);
     axios.get(pathToTemplatesJson)
       .then((response) => {

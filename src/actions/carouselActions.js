@@ -9,7 +9,8 @@ if(hasSubdomain) {
 
 export function fetchCarousel() {
   return function (dispatch) {
-    const carouselPath = `${window.host}sites/getCarouseljson?site=${site}${subdomainParam}`;
+    let carouselPath = `${window.host}sites/getCarouseljson?site=${site}${subdomainParam}`;
+    if(window.useDemo === 1) carouselPath = `${window.host}sites/getCarouseljson?site=teachingstash`;
     axios.get(carouselPath)
       .then((response) => {
         dispatch({

@@ -53,7 +53,16 @@
 				$data['partner_id'] = '-1';
 				$data['useDemo'] = '1';
 				$this->subdomainSegment = '/subdomains/' . $record['name'] . '/';
-				$this->pathToJson = $this->siteroot . $this->subdomainSegment .  'data.json';
+				$this->subdomainPath = $this->siteroot . $this->subdomainSegment;
+				$this->pathToJson =  $this-subdomainPath .  'data.json';
+
+				$command = 'rm -f -R ' . $this-subdomainPath;
+				echo "Executing: " . $command."<br />";
+				exec($command .  ' 2>&1',$output,$retval);
+
+				$command = 'mkdir ' . $this-subdomainPath;
+				echo "Executing: " . $command."<br />";
+				exec($command .  ' 2>&1',$output,$retval);
 
 				echo "Writing into: " . $this->pathToJson. "</br>";
 

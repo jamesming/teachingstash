@@ -1,5 +1,5 @@
 {
-  "name": "react-tutorials",
+  "name": "teachingstash",
   "version": "0.0.0",
   "description": "",
   "main": "webpack.config.js",
@@ -30,7 +30,7 @@
     "redux-thunk": "^2.1.0",
     "rxjs": "5.0.0-beta.12",
     "style-loader": "^0.13.1",
-    "webpack": "^1.12.9",
+    "webpack": "^1.14.0",
     "webpack-dev-server": "^1.14.1"
   },
   "devDependencies": {
@@ -47,5 +47,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamesming/teachingstash.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jamesming/teachingstash/issues"
+  },
+  "homepage": "https://github.com/jamesming/teachingstash#readme"
 }

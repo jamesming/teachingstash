@@ -45,6 +45,7 @@
 
 			foreach( $this->subdomainArray  as $idx => $record){
 
+				$data['subdomain_id'] = $record['id'];
 				$data['name'] = $record['district'] . ' School District';
 				$data['title'] = $data['name'] . " Graphic Templates";
 				$data['description'] = 'Design Resources for Members of ' . $data['name'];

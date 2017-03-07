@@ -8,41 +8,42 @@ if (hasSubdomain) {
 }
 
 export function getSite() {
-  return function (dispatch) {
-    if (window.location.hostname.split('.')[0] === 'localhost') {
+    return function (dispatch) {
+      if (window.location.hostname.split('.')[0] === 'localhost') {
         dispatch({
             type: 'SET_SITE',
             payload: {
-              description: 'localhost description',
-              keywords: 'localhost keywords',
-              organization_id: 123,
-              organizationName: 'localhost Organization',
-              title: 'Title of Localhost',
-              useDemo: 1
+                description: 'localhost description',
+                keywords: 'localhost keywords',
+                organization_id: 123,
+                organizationName: 'localhost Organization',
+                title: 'Title of Localhost',
+                useDemo: 1
             },
-          });
-    } else {
-    const sitePath = `sites.php?do=get&site=${site}${subdomainParam}`;
-        axios.get(sitePath)
-          .then((response) => {
-            dispatch({
-                type: 'SET_SITE',
-                payload: {
-                  description: response.data.description,
-                  keywords: response.data.keywords,
-                  organization_id: response.data.organization_id,
-                  organizationName: response.data.name,
-                  partner_id: response.data.partner_id,
-                  title: response.data.title,
-                  useDemo: response.data.useDemo
-                },
-              });
-            })
-          .catch((err) => {
+        });
+      } else {
+          const sitePath = `sites.php?do=get&site=${site}${subdomainParam}`;
+          axios.get(sitePath)
+                .then((response) => {
+                    dispatch({
+                        type: 'SET_SITE',
+                        payload: {
+                            description: response.data.description,
+                            keywords: response.data.keywords,
+                            organization_id: response.data.organization_id,
+                            organizationName: response.data.name,
+                            partner_id: response.data.partner_id,
+                            title: response.data.title,
+                            subdomain_id: response.data.subdomain_id,
+                            useDemo: response.data.useDemo
+                        },
+                    });
+                })
+                .catch((err) => {
 
-          });
-      };
-    }
+                });
+      }
+    };
 
 }
 

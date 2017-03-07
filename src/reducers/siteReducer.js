@@ -5,72 +5,74 @@ export default function reducer(state = {
     organization_id: -1,
     organizationName: '',
     partner_id: -1,
+    subdomain_id: -1,
     title: '',
-    useDemo: 1
-  }, action) {
+    useDemo: 1,
+}, action) {
     switch (action.type) {
-      case 'SET_SITE': {
+    case 'SET_SITE': {
         return {
-          ...state,
-          description: action.payload.description,
-          keywords: action.payload.keywords,
-          title: action.payload.title,
-          organization_id: action.payload.organization_id,
-          organizationName: action.payload.organizationName,
-          partner_id: action.payload.partner_id,
-          useDemo: action.payload.useDemo,
+            ...state,
+            description: action.payload.description,
+            keywords: action.payload.keywords,
+            title: action.payload.title,
+            organization_id: action.payload.organization_id,
+            organizationName: action.payload.organizationName,
+            partner_id: action.payload.partner_id,
+            subdomain_id: action.payload.subdomain_id,
+            useDemo: action.payload.useDemo,
         };
-      }
-      case 'SET_KEYWORDS': {
+    }
+    case 'SET_KEYWORDS': {
         return {
-          ...state,
-          keywords: action.payload,
+            ...state,
+            keywords: action.payload,
         };
-      }
-      case 'SET_DESCRIPTION': {
+    }
+    case 'SET_DESCRIPTION': {
         return {
-          ...state,
-          description: action.payload,
+            ...state,
+            description: action.payload,
         };
-      }
-      case 'SET_ORGANIZATIONNAME': {
+    }
+    case 'SET_ORGANIZATIONNAME': {
         return {
-          ...state,
-          organizationName: action.payload,
+            ...state,
+            organizationName: action.payload,
         };
-      }
-      case 'SET_ORGANIZATIONID': {
+    }
+    case 'SET_ORGANIZATIONID': {
         return {
-          ...state,
-          organization_id: action.payload,
+            ...state,
+            organization_id: action.payload,
         };
-      }
-      case 'SET_PARTNERID': {
+    }
+    case 'SET_PARTNERID': {
         return {
-          ...state,
-          partner_id: action.payload,
+            ...state,
+            partner_id: action.payload,
         };
-      }
-      case 'SET_TITLE': {
+    }
+    case 'SET_TITLE': {
         return {
-          ...state,
-          title: action.payload,
+            ...state,
+            title: action.payload,
         };
-      }
-      case 'SET_LOGOURL': {
+    }
+    case 'SET_LOGOURL': {
         return {
-          ...state,
-          logoUrl: action.payload,
+            ...state,
+            logoUrl: action.payload,
         };
-      }
-      case 'SET_USEDEMO': {
+    }
+    case 'SET_USEDEMO': {
         return {
-          ...state,
-          useDemo: action.payload,
+            ...state,
+            useDemo: action.payload,
         };
-      }
-      default: {
+    }
+    default: {
         return state;
-      }
+    }
     }
 }

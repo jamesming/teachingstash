@@ -38,6 +38,11 @@ export function getSite() {
                             useDemo: response.data.useDemo
                         },
                     });
+
+                    if(typeof(window.subdomain) != 'undefined'){
+                        const urlString = `${window.host}sites/addview?subdomain_id=${response.data.subdomain_id}`;
+                        axios.get(urlString);
+                    }
                 })
                 .catch((err) => {
 

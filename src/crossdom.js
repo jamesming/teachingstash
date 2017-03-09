@@ -137,5 +137,4 @@ export default class CrossDomService {
 			}
 			this.app.createNewPictographrUser(obj);
 		}
-	}
 }

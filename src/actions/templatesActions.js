@@ -15,6 +15,7 @@ export function fetchTemplates() {
     console.log(pathToTemplatesJson);
     axios.get(pathToTemplatesJson)
       .then((response) => {
+
         dispatch({ type: 'FETCH_TEMPLATES_FULFILLED', payload: response.data.folders });
 
         dispatch({
@@ -44,6 +45,7 @@ export function generateTemplates(parentFolderId, callback) {
   return function (dispatch) { //https://pictographr.com/sites/createMenu?parentFolderId=0B1nKK3UKG5hjbk5Ba2dLNE9zUW8
     axios.get(`${window.host}sites/generateMenu?site=${site}${subdomainParam}&parentFolderId=${parentFolderId}`)
       .then((response) => {
+        console.log('XXXXXX --- response.data.folders', response.data);
         dispatch({ type: 'FETCH_TEMPLATES_FULFILLED', payload: response.data.folders });
 
         dispatch({

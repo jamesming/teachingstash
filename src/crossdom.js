@@ -116,16 +116,24 @@ export default class CrossDomService {
 		//window.location = url;
 	}
 
-	popSignUpWindow(fileId, partnerId) {
+	popSignUpWindow(fileId, partnerId, subdomainId) {
 		if (!this.hasPopped) {
 			this.hasPopped = true;
 			this.fileId = fileId;
 			this.app = new App();
 			let obj = {};
 			if (typeof (partnerId) !== 'undefined') {
-				obj = {
-					partner_id: partnerId
+				obj['partner_id'] = partnerId;
+			}
+			if (typeof (subdomainId) !== 'undefined') {
+				obj['subdomain_id'] = subdomainId;
+			}
+			if (window.site === 'templatesforstudents') {
+				obj['isStudent'] = 1;
 				};
+			}
+			if (window.site === 'templatesforteachers') {
+				obj['isTeacher'] = 1;
 			}
 			this.app.createNewPictographrUser(obj);
 		}

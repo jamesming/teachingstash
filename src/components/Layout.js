@@ -44,7 +44,7 @@ export default class Layout extends React.Component {
     } else {
       partnerId = undefined;
     }
-    let subdomain_id;
+    let subdomainId;
     if (parseInt(this.props.site.subdomain_id, 10) !== -1) {
       subdomainId = this.props.site.subdomain_id;
     } else {

@@ -79,7 +79,17 @@ export default class CrossDomService {
 					if (msgObj.appInstalled === 'true') {
 						if (msgObj.exist === 'true') {  // user is in database
 							console.log('user is in database');
-							store.dispatch(setUser(msgObj.google_id, true, msgObj.name, msgObj.organization_id, msgObj.isOrgAdmin, msgObj.isSuper));
+							store.dispatch(setUser(
+																			msgObj.google_id,
+																			true, // user is logged in
+																			msgObj.name,
+																			msgObj.organization_id,
+																			msgObj.isOrgAdmin,
+																			msgObj.isSuper,
+																			msgObj.isStudentT,
+																			msgObj.isTeacher,
+																			msgObj.subdomain_id
+																		));
 							if (that.isJames(msgObj.google_id)) store.dispatch(setJames(true));
 							store.dispatch(setSession('established'));
 						} else {
@@ -92,7 +102,17 @@ export default class CrossDomService {
 
 			if (typeof (msgObj.msgFrom) !== 'undefined' && msgObj.purpose === 'whenUserHasAccountThen') {
 				console.log('whenUserHasAccountThen');
-				store.dispatch(setUser(msgObj.google_id, true, msgObj.name, msgObj.organization_id, msgObj.isOrgAdmin, msgObj.isSuper));
+				store.dispatch(setUser(
+													msgObj.google_id,
+													true,// user is logged in
+													msgObj.name,
+													msgObj.organization_id,
+													msgObj.isOrgAdmin,
+													msgObj.isSuper,
+													msgObj.isStudentT,
+													msgObj.isTeacher,
+													msgObj.subdomain_id
+												));
 				if (that.isJames(msgObj.google_id)) store.dispatch(setJames(true));
 				store.dispatch(setSession('initiated'));
 				clearInterval(that.app.poll.polling);

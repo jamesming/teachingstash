@@ -7,6 +7,9 @@ export default function reducer(state = {
     name: '',
     organization_id: 0,
     session: 'none', //  ['none', 'established', 'initiated'],
+    isStudent: 0,
+    isTeacher: 0,
+    subdomain_id: -1,
   }, action) {
     switch (action.type) {
       case 'SET_USER': {
@@ -18,6 +21,9 @@ export default function reducer(state = {
           organization_id: action.payload.organization_id,
           isOrgAdmin: action.payload.isOrgAdmin,
           isSuper: action.payload.isSuper,
+          isStudent: action.payload.isStudent,
+          isTeacher: action.payload.isTeacher,
+          subdomain_id: action.payload.subdomain_id,
         };
       }
       case 'SET_JAMES': {

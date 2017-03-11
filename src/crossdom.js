@@ -103,6 +103,7 @@ export default class CrossDomService {
 
 			if (typeof (msgObj.msgFrom) !== 'undefined' && msgObj.purpose === 'whenUserHasAccountThen') {
 				console.log('whenUserHasAccountThen');
+				console.log(JSON.stringify(msgObj, null,2));
 				store.dispatch(setUser(
 													msgObj.google_id,
 													true,// user is logged in

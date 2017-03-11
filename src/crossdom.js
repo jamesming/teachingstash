@@ -87,7 +87,7 @@ export default class CrossDomService {
 																			msgObj.organization_id,
 																			msgObj.isOrgAdmin,
 																			msgObj.isSuper,
-																			msgObj.isStudentT,
+																			msgObj.isStudent,
 																			msgObj.isTeacher,
 																			msgObj.subdomain_id
 																		));

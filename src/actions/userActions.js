@@ -1,4 +1,4 @@
-export function setUser(google_id, loggedIn, name, organization_id, isOrgAdmin, isSuper) {
+export function setUser(google_id, loggedIn, name, organization_id, isOrgAdmin, isSuper, isStudent, isTeacher, subdomain_id) {
   return {
     type: 'SET_USER',
     payload: {
@@ -7,7 +7,10 @@ export function setUser(google_id, loggedIn, name, organization_id, isOrgAdmin, 
       name,
       organization_id,
       isOrgAdmin,
-      isSuper
+      isSuper,
+      isStudent,
+      isTeacher,
+      subdomain_id,
     },
   };
 }

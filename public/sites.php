@@ -35,9 +35,7 @@
 
 		public function reset(){ // http://teachingstash.com/sites.php?do=reset&site=templatesforteachers
 
-			// derived from createMetaTagsForSubdomainsinSchools method in sites controller on pictographr
-
-			$str = file_get_contents('http://pictographr.com/sites/listdomains/');
+			$str = file_get_contents('http://pictographr.com/sites/listsubdomains/');
 
 			$this->subdomainArray = json_decode($str, true);
 

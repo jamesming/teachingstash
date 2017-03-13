@@ -33,13 +33,15 @@
 			$this->getSiteJson();
 		}
 
-		public function reset(){ // http://teachingstash.com/sites.php?do=reset&site=templatesforteachers
+		public function reset(){ // https://templatesforteachers.com/sites.php?do=reset&site=templatesforteachers
 
 			$str = file_get_contents('http://pictographr.com/sites/listsubdomains/');
 
 			$this->subdomainArray = json_decode($str, true);
 
 			$data = [];
+
+			echo "<pre>" . $this->subdomainArray . "</pre>";
 
 			foreach( $this->subdomainArray  as $idx => $record){
 
